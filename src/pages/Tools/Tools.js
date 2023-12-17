@@ -1,0 +1,73 @@
+import React,{useContext} from 'react'
+import { Link } from 'react-router-dom'
+import { SchematicContext } from '../../context/Schematic/SchematicContextProvider';
+import '../../assets/CSS/Tools.css'
+
+export default function Tools() {
+  const {mode} = useContext(SchematicContext);
+
+  return (
+    <>
+     <div className="row mb-4" data-bs-theme={mode}>
+       <div className="col-sm-4 mb-3 mb-sm-0">
+         <div className={`card card-${mode} h-100`}>
+           <div className="card-body d-flex flex-column">
+             <h5 className="card-title">NBC / IBC Sanitation Requirements</h5>
+             <p className="card-text d-flex flex-grow-1">As per the National Building Code, All Structures of Human occupancy shall have adequate sanitary facilities.</p>
+             <div className="text-start">
+              <Link to="/tools/SanReq" className="btn btn-primary">Start</Link>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div className="col-sm-4 mb-3 mb-sm-0">
+         <div className={`card card-${mode} h-100`}>
+           <div className="card-body d-flex flex-column">
+             <h5 className="card-title">Natural Light and Ventilation Calculation</h5>
+             <p className="card-text d-flex flex-grow-1">As per the International Residential Code, certain rooms within dwellings must be provided with a minimum amount of lighting and ventilation.</p><p className="card-text text-success">Coming soon....</p>
+             <div className="text-start">
+              <Link to="/tools/NaturalLightVentCalc" className="btn btn-primary">Start</Link>
+             </div>
+           </div>
+         </div>
+       </div>  
+       <div className="col-sm-4 mb-3 mb-sm-0">
+         <div className={`card card-${mode} h-100`}>
+           <div className="card-body d-flex flex-column">
+             <h5 className="card-title">Elevator Planner/Size Matrix</h5>
+             <p className="card-text">Plan the elevator configurations and shaft dimensions</p><p className="card-text text-success d-flex flex-grow-1">Coming soon....</p>
+             <div className="text-start">
+              <Link to="/tools/ElevatorPlanner" className="btn btn-primary">Start</Link>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div className="row mb-4" data-bs-theme={mode}>
+       <div className="col-sm-4 mb-3 mb-sm-0">
+           <div className={`card card-${mode} h-100`}>
+             <div className="card-body d-flex flex-column">
+               <h5 className="card-title">Metal Calculator</h5>
+               <p className="card-text">As per the National Building Code, All Structures of Human occupancy shall have adequate sanitary facilities.</p><p className="card-text text-success d-flex flex-grow-1">Coming soon....</p>
+               <div className="text-start">
+                <Link to="/tools/MetalCalc" className="btn btn-primary">Start</Link>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div className="col-sm-4 mb-3 mb-sm-0">
+           <div className={`card card-${mode} h-100`}>
+             <div className="card-body d-flex flex-column">
+               <h5 className="card-title">Scale Calculator</h5>
+               <p className="card-text d-flex flex-grow-1">As per the National Building Code, All Structures of Human occupancy shall have adequate sanitary facilities.</p>
+               <div className="text-start">
+                <Link to="/tools/ScaleCalc" className="btn btn-primary">Start</Link>
+               </div>
+             </div>
+           </div>
+         </div>
+     </div>
+
+  </>
+  )
+}
