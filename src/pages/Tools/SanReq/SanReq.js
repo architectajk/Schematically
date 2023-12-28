@@ -141,7 +141,7 @@ export default function SanReq() {
   return ( 
 <div className='d-flex-column' data-bs-theme={mode}>
     <h1 className={`text-${mode==='light'?'dark':'light'} d-flex my-4`}>NBC / IBC Sanitation Requirements</h1>
-        <div className="input-group mb-3 w-50">
+        <div className="input-group mb-3">
             <label className="input-group-text" htmlFor="inputGroupSelect01">NBC / IBC</label>
             <select className="form-select" id="inputGroupSelect01" value={bcode} onChange={handleBcodeChange}>
             {BcodeOptions.map((option) => (
@@ -151,7 +151,7 @@ export default function SanReq() {
             ))}
         </select>
         </div>
-        <div className="input-group w-50">
+        <div className="input-group">
             <label className="input-group-text" htmlFor="inputGroupSelect02">Select Occupancy</label>
             <select className="form-select" id="inputGroupSelect02" value={occupancy} onChange={handleOccupancyChange}>
             {availableOccupancyTypes.map((option) => (
@@ -162,9 +162,7 @@ export default function SanReq() {
         </select>
         </div>
         <h2 className={`text-${mode==='light'?'dark':'light'} d-flex my-4`}>{renderResult()}</h2>
-    <div className='d-flex'>
         {getOccupancyComponent()}
-    </div>
 </div>
   )
 }

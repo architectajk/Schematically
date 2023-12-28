@@ -1,4 +1,5 @@
 import React,{ useState, useContext} from 'react'
+import image from '../../../../assets/SanReq/2.png'
 import { SchematicContext } from '../../../../context/Schematic/SchematicContextProvider';
 import NumericInput from '../NumericInput'; 
 
@@ -213,7 +214,7 @@ const Factories=(props)=> {
             <NumericInput span="Number of floor in a Building" value={inputValue5} onChange={setInputValue5}/>
       </div>
       <div className='d-flex justify-content-center'>
-        <img src="../assests/SanReq/2.png" alt="" />
+        <img src={image} alt="" />
       </div>
   </div>
   );

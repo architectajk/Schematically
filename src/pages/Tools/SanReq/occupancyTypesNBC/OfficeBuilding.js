@@ -1,4 +1,5 @@
 import React,{useState,useContext} from "react";
+import image from '../../../../assets/SanReq/1.png'
 import { SchematicContext } from '../../../../context/Schematic/SchematicContextProvider';
 import NumericInput from '../NumericInput'; // Import the NumericInput component
 
@@ -59,9 +60,10 @@ const OfficeBuilding=()=>{
         return Math.round(waterFountainCount);
     }
     return(
-    <div>
-        <div className='d-flex justify-content-center'>
-            <table className={`table table-${mode} table-hover table-bordered w-50 align-middle`}>
+    <div className="row gx-4">
+    <div className="col-lg-6 col-sm-auto">
+        <div className='d-flex justify-content-start'>
+            <table className={`table table-${mode} table-hover table-bordered align-middle`}>
                 <thead className='table-primary align-middle'>
                     <tr>
                     <th scope="col" rowSpan={2}>Sl No.</th>
@@ -128,20 +130,24 @@ const OfficeBuilding=()=>{
                 </tbody>
             </table>
         </div>
-        <div className="container input-group mb-3 w-50 ">
+        <div className="input-group mb-3 ">
             <NumericInput span="Male" value={inputValue1} onChange={setInputValue1}/>
             <NumericInput span="Female" value={inputValue2} onChange={setInputValue2}/>
         </div>
-        <div className="container input-group mb-3 w-50 ">
+        <div className="input-group mb-3">
             <span className="input-group-text">Total Number of People</span>
             <input className="form-control" type="text" value={total} aria-label="readonly input" readOnly/>
         </div>
-        <div className="container input-group mb-3 w-50 ">
+        <div className="input-group mb-3">
             <NumericInput span="Number of Floors in a Building" value={inputValue3} onChange={setInputValue3}/>
         </div>
-        <div className='d-flex justify-content-center'>
-            <img src="../assests/SanReq/1.png" alt="" />
+        <div className='d-flex justify-content-start'>
+            <img src={image} className="img-fluid" alt="" />
         </div>
+    </div>
+    <div className="col-lg-6 col-sm-auto">
+        <p className={`text-${mode==='dark'?'light':'dark'}`}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque molestiae aperiam quas iure illo, dolores perspiciatis animi quos accusamus ipsam commodi ab laborum, vero exercitationem porro aspernatur ea repellendus sit.</p>
+    </div>
     </div>
     );
 };

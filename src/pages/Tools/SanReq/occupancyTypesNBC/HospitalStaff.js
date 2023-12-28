@@ -1,4 +1,5 @@
 import React,{useState, useContext} from 'react'
+import image from '../../../../assets/SanReq/8.png'
 import { SchematicContext } from '../../../../context/Schematic/SchematicContextProvider';
 import NumericInput from '../NumericInput'; // Import the NumericInput component
 
@@ -177,7 +178,7 @@ const HospitalStaff = () => {
             <input className="form-control" type="text" value={totalNurse} aria-label="readonly input" readonly/>
         </div>
       <div className='d-flex justify-content-center'>
-        <img src="../assests/SanReq/8.png" alt="" />
+        <img src={image} alt="" />
       </div>      
     </div>
   )

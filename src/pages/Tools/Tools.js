@@ -47,8 +47,8 @@ export default function Tools() {
        <div className="col-sm-4 mb-3 mb-sm-0">
            <div className={`card card-${mode} h-100`}>
              <div className="card-body d-flex flex-column">
-               <h5 className="card-title">Metal Calculator</h5>
-               <p className="card-text">As per the National Building Code, All Structures of Human occupancy shall have adequate sanitary facilities.</p><p className="card-text text-success d-flex flex-grow-1">Coming soon....</p>
+               <h5 className="card-title">Metal Weight Calculator</h5>
+               <p className="card-text"> Helps you determine the weight of metal of any size, whether rods, bars, or plates.</p><p className="card-text text-success d-flex flex-grow-1">Coming soon....</p>
                <div className="text-start">
                 <Link to="/tools/MetalCalc" className="btn btn-primary">Start</Link>
                </div>
@@ -59,7 +59,7 @@ export default function Tools() {
            <div className={`card card-${mode} h-100`}>
              <div className="card-body d-flex flex-column">
                <h5 className="card-title">Scale Calculator</h5>
-               <p className="card-text d-flex flex-grow-1">As per the National Building Code, All Structures of Human occupancy shall have adequate sanitary facilities.</p>
+               <p className="card-text d-flex flex-grow-1">Helps you to find the scale between two objects or the size of scaled/real structures for a given scale. </p>
                <div className="text-start">
                 <Link to="/tools/ScaleCalc" className="btn btn-primary">Start</Link>
                </div>

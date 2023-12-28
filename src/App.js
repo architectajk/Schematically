@@ -25,7 +25,7 @@ function App() {
    <BrowserRouter>
     <Navbar/>
     <Alert/>
-    <div className="container my-5">
+    <div className="container my-4">
           <Routes>
             <Route path="/" element={<Home/>}></Route>
             <Route path="/tools" element={<Suspense fallback={<h1>Loading...</h1>}><Tools/></Suspense>}></Route>

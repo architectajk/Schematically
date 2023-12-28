@@ -1,6 +1,4 @@
 import React,{ createContext, useState} from "react";
-import darkModeImage from '../..//assets/codioful-formerly-gradienta-n2XqPm7Bqhk-unsplash.jpg';
-import lightModeImage from '../../assets/light_codioful-formerly-gradienta-n2XqPm7Bqhk-unsplash.jpg'
 
 const SchematicContext = createContext();
 
@@ -21,15 +19,15 @@ const SchematicContextProvider = ({ children }) => {
     const toggleMode = () => {
       if (mode === 'dark') {
         setMode('light');
-        document.body.style.backgroundImage = `url(${lightModeImage})`;
+        document.body.style.backgroundColor = '#eef1f6';
         showAlert('Light mode has been enabled', 'success');
       } else {
         setMode('dark');
-        document.body.style.backgroundImage = `url(${darkModeImage})`;
+        document.body.style.backgroundColor = '#1f1f1f';
         showAlert('Dark mode has been enabled', 'success');
       }
     };
-    
+
     const contextValue = {
       mode,
       alert,
@@ -37,7 +35,11 @@ const SchematicContextProvider = ({ children }) => {
       toggleMode,
     };
   
-    return <SchematicContext.Provider value={contextValue}>{children}</SchematicContext.Provider>;
+    return (
+    <SchematicContext.Provider value={contextValue}>
+              {children}
+      </SchematicContext.Provider>
+      );
   };
   
 
