@@ -105,8 +105,8 @@ const EntertainmentVenues=()=> {
 
   return (
     <div>
-      <div className='d-flex justify-content-center'>
-        <table className={`table table-${mode} table-hover table-bordered w-75 align-middle`}>
+      <div className='table-responsive'>
+        <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
           <thead className='table-primary align-middle'>
             <tr>
               <th scope="col" rowSpan={2}>Sl No.</th>
@@ -169,24 +169,24 @@ const EntertainmentVenues=()=> {
           </tbody>
         </table>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Male" value={inputValue1} onChange={setInputValue1}/>
             <NumericInput span="Female" value={inputValue2} onChange={setInputValue2}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of People</span>
             <input className="form-control" type="text" value={totalPublic} aria-label="readonly input" readonly/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Staff (Male)" value={inputValue3} onChange={setInputValue3}/>
             <NumericInput span="Staff (Female)" value={inputValue4} onChange={setInputValue4}/>
       </div>
-      <div className="container input-group mb-4 w-75 ">
+      <div className="input-group mb-4">
             <span className="input-group-text">Total Number of Staff</span>
             <input className="form-control" type="text" value={totalStaff} aria-label="readonly input" readonly/>
       </div>
       <div className='d-flex justify-content-center'>
-        <img src={image} alt="" />
+        <img src={image} className='img-fluid' alt="" />
       </div>
     </div>
   );

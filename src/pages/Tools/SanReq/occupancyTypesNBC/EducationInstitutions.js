@@ -37,10 +37,10 @@ const EducationInstitutions = () => {
   const ResidentialGirlsDrinkingWater = () => calculateFacilityCount(rgirls, 50);
   
   return (
-    <div>
-        <div className='d-flex justify-content-center'>
-        <table className={`table table-${mode} table-hover table-bordered w-50 align-middle`}>
-          <thead className='align-middle'>
+    <>
+        <div className='table-responsive'>
+        <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
+          <thead className='table-primary align-middle'>
             <tr>
               <th scope="col">Sl No.</th>
               <th scope="col">Fixture</th>
@@ -116,29 +116,29 @@ const EducationInstitutions = () => {
           </tbody>
         </table>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Nursery" value={inputValue1} onChange={setInputValue1}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Non-Residential (Boys)" value={inputValue2} onChange={setInputValue2}/>
             <NumericInput span="Non-Residential (Girls)" value={inputValue3} onChange={setInputValue3}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of Non-Residential</span>
             <input className="form-control" type="text" value={totalNonResidential} aria-label="readonly input" readonly/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Residential (Boys)" value={inputValue4} onChange={setInputValue4}/>
             <NumericInput span="Residential (Girls)" value={inputValue5} onChange={setInputValue5}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of Residential</span>
             <input className="form-control" type="text" value={totalResidential} aria-label="readonly input" readonly/>
       </div>
       <div className='d-flex justify-content-center'>
-        <img src={image} alt="" />
+        <img src={image} className="img-fluid" alt="" />
       </div>       
-    </div>
+    </>
   )
 }
 

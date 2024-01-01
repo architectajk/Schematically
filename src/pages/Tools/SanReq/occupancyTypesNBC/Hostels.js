@@ -75,10 +75,10 @@ const Hostels = () => {
   const PublicUrinalCount=()=>calculateFacilityCount(m,50)
 
   return (
-    <div>
-        <div className='d-flex justify-content-center'>
-        <table className={`table table-${mode} table-hover table-bordered w-50 align-middle`}>
-          <thead className='align-middle'>
+    <>
+        <div className='table-responsive'>
+        <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
+          <thead className='table-primary align-middle'>
             <tr>
               <th scope="col">Sl No.</th>
               <th scope="col">Fixture</th>
@@ -150,34 +150,34 @@ const Hostels = () => {
           </tbody>
         </table>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Residential (Male)" value={inputValue1} onChange={setInputValue1}/>
             <NumericInput span="Residential (Female)" value={inputValue2} onChange={setInputValue2}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of Residents</span>
             <input className="form-control" type="text" value={totalResident} aria-label="readonly input" readonly/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Non-Residential (Male)" value={inputValue3} onChange={setInputValue3}/>
             <NumericInput span="Non-Residential (Female)" value={inputValue4} onChange={setInputValue4}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of Non-Residents</span>
             <input className="form-control" type="text" value={totalNonResident} aria-label="readonly input" readonly/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Male" value={inputValue5} onChange={setInputValue5}/>
             <NumericInput span="Female" value={inputValue6} onChange={setInputValue6}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of People</span>
             <input className="form-control" type="text" value={totalPublic} aria-label="readonly input" readonly/>
       </div>
       <div className='d-flex justify-content-center'>
-        <img src={image} alt="" />
+        <img src={image} className="img-fluid" alt="img" />
       </div>      
-    </div>
+    </>
   )
 }
 

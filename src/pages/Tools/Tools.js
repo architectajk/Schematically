@@ -48,7 +48,7 @@ export default function Tools() {
            <div className={`card card-${mode} h-100`}>
              <div className="card-body d-flex flex-column">
                <h5 className="card-title">Metal Weight Calculator</h5>
-               <p className="card-text"> Helps you determine the weight of metal of any size, whether rods, bars, or plates.</p><p className="card-text text-success d-flex flex-grow-1">Coming soon....</p>
+               <p className="card-text"> Helps you determine the weight of metal of any size, whether rods, bars, or plates.</p>
                <div className="text-start">
                 <Link to="/tools/MetalCalc" className="btn btn-primary">Start</Link>
                </div>

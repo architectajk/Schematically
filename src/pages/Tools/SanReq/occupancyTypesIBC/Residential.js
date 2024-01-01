@@ -14,11 +14,10 @@ const Residential = () => {
 
   return (
     <div>
-        <div className='d-flex justify-content-center'>
-        <table className={`table table-${mode} table-hover table-bordered w-75 align-middle`}>
+        <div className='table-responsive'>
+        <table className={`table table-sm table-${mode} table-hover table-bordered w-75 align-middle`}>
           <thead className='table-primary align-middle'>
             <tr>
-              <th scope="col" rowSpan={2}>Classification</th>
               <th scope="col" rowSpan={2}>Description</th>
               <th scope="col" colSpan={2}>Water Closets</th>
               <th scope="col" rowSpan={2}>Urinals</th>
@@ -35,9 +34,6 @@ const Residential = () => {
             </tr>
           </thead> 
           <tbody className='table-group-divider'>
-          <tr>
-              <th scope="row" rowSpan={6}>RESIDENTIAL</th>
-            </tr>
             <tr>
               <td>Hotels, motels, boarding houses (transient)</td>
               <td colSpan={2}>1 per sleeping unit</td>
@@ -86,15 +82,15 @@ const Residential = () => {
           </tbody>
         </table>
       </div>
-      <div className="container input-group mb-3 w-50 ">
+      <div className="input-group mb-3">
             <NumericInput span="Occupancy Load" value={inputValue1} onChange={setInputValue1}/>
       </div>
-      <div className="container input-group mb-3 w-50 ">
+      <div className="input-group mb-3">
             <NumericInput span="Male Ratio" value={inputValue2} onChange={setInputValue2}/>
             <span className="input-group-text">Male</span>
             <input className="form-control" type="text" value={Math.ceil(male)} aria-label="readonly input" readonly/>
       </div>
-      <div className="container input-group mb-3 w-50 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Female Ratio</span>
             <input className="form-control" type="text" value={fratio} aria-label="readonly input" readonly/>
             <span className="input-group-text">Female</span>

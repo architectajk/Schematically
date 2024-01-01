@@ -77,21 +77,25 @@ export default function NBC() {
   };
 
   return (
-    <div className="main-container d-flex">
-      <div className='sidebar' id='side_nav'>
-        <div className='header-box px-2 pt-3 pb-4'>
+    <div className="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
+      <aside className='sidebar' id='side_nav'>
+      <div className="offcanvas-lg offcanvas-start" tabIndex="-1" id="bdSidebar" aria-labelledby="bdSidebarOffcanvasLabel">
+        <div className="offcanvas-header border-bottom">
           <h1 className="fs-4"><span className={`text-${mode === 'light' ? 'dark' : 'light'}`}>Contents</span></h1>
           <button className='btn d-md-none d-block close-btn px-1 py-0 text-white'><FaStream/></button>
         </div>
-        <div className='btn-group-vertical' role="group" aria-label="Vertical button group">
+        <div className="offcanvas-body">
+          <nav className="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
           {options.map((option, index) => (
             <div className='py-1' key={option}>
               <input type="radio" className="btn-check" name="btnradio" autoComplete="off" id={btnradio[index]} value={option} checked={selectedOption === option} onChange={handleOptionChange}/>
               <label className={`text-${mode === 'light' ? 'dark' : 'light'} btn btn-outline-primary`} htmlFor={btnradio[index]}>{option}</label>
             </div>
           ))}
+          </nav>
         </div>
-      </div>
+        </div>
+      </aside>
       <div className={`text-${mode === 'light' ? 'dark' : 'light'} container main mx-4`}>
         <h1 className={`text-${mode === 'light' ? 'dark' : 'light'} d-inline-flex px-2 pt-3 pb-4 `}>National Building Code of India (2016)</h1>
           <div className='container'>

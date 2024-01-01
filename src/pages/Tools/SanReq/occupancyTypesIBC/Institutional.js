@@ -40,18 +40,16 @@ const Institutional = () => {
   const MedicalDrinkingWater = calculateCount(occupancyLoad,0,0.01,1,0)
   return (
     <div>
-        <div className='d-flex justify-content-center'>
-        <table className={`table table-${mode} table-hover table-bordered w-75 align-middle`}>
+        <div className='table-responsive'>
+        <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
           <thead className='table-primary align-middle'>
             <tr>
-              <th scope="col" rowSpan={2}>Classification</th>
               <th scope="col" rowSpan={2}>Description</th>
               <th scope="col" colSpan={2}>Water Closets</th>
               <th scope="col" rowSpan={2}>Urinals</th>
-              <th scope="col" colSpan={2}>Lavatories / Wash Basin</th>
-              <th scope="col" rowSpan={2}>BathTubs/Showers</th>
+              <th scope="col" colSpan={2}>Wash Basin</th>
+              <th scope="col" rowSpan={2}>Showers</th>
               <th scope="col" rowSpan={2}>Drinking Fountain</th>
-              <th scope="col" rowSpan={2}>Others</th>
             </tr>
             <tr>
               <th scope="col">Male</th>
@@ -62,9 +60,6 @@ const Institutional = () => {
           </thead> 
           <tbody className='table-group-divider'>
           <tr>
-              <th scope="row" rowSpan={9}>INSTITUTIONAL</th>
-          </tr>
-          <tr>
               <td>Custodial care facilities</td>
               <td>{CustodialMaleWcCount}</td>
               <td>{CustodialFemaleWcCount}</td>
@@ -73,7 +68,6 @@ const Institutional = () => {
               <td>{CustodialFemaleWbCount}</td>
               <td>{CustodialBathCount}</td>
               <td>{CustodialDrinkingWater}</td>
-              <td>1 service sink</td>
               </tr>
               <tr>
               <td>Medical care recipients in hospitals and nursing homes</td>
@@ -82,7 +76,6 @@ const Institutional = () => {
               <td colSpan={2}>{MedicalRooms} Rooms</td>
               <td>{MedicalBathCount}</td>
               <td>{MedicalDrinkingWater}</td>
-              <td>1 service sink</td>
               </tr>
               <tr>
               <td>Employees in hospitals and nursing homes </td>
@@ -93,7 +86,6 @@ const Institutional = () => {
               <td>{Math.ceil(female/35)}</td>
               <td>-</td>
               <td>{Math.ceil(occupancyLoad/100)}</td>
-              <td>1 service sink</td>
               </tr>
               <tr>
               <td>Visitors in hospitals and nursing homes</td>
@@ -104,7 +96,6 @@ const Institutional = () => {
               <td>{Math.ceil(female/100)}</td>
               <td>-</td>
               <td>{Math.ceil(occupancyLoad/500)}</td>
-              <td>1 service sink</td>
               </tr>
               <tr>
               <td>Prisons</td>
@@ -115,7 +106,6 @@ const Institutional = () => {
               <td>{prisonFemale}</td>
               <td>{Math.ceil(prisonTotal/15)}</td>
               <td>{Math.ceil(prisonTotal/100)}</td>
-              <td>1 service sink</td>
               </tr>
               <tr>
               <td>Reformitories, detention centers, and correctional centers</td>
@@ -126,7 +116,6 @@ const Institutional = () => {
               <td>{Math.ceil(female/15)}</td>
               <td>-</td>
               <td>{Math.ceil(occupancyLoad/100)}</td>
-              <td>1 service sink</td>
               </tr>
               <tr>
               <td>Employees in reformatories, detention centers and correctional centers</td>
@@ -137,7 +126,6 @@ const Institutional = () => {
               <td>{Math.ceil(female/35)}</td>
               <td>-</td>
               <td>{Math.ceil(occupancyLoad/100)}</td>
-              <td>1 service sink</td>
               </tr>
               <tr>
               <td>Adult day care and child day care</td>
@@ -148,22 +136,21 @@ const Institutional = () => {
               <td>{Math.ceil(female/15)}</td>
               <td>1</td>
               <td>{Math.ceil(occupancyLoad/100)}</td>
-              <td>1 service sink</td>
               </tr>
           </tbody>
         </table>
       </div>
       <div className="row">
         <div className="col-6">
-          <div className="container input-group mb-3 w-75 ">
+          <div className="input-group mb-3">
             <NumericInput span="Occupancy Load" value={inputValue1} onChange={setInputValue1}/>
           </div>
-          <div className="container input-group mb-3 w-75 ">
+          <div className="input-group mb-3">
             <NumericInput span="Male Ratio" value={inputValue2} onChange={setInputValue2}/>
             <span className="input-group-text">Male</span>
             <input className="form-control" type="text" value={Math.ceil(male)} aria-label="readonly input" readonly/>
           </div>
-          <div className="container input-group mb-3 w-75 ">
+          <div className="input-group mb-3">
             <span className="input-group-text">Female Ratio</span>
             <input className="form-control" type="text" value={fratio} aria-label="readonly input" readonly/>
             <span className="input-group-text">Female</span>
@@ -171,14 +158,14 @@ const Institutional = () => {
           </div>
           </div>
       <div className="col-6">
-          <div className="container input-group mb-3 w-75 ">
+          <div className="input-group mb-3">
             <NumericInput span="Number of Rooms" value={inputValue3} onChange={setInputValue3}/>
           </div>
-          <div className="container input-group mb-3 w-75 ">
+          <div className="input-group mb-3">
             <NumericInput span="No. of cells (M)" value={inputValue4} onChange={setInputValue4}/>
             <NumericInput span="No. of cells (F)" value={inputValue5} onChange={setInputValue5}/>
           </div>
-          <div className="container input-group mb-3 w-75 ">
+          <div className="input-group mb-3">
             <span className="input-group-text">Total Number of Cells</span>
             <input className="form-control" type="text" value={prisonTotal} aria-label="readonly input" readonly/>
           </div>

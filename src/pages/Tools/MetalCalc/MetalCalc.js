@@ -1,6 +1,7 @@
 import React,{useContext, useState, useEffect} from 'react'
 import NumericInput from '../SanReq/NumericInput';
 import { SchematicContext } from '../../../context/Schematic/SchematicContextProvider'
+import '../../../assets/CSS/MetalCalc.css'
 
 const MaterialType= [
   {value:'1', label:'Aluminium'},
@@ -65,26 +66,26 @@ const MetalCalc = () => {
     };}
 
     const Pipe = () => {
-      let dia = inputValue1;
-      let thickness = inputValue2;
+      let dia = inputValue1*0.001;
+      let thickness = inputValue2*0.001;
       let area = (Math.PI/4)*((dia**2)-((dia-(2*thickness))**2))
       let length = inputValue3;
       let weight = area* length* getDensity();
       return weight.toFixed(2);
     };
     const Sheet = () => {
-      let length = inputValue1;
-      let width = inputValue2;
+      let length = inputValue1*0.001;
+      let width = inputValue2*0.001;
       let thickness = inputValue3;
       let weight = length * width * thickness* getDensity();
-      return weight;
+      return weight.toFixed(2);
     };
 
     const selectedAlloyType=()=>{
       switch(mType){
         case "1":
           return <>
-          <label className="input-group-text" htmlFor="inputGroupSelect02">Type of Alloy</label>
+          <label className="input-group-text metalcalc" htmlFor="inputGroupSelect02">Type of Alloy</label>
           <select className="form-select" id="inputGroupSelect02" value={alloyType} onChange={(e)=>setAlloyType(e.target.value)}>
           {AluminiumType.map((option) => (
               <option key={option.value} value={option.value} >
@@ -94,7 +95,7 @@ const MetalCalc = () => {
           </select></>
         case "2":
           return <>
-          <label className="input-group-text" htmlFor="inputGroupSelect02">Type of Alloy</label>
+          <label className="input-group-text metalcalc" htmlFor="inputGroupSelect02">Type of Alloy</label>
           <select className="form-select" id="inputGroupSelect02" value={alloyType} onChange={(e)=>setAlloyType(e.target.value)}>
           {SteelType.map((option) => (
               <option key={option.value} value={option.value}>
@@ -118,17 +119,21 @@ const MetalCalc = () => {
         case "1":
           return (
             <>
-            <div className="input-group mb-2 ">
-              <NumericInput span="Diameter" value={inputValue1} onChange={setInputValue1}/>
+            <div className="input-group mb-2">
+              <NumericInput span="Diameter Ø" value={inputValue1} onChange={setInputValue1} customWidth="200px"/>
+              <span className="input-group-text">mm</span>
             </div>
-            <div className="input-group mb-2 ">
-              <NumericInput span="Thickness" value={inputValue2} onChange={setInputValue2}/>
+            <div className="input-group mb-2">
+              <NumericInput span="Thickness (t)" value={inputValue2} onChange={setInputValue2} customWidth="200px"/>
+              <span className="input-group-text">mm</span>
             </div>
-            <div className="input-group mb-2 ">
-              <NumericInput span="Length" value={inputValue3} onChange={setInputValue3}/>
+            <div className="input-group mb-2">
+              <NumericInput span="Length of Pipe" value={inputValue3} onChange={setInputValue3} customWidth="200px"/>
+              <span className="input-group-text">Meters</span>
             </div>
-            <div className="input-group mb-2 ">
-              <NumericInput span="Weight" value={Pipe()} readOnly />
+            <div className="input-group mb-2">
+              <NumericInput span="Weight" value={Pipe()} readOnly customWidth="200px"/>
+              <span className="input-group-text">kg</span>
             </div>
             </>
           );
@@ -136,16 +141,20 @@ const MetalCalc = () => {
             return (
               <>
               <div className="input-group mb-2">
-                <NumericInput span="Length"value={inputValue1} onChange={setInputValue1}/>
+                <NumericInput span="Length (a)"value={inputValue1} onChange={setInputValue1} customWidth="200px"/>
+                <span className="input-group-text">mm</span>
               </div>
               <div className="input-group mb-2">
-                <NumericInput span="Width" value={inputValue2} onChange={setInputValue2}/>
+                <NumericInput span="Width (b)" value={inputValue2} onChange={setInputValue2} customWidth="200px"/>
+                <span className="input-group-text">mm</span>
               </div>
               <div className="input-group mb-2">
-                <NumericInput span="Thickness" value={inputValue3} onChange={setInputValue3}/>
+                <NumericInput span="Thickness (t)" value={inputValue3} onChange={setInputValue3} customWidth="200px"/>
+                <span className="input-group-text">mm</span>
               </div>
               <div className="input-group mb-2">
-                <NumericInput span="Weight" value={Sheet()} readOnly />
+                <NumericInput span="Weight" value={Sheet()} customWidth="200px" readOnly />
+                <span className="input-group-text">kg</span>
               </div>
               </>
             );
@@ -159,7 +168,7 @@ const MetalCalc = () => {
       <div className="col-lg-4">
         <h1 className={`text-${mode==='light'?'dark':'light'} my-4`}>Metal Weight Calculation</h1>
         <div className="input-group mb-2 ">
-          <label className="input-group-text" htmlFor="inputGroupSelect01">Select Material</label>
+          <label className="input-group-text metalcalc" htmlFor="inputGroupSelect01">Select Material</label>
           <select className="form-select" id="inputGroupSelect01" value={mType} onChange={(e)=>setMType(e.target.value)}>
           {MaterialType.map((option) => (
               <option key={option.value} value={option.value}>
@@ -172,7 +181,7 @@ const MetalCalc = () => {
           {selectedAlloyType()}
         </div>
         <div className="input-group mb-2 ">
-          <label className="input-group-text" htmlFor="inputGroupSelect02">Shape</label>
+          <label className="input-group-text metalcalc" htmlFor="inputGroupSelect02">Shape</label>
           <select className="form-select" id="inputGroupSelect02" value={shape} onChange={(e)=>setShape(e.target.value)}>
           {Shape.map((option) => (
               <option key={option.value} value={option.value}>
@@ -181,7 +190,8 @@ const MetalCalc = () => {
               ))}
           </select>
         </div>
-        <div className="my-4">
+        <div className="my-3" >
+          <h2 className={`text-${mode==='light'?'dark':'light'}`}>Dimensions</h2>
           {selectedShape()}
         </div>
       </div>

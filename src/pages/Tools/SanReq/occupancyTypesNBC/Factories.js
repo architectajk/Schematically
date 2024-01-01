@@ -123,9 +123,9 @@ const Factories=(props)=> {
     return Math.round(emergency);
   }
   return (
-  <div>
-      <div className='d-flex'>
-        <table className={`table table-${mode} table-hover table-bordered w-75 align-middle`}>
+  <>
+      <div className='table-responsive'>
+        <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
           <thead className='table-primary align-middle'>
             <tr>
               <th scope="col"rowSpan={2}>Sl No.</th>
@@ -194,29 +194,29 @@ const Factories=(props)=> {
           </tbody>
         </table>
       </div>
-      <div className="input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Office / Visitor (Male)" value={inputValue1} onChange={setInputValue1}/>
             <NumericInput span="Office / Visitor (Female)" value={inputValue2} onChange={setInputValue2}/>
       </div>
-      <div className="input-group mb-4 w-75 ">
+      <div className="input-group mb-4">
             <span className="input-group-text">Total Number of Office Staff / Visitors</span>
             <input className="form-control" type="text" value={TotalOfficeVisitors()} aria-label="readonly input" readOnly/>
       </div>
-      <div className="input-group mb-3 w-75 ">
+      <div className="input-group mb-3 ">
             <NumericInput span="Workers (Male)" value={inputValue3} onChange={setInputValue3}/>
             <NumericInput span="Workers (Female)" value={inputValue4} onChange={setInputValue4}/>
       </div>
-      <div className="input-group mb-4 w-75 ">
+      <div className="input-group mb-4">
             <span className="input-group-text">Total Number of Office Staff / Visitors</span>
             <input className="form-control" type="text" value={TotalWorkers()} aria-label="readonly input" readOnly/>
       </div>
-      <div className="input-group mb-3 w-75">
+      <div className="input-group mb-3">
             <NumericInput span="Number of floor in a Building" value={inputValue5} onChange={setInputValue5}/>
       </div>
       <div className='d-flex justify-content-center'>
-        <img src={image} alt="" />
+        <img src={image} className="img-fluid" alt="" />
       </div>
-  </div>
+  </>
   );
 };
 

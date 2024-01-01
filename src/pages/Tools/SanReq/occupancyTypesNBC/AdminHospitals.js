@@ -53,8 +53,8 @@ const AdminHospitals = () => {
   };
   return (
     <div>
-        <div className='d-flex justify-content-center'>
-        <table className={`table table-${mode} table-hover table-bordered w-50 align-middle`}>
+        <div className='table-responsive'>
+        <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
           <thead className='table-primary align-middle'>
             <tr>
               <th scope="col" rowSpan={2}>Sl No.</th>
@@ -113,16 +113,16 @@ const AdminHospitals = () => {
           </tbody>
         </table>
       </div>
-      <div className="container input-group mb-3 w-50 ">
+      <div className="container input-group mb-3">
             <NumericInput span="Male" value={inputValue1} onChange={setInputValue1}/>
             <NumericInput span="Female" value={inputValue2} onChange={setInputValue2}/>
       </div>
-      <div className="container input-group mb-3 w-50 ">
+      <div className="container input-group mb-3">
             <span className="input-group-text">Total Number of Staff</span>
             <input className="form-control" type="text" value={totalStaff} aria-label="readonly input" readonly/>
       </div>
       <div className='d-flex justify-content-center'>
-        <img src={image} alt="" />
+        <img src={image} className='img-fluid' alt="" />
       </div>
     </div>       
   )

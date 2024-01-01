@@ -50,11 +50,11 @@ const ScaleCalc = () => {
   return (
     <div className='d-flex-column' data-bs-theme={mode}>
       <h1 className={`text-${mode==='light'?'dark':'light'} d-flex my-4`}>Scale Calculator</h1>
-      <div className="input-group mb-3 w-75">
+      <div className="input-group mb-3">
         <NumericInput span="Scale" value={inputValue1} onChange={setInputValue1}/>
         <NumericInput span=":" value={inputValue2} onChange={setInputValue2}/>
       </div>
-      <div className="input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
         <NumericInput span="Original size" value={originalValue} onChange={setOriginalValue}/>
         <select className="form-select" id="inputGroupSelect01" value={originalUnit} onChange={(e) => setOriginalUnit(e.target.value)}>
         {UnitsTypes.map((option) => (
@@ -64,7 +64,7 @@ const ScaleCalc = () => {
             ))}
         </select>
       </div>
-      <div className="input-group input-group-lg mb-3 w-75">
+      <div className="input-group input-group-lg mb-3">
         <NumericInput span="Scaled size" id="inputGroup-sizing-lg"  value={convertedValue}  aria-label="readonly input" readOnly/>
         <select className="form-select" id="inputGroupSelect02"  value={convertedUnit} onChange={(e) => setConvertedUnit(e.target.value)}>
         {UnitsTypes.map((option) => (

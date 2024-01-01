@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NumericInput({ span, value, onChange }) {
+function NumericInput({ span, value, onChange, customWidth }) {
   
   const handleInputChange = (e) => {
     // Update the input value when it changes
@@ -26,7 +26,7 @@ function NumericInput({ span, value, onChange }) {
 
   return (
     <>
-      <span className="input-group-text">{span}</span>
+      <span style={{ width: customWidth }} className="input-group-text">{span}</span>
       <input type="text" className="form-control" value={value} onChange={handleInputChange} onKeyDown={handleKeyDown}/>
     </>
   );

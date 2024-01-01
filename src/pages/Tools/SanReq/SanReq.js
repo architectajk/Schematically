@@ -138,9 +138,11 @@ export default function SanReq() {
         }
       };
 
-  return ( 
-<div className='d-flex-column' data-bs-theme={mode}>
-    <h1 className={`text-${mode==='light'?'dark':'light'} d-flex my-4`}>NBC / IBC Sanitation Requirements</h1>
+  return (     
+<div className="row gx-4">
+<h1 className={`text-${mode==='light'?'dark':'light'} d-flex mb-4`}>NBC / IBC Sanitation Requirements</h1>
+  <div className="col-lg-6 col-sm-auto">
+    <div className='d-flex-column' data-bs-theme={mode}>
         <div className="input-group mb-3">
             <label className="input-group-text" htmlFor="inputGroupSelect01">NBC / IBC</label>
             <select className="form-select" id="inputGroupSelect01" value={bcode} onChange={handleBcodeChange}>
@@ -163,6 +165,11 @@ export default function SanReq() {
         </div>
         <h2 className={`text-${mode==='light'?'dark':'light'} d-flex my-4`}>{renderResult()}</h2>
         {getOccupancyComponent()}
+    </div>
+  </div>
+  <div className="col-lg-6 col-sm-auto">
+        <p className={`text-${mode==='dark'?'light':'dark'}`}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque molestiae aperiam quas iure illo, dolores perspiciatis animi quos accusamus ipsam commodi ab laborum, vero exercitationem porro aspernatur ea repellendus sit.</p>
+    </div>
 </div>
   )
 }

@@ -60,10 +60,9 @@ const OfficeBuilding=()=>{
         return Math.round(waterFountainCount);
     }
     return(
-    <div className="row gx-4">
-    <div className="col-lg-6 col-sm-auto">
-        <div className='d-flex justify-content-start'>
-            <table className={`table table-${mode} table-hover table-bordered align-middle`}>
+    <>
+        <div className='table-responsive'>
+            <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
                 <thead className='table-primary align-middle'>
                     <tr>
                     <th scope="col" rowSpan={2}>Sl No.</th>
@@ -144,11 +143,7 @@ const OfficeBuilding=()=>{
         <div className='d-flex justify-content-start'>
             <img src={image} className="img-fluid" alt="" />
         </div>
-    </div>
-    <div className="col-lg-6 col-sm-auto">
-        <p className={`text-${mode==='dark'?'light':'dark'}`}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque molestiae aperiam quas iure illo, dolores perspiciatis animi quos accusamus ipsam commodi ab laborum, vero exercitationem porro aspernatur ea repellendus sit.</p>
-    </div>
-    </div>
+    </>
     );
 };
 

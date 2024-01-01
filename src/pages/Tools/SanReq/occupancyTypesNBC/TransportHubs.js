@@ -118,10 +118,10 @@ const TransportHubs = () => {
     return Math.round(airportFemaleBathCount)
   };
   return (
-    <div>
-        <div className='d-flex justify-content-center'>
-        <table className={`table table-${mode} table-hover table-bordered w-75 align-middle`}>
-          <thead className='align-middle'>
+    <>
+        <div className='table-responsive'>
+        <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
+          <thead className='table-primary align-middle'>
             <tr>
               <th scope="col">Sl No.</th>
               <th scope="col">Fixture</th>
@@ -200,34 +200,34 @@ const TransportHubs = () => {
           </tbody>
         </table>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Intermediate (Male)" value={inputValue1} onChange={setInputValue1}/>
             <NumericInput span="Intermediate (Female)" value={inputValue2} onChange={setInputValue2}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of ShopOwners</span>
             <input className="form-control" type="text" value={totalIntermediate} aria-label="readonly input" readonly/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Terminal (Male)" value={inputValue3} onChange={setInputValue3}/>
             <NumericInput span="Terminal (Female)" value={inputValue4} onChange={setInputValue4}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of personnel</span>
             <input className="form-control" type="text" value={totalTerminal} aria-label="readonly input" readonly/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <NumericInput span="Airport (Male)" value={inputValue5} onChange={setInputValue5}/>
             <NumericInput span="Airport (Female)" value={inputValue6} onChange={setInputValue6}/>
       </div>
-      <div className="container input-group mb-3 w-75 ">
+      <div className="input-group mb-3">
             <span className="input-group-text">Total Number of People</span>
             <input className="form-control" type="text" value={totalAirport} aria-label="readonly input" readonly/>
       </div>
       <div className='d-flex justify-content-center'>
-        <img src={image} alt="" />
+        <img src={image} className='img-fluid' alt="" />
       </div>     
-    </div>
+    </>
   )
 }
 
