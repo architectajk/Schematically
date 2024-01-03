@@ -27,7 +27,7 @@ jobs:
     - name: Deploy to Hostinger
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        server: ftp://schematically.org
+        server: www.schematically.org
         username: u316976659
         password: ${{ secrets.HOSTINGER_PASSWORD }}
         local-dir: ./build/
