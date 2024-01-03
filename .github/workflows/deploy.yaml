@@ -1,0 +1,43 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build React App
+      run: npm run build
+
+    - name: Deploy to Hostinger
+      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      with:
+        server: ${{ secrets.HOSTINGER_SERVER }}
+        username: ${{ secrets.HOSTINGER_USERNAME }} 
+        password: ${{ secrets.HOSTINGER_PASSWORD }}
+        local-dir: build
+        remote-dir: /public_html # Change this to the path on your Hostinger server
+        exclude: |
+           **/.git*
+           **/.git*/**
+           **/node_modules/**
+
+# You need to set the following secrets in your GitHub repository:
+# - HOSTINGER_SERVER: Your Hostinger server address (e.g., ftp.yourdomain.com)
+# - HOSTINGER_USERNAME: Your Hostinger FTP username
+# - HOSTINGER_PASSWORD: Your Hostinger FTP password
