@@ -25,13 +25,13 @@ jobs:
       run: npm run build
 
     - name: Deploy to Hostinger
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.4
       with:
         server: ${{ secrets.HOSTINGER_SERVER }}
         username: ${{ secrets.HOSTINGER_USERNAME }} 
         password: ${{ secrets.HOSTINGER_PASSWORD }}
-        local-dir: build
-        remote-dir: /public_html # Change this to the path on your Hostinger server
+        local-dir: ./build/
+        remote-dir: /public_html/ # Change this to the path on your Hostinger server
         exclude: |
            **/.git*
            **/.git*/**
