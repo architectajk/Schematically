@@ -8,8 +8,9 @@ import Alert from './components/Alert';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Assets from './pages/Assets';
-import About from './pages/About';
+import About from './pages/About/About';
 import NBC from './pages/Resources/NBC';
+import FireLifeSafety from './pages/Tools/FireLifeSafety/FireLifeSafety';
 import NaturalLightVentCalc from './pages/Tools/NaturalLightVentCalc/NaturalLightVentCalc';
 import ElevatorPlanner from './pages/Tools/ElevatorPlanner/ElevatorPlanner';
 import MetalCalc from './pages/Tools/MetalCalc/MetalCalc';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/tools/ElevatorPlanner" element={<ElevatorPlanner/>}></Route>
             <Route path="/tools/MetalCalc" element={<MetalCalc/>}></Route>
             <Route path="/tools/ScaleCalc" element={<ScaleCalc/>}></Route>
+            <Route path="/tools/FireLifeSafety" element={<FireLifeSafety/>}></Route>
             <Route path="/resources" element={<Suspense fallback={<Spinners/>}><Resources/></Suspense>}></Route>
             <Route path="/about" element={<About/>}></Route>
             <Route path="/resources/NBC" element={<NBC />}></Route>
