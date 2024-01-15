@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Assets from './pages/Assets';
 import About from './pages/About/About';
+import Donate from './pages/Donate';
 import NBC from './pages/Resources/NBC';
 import FireLifeSafety from './pages/Tools/FireLifeSafety/FireLifeSafety';
 import NaturalLightVentCalc from './pages/Tools/NaturalLightVentCalc/NaturalLightVentCalc';
@@ -49,6 +50,7 @@ function App() {
             <Route path="/about" element={<About/>}></Route>
             <Route path="/resources/NBC" element={<NBC />}></Route>
             <Route path="/assets" element={<Assets/>}></Route>
+            <Route path="/donate" element={<Donate/>}></Route>
           </Routes>
     </div>
     <Footer/>

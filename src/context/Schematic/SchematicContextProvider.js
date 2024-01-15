@@ -23,7 +23,7 @@ const SchematicContextProvider = ({ children }) => {
         showAlert('Light mode has been enabled', 'success');
       } else {
         setMode('dark');
-        document.body.style.backgroundColor = '#1f1f1f';
+        document.body.style.backgroundColor = '#000000';
         showAlert('Dark mode has been enabled', 'success');
       }
     };

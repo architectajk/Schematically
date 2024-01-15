@@ -62,6 +62,7 @@ const occupancyTypesIBC =[
 
 export default function SanReq() {
   const {mode} = useContext(SchematicContext);
+  const textColorClass = `text-${mode === 'dark' ? 'light' : 'dark'}`;
 
     const [bcode, setBcode] = useState("1");
     const [occupancy,setOccupancy]=useState("Choose...");
@@ -163,13 +164,88 @@ export default function SanReq() {
             ))}
         </select>
         </div>
-        <h2 className={`text-${mode==='light'?'dark':'light'} d-flex my-4`}>{renderResult()}</h2>
+        <div>
+        <h2 className={`${textColorClass} d-flex my-4`}>{renderResult()}</h2>
         {getOccupancyComponent()}
+        </div>
     </div>
   </div>
   <div className="col-lg-6 col-sm-auto">
-        <p className={`text-${mode==='dark'?'light':'dark'}`}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque molestiae aperiam quas iure illo, dolores perspiciatis animi quos accusamus ipsam commodi ab laborum, vero exercitationem porro aspernatur ea repellendus sit.</p>
-    </div>
+        <div className='mb-3'>
+          <h3 className={textColorClass}>General</h3>
+          <p className={textColorClass}>There should be at least one water tap and arrangement
+          for drainage in the vicinity of each water closet 
+          or group of water closet in all the buildings.
+          </p>
+        </div>
+        <div className='my-3'>
+          <p className={textColorClass}>Each dwelling unit on premises (abutting on a
+          sewer or with a private sewage disposal system) shall
+          have at least one water closet, one kitchen wash place
+          or a sink, and one bathing place or shower to meet
+          the basic requirements of sanitation and personal
+          hygiene.
+          </p>
+        </div>
+        <div className='my-3'>
+          <p className={textColorClass}>In case of a group housing, the requirements relating
+          to toilet or sanitary room and kitchen as given in 13
+          and B-9 of Part 3 'Development Control Rules and
+          General Building Requirements' of the Code shall also
+          be complied with.
+          </p>
+        </div>
+        <div className='my-3'>
+          <p className={textColorClass}>All other structures for human occupancy or use
+          on premises (abutting on a sewer or with a private
+          sewage disposal system) shall have adequate sanitary
+          facilities, but in no case less than one water closet and
+          one other fixture for cleaning purposes
+          </p>
+        </div>
+        <div className='mb-3'>
+          <h3 className={textColorClass}>For Residences</h3>
+          <p className={textColorClass}> Dwelling with individual convenience shall
+          have at least the following fitments:
+            <ul className="list-unstyled my-3">
+              <li>1. One bath room provided with a tap and a floor trap</li>
+              <li>2. One water closet with flushing apparatus withan ablution tap and</li>
+              <li>3. One tap with a floor trap or a sink in kitchen or wash place.</li>
+            </ul>
+          </p>
+          <p className={textColorClass}> Dwellings without individual conveniences shall
+            have the following fitments:
+            <ul className="list-unstyled my-3">
+              <li>1. One water tap with floor trap in each tenement</li>
+              <li>2. One water closet with flushing apparatus and one ablution tap bath for every two tenements, and</li>
+              <li>3. One bath with water tap and floor trap for every two tenements.</li>
+            </ul>
+          </p>
+          <h3 className={textColorClass}>For Buildings Other than Residences</h3>
+          <p className={`${textColorClass} my-3`}>The requirements for fitments for drainage and
+          sanitation in the case of buildings other than residences
+          shall be in accordance with Table 1 to Table 15.
+          </p>
+          <p className={`${textColorClass} my-3`}>The accessibility requirements for provision of these
+          facilities for persons with disabilities shall be in
+          accordance with 13 of Part 3 'Development Control
+          Rules and General Building Requirements' of the Code
+          </p>
+          <p className={`${textColorClass} my-3`}>The following shall be, in addition, taken into consideration
+            <ul className="list-unstyled my-3">
+              <li>1. Minimum fixture requirement is based on 1 fixture per indicated number of persons or part thereof.</li>
+              <li>2. Building categories not in tables should be considered separately by the Authority.</li>
+              <li>3. Drinking fountains are not allowed in toilets.</li>
+              <li>4. For exposure to harmful materials, wash basins with eye wash and emergency showers must be provided.</li>
+              <li>5. Consider accessibility; numerical basis may not suit specific building needs. Schools need toilets on each floor.</li>
+              <li>6. Buildings abutting sewers must provide minimum sanitary facilities. If disposal facilities are absent, include them in building design.</li>
+              <li>7. Workplaces with crèches need 1 WC for 10 persons, 1 wash basin for 15 persons, and a kitchen sink with a drinking water tap.</li>
+              <li>8. Executive areas and meeting rooms should have individual toilets and pantries based on user requirements.</li>
+              <li>9. Indoor consumption areas may use water stations instead of drinking water fountains.</li>
+            </ul>
+            </p>
+      </div>
+  </div>
 </div>
   )
 }

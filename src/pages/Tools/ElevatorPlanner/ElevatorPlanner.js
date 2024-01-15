@@ -3,9 +3,10 @@ import { SchematicContext } from '../../../context/Schematic/SchematicContextPro
 
 const ElevatorPlanner = () => {
     const {mode} = useContext(SchematicContext);
+    const textColorClass = `text-${mode === 'dark' ? 'light' : 'dark'}`;
   return (
     <div className='d-flex-column' data-bs-theme={mode}>
-    <h1 className={`text-${mode==='light'?'dark':'light'} d-flex my-4`}>Elevator Planner / Size Matrix</h1>
+    <h1 className={`${textColorClass} d-flex my-4`}>Elevator Planner / Size Matrix</h1>
     </div>
   )
 }

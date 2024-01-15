@@ -6,7 +6,7 @@ import { GrMail } from "react-icons/gr";
 import { SchematicContext } from '../context/Schematic/SchematicContextProvider';
 
 const copyToClipboard = () => {
-  const emailToCopy = 'kamathjakshay@gmail.com';
+  const emailToCopy = 'architect.ajk@gmail.com';
   const tempInput = document.createElement('input');
   tempInput.value = emailToCopy;
   document.body.appendChild(tempInput);

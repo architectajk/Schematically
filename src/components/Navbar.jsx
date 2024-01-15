@@ -42,7 +42,7 @@ export default function Navbar() {
             <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/resources">Resources</NavLink></li>
             <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/assets">Assets</NavLink></li>
             <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/about">About</NavLink></li>
-            <li className="nav-item my-2 my-lg-0"><div className='text-white text-bg-primary rounded-pill'><NavLink className="nav-link active mx-2 text-white" to="/donate"><BsFillHeartFill/> Donate</NavLink></div></li>
+            <li className="nav-item my-2 my-lg-0"><div className='text-white text-bg-primary bg-gradient rounded-pill'><NavLink className="nav-link active mx-2 text-white" to="/donate"><BsFillHeartFill/> Donate</NavLink></div></li>
           </ul>
           <div className='d-flex-column align-items-center my-auto mx-3'>
             <label htmlFor="switch" className="toggle">

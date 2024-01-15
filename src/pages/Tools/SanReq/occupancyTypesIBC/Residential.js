@@ -15,7 +15,7 @@ const Residential = () => {
   return (
     <div>
         <div className='table-responsive'>
-        <table className={`table table-sm table-${mode} table-hover table-bordered w-75 align-middle`}>
+        <table className={`table table-sm table-${mode} table-hover table-bordered align-middle`}>
           <thead className='table-primary align-middle'>
             <tr>
               <th scope="col" rowSpan={2}>Description</th>
