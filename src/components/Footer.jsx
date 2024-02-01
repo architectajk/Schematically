@@ -15,28 +15,32 @@ const copyToClipboard = () => {
   document.body.removeChild(tempInput);
 };
 
+const openMailTo = () => {
+  window.location.href = 'mailto:architect.ajk@gmail.com';
+};
+
 export default function Footer() {
   const {mode} = useContext(SchematicContext);
+  const linkColor = `link-${mode==='dark'?'light':'dark'} link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover`;
   return (
-      <footer className={`container-fluid d-flex flex-wrap py-3 border-top bg-${mode==='dark'?'dark':'light'} mt-auto`}>
-        <div className="container text-center">
-          <div className='row mb-3 justify-content-center'>
-            <div className="col-md-4 d-flex align-items-center justify-content-center">
-              <NavLink to="/"><img className="me-2 mb-md-0" src={mode==='dark' ? "../images/logo1_small.svg":"../images/logo2_small.svg"} alt="Logo" width="32" /></NavLink>
-              <span className={`mb-md-0 text-${mode==='dark'?'light':'dark'}`}>© 2024-2025 Schematically, Inc.</span>
+      <footer className={`container-fluid d-flex flex-wrap pt-3 border-top bg-${mode} mt-auto`}>
+        <div className='container py-2 py-md-1 px-3 px-md-3'>
+          <div className='row d-flex justify-content-between'>
+            <div className="col-md-3 me-md-auto">
+              <NavLink className="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" to="/">
+                <img className="me-2" src={mode==='dark' ? "../images/logo 1.png":"../images/logo 2.png"} alt="Logo" width="248" />
+              </NavLink>
+              <ul className={`list-unstyled small text-bg-${mode}`}>
+                <li className="mb-2">Designed and Built with <Link className={linkColor} to="https://react.dev/" target="_blank" rel="noopener noreferrer">React</Link> and <Link className={linkColor} to="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</Link></li>
+                <li className="mb-2">Code Licensed <Link className={linkColor} to="https://github.com/architectajk/Schematically/blob/main/LICENSE.txt" target="_blank" rel="noopener noreferrer">MIT</Link>, All docs under <Link className={linkColor} to="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</Link> unless mentioned</li>
+              </ul>
             </div>
-            <div className="col-md-4 d-flex align-items-center justify-content-center">
-            <ul className="nav justify-content-center align-items-center list-unstyled d-flex">
-              <li><Link className={`btn text-${mode==='dark'?'light':'dark'}`} to="/about">Privacy Policy</Link></li>
-              <li><Link className={`btn text-${mode==='dark'?'light':'dark'}`} to="/about">Terms of Services</Link></li>
-            </ul>
-            </div>
-            <div className="col-md-4 d-flex align-items-center justify-content-center">
-              <ul className="nav ms-lg-auto align-items-center list-unstyled">
-                <li className="ms-3"><Link to="https://www.linkedin.com/in/akshay-j-kamath" target="_blank" rel="noopener noreferrer"><FaLinkedin size={24} color="grey"/></Link></li>
+            <div className="col-md-4">
+              <ul className="nav d-flex align-items-center justify-content-center list-unstyled">
+                <li className="ms-3 ms-md-auto"><Link to="https://www.linkedin.com/in/akshay-j-kamath" target="_blank" rel="noopener noreferrer"><FaLinkedin size={24} color="grey"/></Link></li>
                 <li className="ms-3"><Link to="https://github.com/architectajk" target="_blank" rel="noopener noreferrer"><FaGithub size={24} color="grey"/></Link></li>
-                <li className="ms-1"><button className="btn" onClick={copyToClipboard}><GrMail size={24} color="grey"/></button></li>
-            </ul>
+                <li className="ms-1"><button className="btn" onClick={()=>{copyToClipboard();openMailTo();}} data-toggle="tooltip" data-placement="top" title="Copy to Clipboard and Open Email"><GrMail size={24} color="grey"/></button></li>
+              </ul>
             </div>
           </div>
         </div>

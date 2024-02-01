@@ -24,7 +24,7 @@ export default function Tools() {
          <div className={`card card-${mode} h-100`}>
            <div className="card-body d-flex flex-column">
              <h5 className="card-title">Natural Light and Ventilation Calculation</h5>
-             <p className="card-text d-flex flex-grow-1">As per the International Residential Code, certain rooms within dwellings must be provided with a minimum amount of lighting and ventilation.</p><p className="card-text text-success">Coming soon....</p>
+             <p className="card-text d-flex flex-grow-1">As per the International Residential Code, certain rooms within dwellings must be provided with a minimum amount of lighting and ventilation.</p>
              <div className="text-start">
               <Link to="/tools/NaturalLightVentCalc" className="btn btn-primary">Start</Link>
              </div>

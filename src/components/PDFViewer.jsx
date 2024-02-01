@@ -17,7 +17,7 @@ const PDFViewer = (props) => {
       height: '750px',
   }}>
       <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js`}>
-        <Viewer fileUrl={props.name} plugins={[defaultLayoutPluginInstance]} theme={mode}>
+        <Viewer fileUrl={props.name} plugins={[defaultLayoutPluginInstance]} theme={mode} defaultScale={0.87}>
         </Viewer>
       </Worker>
     </div>

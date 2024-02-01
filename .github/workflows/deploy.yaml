@@ -38,6 +38,6 @@ jobs:
            **/node_modules/**
 
 # You need to set the following secrets in your GitHub repository:
-# - HOSTINGER_SERVER: Your Hostinger server address (e.g., ftp.yourdomain.com)
+# - HOSTINGER_SERVER: Your Hostinger server address (e.g., www.yourdomain.com)
 # - HOSTINGER_USERNAME: Your Hostinger FTP username
 # - HOSTINGER_PASSWORD: Your Hostinger FTP password

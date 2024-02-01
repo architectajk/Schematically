@@ -1,4 +1,5 @@
 import React,{useContext} from 'react'
+import { Link } from 'react-router-dom';
 import { SchematicContext } from '../context/Schematic/SchematicContextProvider';
 import { FaCheckCircle } from "react-icons/fa";
 import { IoDiamondSharp } from "react-icons/io5";
@@ -21,9 +22,11 @@ export default function Donate() {
               <div className="card-body text-center d-flex flex-column">
                 <h2 className="card-title"><GiGoldBar color="grey"/> Silver membership</h2>
                 <p className="card-text d-flex flex-grow-1 justify-content-center">Get your company name displayed</p>
-                <h1 className='card-title text-primary'>$5</h1>
+                <h1 className='card-title text-primary'>₹ 499.00</h1>
                 <p className="card-text d-flex flex-grow-1 justify-content-center">PER MONTH</p>
-                <button type="button" className={`btn btn-${mode==='dark'?'light':'primary'} btn-lg col-4 mx-auto`}>Donate</button> 
+                <Link to="https://rzp.io/i/BfNZoRlBSO" target="_blank" rel="noopener noreferrer">
+                  <button type="button" className={`btn btn-${mode==='dark'?'light':'primary'} btn-lg col-4 mx-auto`}>Donate</button>
+                </Link> 
                 <ul className='list-group my-3'>
                   <li className={listGroup}><FaCheckCircle /> Advertise - Get your company name displayed </li>
                   <li className={listGroup}><FaCheckCircle /> Limited collaborations</li>
@@ -36,9 +39,11 @@ export default function Donate() {
               <div className="card-body text-center  d-flex  flex-column">
                 <h2 className="card-title"><GiGoldBar color="yellow" /> Gold membership</h2>
                 <p className="card-text d-flex flex-grow-1">Get your company logo displayed and link to website</p>
-                <h1 className='card-title'>$15</h1>
+                <h1 className='card-title'>₹ 999.00</h1>
                 <p className="card-text d-flex flex-grow-1 justify-content-center">PER MONTH</p>
-                <button type="button" className='btn btn-light btn-lg col-4 mx-auto'>Donate</button> 
+                <Link to="https://rzp.io/i/LojlE9DE0" target="_blank" rel="noopener noreferrer">
+                  <button type="button" className='btn btn-light btn-lg col-4 mx-auto'>Donate</button>
+                </Link> 
                 <ul className='list-group my-4'>
                   <li className={listGroupPrimary}><FaCheckCircle /> Advertise - Get your company logo displayed </li>
                   <li className={listGroupPrimary}><FaCheckCircle /> Link to website</li>
@@ -52,10 +57,12 @@ export default function Donate() {
             <div className={`card card-${mode}`}>
               <div className="card-body text-center d-flex flex-column">
                 <h2 className="card-title"><IoDiamondSharp color="grey" /> Diamond membership</h2>
-                <p className="card-text d-flex flex-grow-1 justify-content-center">Choose your donation amount and benefits</p>
-                <h1 className='card-title text-primary'>Custom Donation</h1>
+                <p className="card-text d-flex flex-grow-1 justify-content-center">Get your company logo displayed and link to website</p>
+                <h1 className='card-title text-primary'>₹ 1,999.00</h1>
                 <p className="card-text d-flex flex-grow-1 justify-content-center">PER MONTH</p>
-                <button type="button" className={`btn btn-${mode==='dark'?'light':'primary'} btn-lg col-4 mx-auto`}>Donate</button>
+                <Link to="https://rzp.io/i/9Yd10G7t" target="_blank" rel="noopener noreferrer">
+                  <button type="button" className={`btn btn-${mode==='dark'?'light':'primary'} btn-lg col-4 mx-auto`}>Donate</button>
+                </Link>
                 <ul className='list-group my-3'>
                   <li className={listGroup}><FaCheckCircle /> Dedicated support</li>
                   <li className={listGroup}><FaCheckCircle /> Unlimited collaborations</li>

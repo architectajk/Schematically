@@ -34,7 +34,7 @@ const Breadcrumb = () => {
         crumbs.shift();
       }
   return (
-    <div className='container breadcrumbs mt-2 mb-3'>
+    <div className='breadcrumbs mt-2 mb-3'>
     {crumbs.map((crumb, index) => (
       <div className={`crumb text-${mode === 'dark' ? 'light' : 'dark'}`} key={index}>
         <Link to={crumb.path}>{crumb.label}</Link>

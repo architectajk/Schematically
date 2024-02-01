@@ -76,7 +76,7 @@ const MetalCalc = () => {
     const Sheet = () => {
       let length = inputValue1*0.001;
       let width = inputValue2*0.001;
-      let thickness = inputValue3;
+      let thickness = inputValue3*0.001;
       let weight = length * width * thickness* getDensity();
       return weight.toFixed(2);
     };

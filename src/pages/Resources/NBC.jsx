@@ -13,14 +13,12 @@ import Part10 from '../../assets/NBC/NBCPart10.pdf'
 import Part11 from '../../assets/NBC/NBCPart11.pdf'
 import Part12 from '../../assets/NBC/NBCPart12.pdf'
 import { SchematicContext } from '../../context/Schematic/SchematicContextProvider';
-import {FaStream} from 'react-icons/fa'
 import PDFViewer from '../../components/PDFViewer';
 import '../../assets/CSS/NBC.css'
     
 export default function NBC() {
   const {mode} = useContext(SchematicContext);
   const options = ["PART 0","PART 1","PART 2","PART 3", "PART 4", "PART 5", "PART 6", "PART 7", "PART 8", "PART 9", "PART 10", "PART 11", "PART 12"];
-  const btnradio = ["btnradio1", "btnradio2",  "btnradio3",  "btnradio4",  "btnradio5",  "btnradio6", "btnradio7", "btnradio8", "btnradio9", "btnradio10", "btnradio11", "btnradio12", "btnradio13"]
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const [pdfData, setPdfData] = useState(Part0);
 
@@ -72,36 +70,28 @@ export default function NBC() {
     }
    }, [selectedOption]); // Dependency array ensures the effect runs when selectedOption changes
 
-  const handleOptionChange = (e) => {
+   const handleOptionChange = (e) => {
     setSelectedOption(e.target.value);
   };
 
   return (
-    <div className="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
-      <aside className='sidebar' id='side_nav'>
-      <div className="offcanvas-lg offcanvas-start" tabIndex="-1" id="bdSidebar" aria-labelledby="bdSidebarOffcanvasLabel">
-        <div className="offcanvas-header border-bottom">
-          <h1 className="fs-4"><span className={`text-${mode === 'light' ? 'dark' : 'light'}`}>Contents</span></h1>
-          <button className='btn d-md-none d-block close-btn px-1 py-0 text-white'><FaStream/></button>
-        </div>
-        <div className="offcanvas-body">
-          <nav className="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
-          {options.map((option, index) => (
-            <div className='py-1' key={option}>
-              <input type="radio" className="btn-check" name="btnradio" autoComplete="off" id={btnradio[index]} value={option} checked={selectedOption === option} onChange={handleOptionChange}/>
-              <label className={`text-${mode === 'light' ? 'dark' : 'light'} btn btn-outline-primary`} htmlFor={btnradio[index]}>{option}</label>
-            </div>
-          ))}
-          </nav>
-        </div>
-        </div>
-      </aside>
-      <div className={`text-${mode === 'light' ? 'dark' : 'light'} container main mx-4`}>
-        <h1 className={`text-${mode === 'light' ? 'dark' : 'light'} d-inline-flex px-2 pt-3 pb-4 `}>National Building Code of India (2016)</h1>
-          <div className='container'>
-            <PDFViewer name={pdfData}/>
+    <div>
+      <div className="row justify-content-md-center">
+        <div className="col col-lg-6 my-3">
+        <div className="input-group" data-bs-theme={mode}>
+          <label className="input-group-text" htmlFor="inputGroupSelect01">NBC</label>
+          <select className="form-select" id="inputGroupSelect01" onChange={handleOptionChange}>
+            {options.map((option) => (
+            <option key={option} value={option}>{option}</option>
+            ))}
+          </select>
           </div>
+        </div>
       </div>
-  </div>
+        <div className={`text-${mode === 'light' ? 'dark' : 'light'}`}>
+          <h1 className={`text-${mode === 'light' ? 'dark' : 'light'} d-inline-flex px-2 pt-3 pb-4 `}>National Building Code of India (2016)</h1>
+          <PDFViewer name={pdfData}/>
+        </div>
+      </div>
   )
 }
