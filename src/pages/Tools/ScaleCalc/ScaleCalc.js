@@ -48,7 +48,7 @@ const ScaleCalc = () => {
   };
 
   return (
-    <div className='d-flex-column' data-bs-theme={mode}>
+    <div className='d-flex-column col-md-6' data-bs-theme={mode}>
       <h1 className={`text-${mode==='light'?'dark':'light'} d-flex my-4`}>Scale Calculator</h1>
       <div className="input-group mb-3">
         <NumericInput span="Scale" value={inputValue1} onChange={setInputValue1}/>

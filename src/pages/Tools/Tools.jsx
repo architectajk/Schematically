@@ -78,6 +78,19 @@ export default function Tools() {
            </div>
          </div>
      </div>
+     <div className="row mb-4" data-bs-theme={mode}>
+       <div className="col-sm-4 mb-3 mb-sm-0">
+           <div className={`card card-${mode} h-100`}>
+             <div className="card-body d-flex flex-column">
+               <h5 className="card-title">Parking Requirements and Norms</h5>
+               <p className="card-text d-flex flex-grow-1"> Helps you determine number of car parks for various uses </p>
+               <div className="text-start">
+                <Link to="/tools/ParkingNorms" className="btn btn-primary">Start</Link>
+               </div>
+             </div>
+           </div>
+         </div>
+     </div>
 
   </>
   )

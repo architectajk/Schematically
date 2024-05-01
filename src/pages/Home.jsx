@@ -1,4 +1,5 @@
 import React,{useContext} from 'react'
+import { Link } from 'react-router-dom';
 import { SchematicContext } from '../context/Schematic/SchematicContextProvider';
 import { ImCalculator } from "react-icons/im";
 import { IoLibrary } from "react-icons/io5";
@@ -19,9 +20,18 @@ export default function Home() {
       <div className="col-lg-6 col-sm-auto my-4">
         <h1 id='Title' className={`lh-sm text-${mode==='light'?'dark':'light'} mb-3`}>Revolutionize Your Design Process</h1>
         <p className={`d-inline fs-5 text-${mode==='light'?'dark':'light'}`}>Schematically offers a free-to-use platform intended for architects, students and vendors to streamline and enhance their design processes, crafted with intuitive tools and resources.</p>
+        <div className='my-3'>
+          <Link style={{width : '180px'}} to="/tools" className="btn btn-primary">Start with Tools</Link>
+        </div>
+        <div className='my-3'>
+          <Link style={{width : '180px'}} to="/resources" className="btn btn-primary">Start with Resources</Link>
+        </div>
+        <div className='my-3'>
+          <Link style={{width : '180px'}} to="/assets" className="btn btn-primary">Start with Assets</Link>
+        </div>
        </div>
        <div className="col-lg-6 col-sm-auto my-4 d-flex justify-content-center">
-          <img className="img-fluid" src={image1} alt="" />
+          <img className="img-fluid" src={image1} alt="" width={450}/>
        </div>
     </div>
     <div className='my-5'></div>
@@ -31,7 +41,7 @@ export default function Home() {
         </div>
         <p className={`text-center fs-5 text-${mode==='light'?'dark':'light'} text-break`}>Our platform simplifies complex concepts and enhances your workflow. Here's how Schematically can improve your design process:</p>
         <div className="row my-3 d-flex justify-content-center" data-bs-theme={mode}>
-          <div className="col-sm-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-3 mb-sm-0">
             <div className={`card card-${mode} h-100`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><PiNumberCircleOneFill size={48}/></div>
@@ -40,7 +50,7 @@ export default function Home() {
              </div>
             </div>
           </div>
-          <div className="col-sm-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-3 mb-sm-0">
             <div className={`card card-${mode} h-100`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><PiNumberCircleTwoFill size={48}/></div>
@@ -49,7 +59,7 @@ export default function Home() {
              </div>
             </div>
           </div>
-          <div className="col-sm-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-3 mb-sm-0">
             <div className={`card card-${mode} h-100`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><PiNumberCircleThreeFill size={48}/></div>
@@ -63,7 +73,7 @@ export default function Home() {
     <div className='my-5'></div>
     <div className={`row gx-4 p-3 bg-${mode} rounded-5`}>
       <div className="col-lg-6 col-sm-auto my-4 d-flex justify-content-center">
-          <img className="img-fluid" src={image2} width="400" alt="" />
+          <img className="img-fluid" src={image2} width={400} alt="" />
        </div>
       <div className="col-lg-6 col-sm-auto my-4">
         <div className='mb-3'>
@@ -84,7 +94,7 @@ export default function Home() {
           <p className={`text-center fs-5 text-${mode==='light'?'dark':'light'} text-break`}>Explore the unique features integrated into Schematically, designed to fuel your creativity and expedite your design process:</p>
         </div>
         <div className="row mb-4 d-flex justify-content-center" data-bs-theme={mode}>
-          <div className="col-sm-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-3 mb-sm-0">
             <div className={`card card-${mode} h-100 p-3`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><ImCalculator size={48}/></div>
@@ -93,7 +103,7 @@ export default function Home() {
              </div>
             </div>
           </div>
-          <div className="col-sm-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-3 mb-sm-0">
             <div className={`card card-${mode} h-100 p-3`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><IoLibrary size={48}/></div>
@@ -102,7 +112,7 @@ export default function Home() {
              </div>
             </div>
           </div>
-          <div className="col-sm-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-3 mb-sm-0">
             <div className={`card card-${mode} h-100 p-3`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><FaUsersGear size={48}/></div>

@@ -1,0 +1,99 @@
+svg g path{
+    cursor: pointer;
+}
+svg g path:hover{
+    fill: #0d6efd;
+}
+
+.Andaman.and.Nicobar,
+.Telangana,
+.Andhra.Pradesh,
+.Arunachal.Pradesh,
+.Assam,
+.Bihar,
+.Chandigarh,
+.Chhattisgarh,
+.Dādra.and.Nagar.Haveli.and.Damān.and.Diu,
+.Delhi,
+.Goa,
+.Gujarat,
+.Haryana,
+.Himachal.Pradesh,
+.Jharkhand,
+.Karnataka,
+.Kerala,
+.Madhya.Pradesh,
+.Maharashtra,
+.Manipur,
+.Meghalaya,
+.Mizoram,
+.Nagaland,
+.Orissa,
+.Puducherry,
+.Punjab,
+.Rajasthan,
+.Sikkim,
+.Tamil.Nadu,
+.Tripura,
+.Uttar.Pradesh,
+.Uttaranchal,
+.West.Bengal,
+.Lakshadweep,
+.Jammu.and.Kashmir,
+.Ladakh {
+    cursor: pointer;
+    fill: #0d6efd; /* Change the fill color as needed */
+    stroke: #0d6efd; /* Change the stroke color as needed */
+    stroke-width: 1; /* Adjust the stroke width as needed */
+}
+
+/* Hover styles for all regions */
+.Andaman.and.Nicobar:hover,
+.Telangana:hover,
+.Andhra.Pradesh:hover,
+.Arunachal.Pradesh:hover,
+.Assam:hover,
+.Bihar:hover,
+.Chandigarh:hover,
+.Chhattisgarh:hover,
+.Dādra.and.Nagar.Haveli.and.Damān.and.Diu:hover,
+.Delhi:hover,
+.Goa:hover,
+.Gujarat:hover,
+.Haryana:hover,
+.Himachal.Pradesh:hover,
+.Jharkhand:hover,
+.Karnataka:hover,
+.Kerala:hover,
+.Madhya.Pradesh:hover,
+.Maharashtra:hover,
+.Manipur:hover,
+.Meghalaya:hover,
+.Mizoram:hover,
+.Nagaland:hover,
+.Orissa:hover,
+.Puducherry:hover,
+.Punjab:hover,
+.Rajasthan:hover,
+.Sikkim:hover,
+.Tamil.Nadu:hover,
+.Tripura:hover,
+.Uttar.Pradesh:hover,
+.Uttaranchal:hover,
+.West.Bengal:hover,
+.Lakshadweep:hover,
+.Jammu.and.Kashmir:hover,
+.Ladakh:hover {
+    fill: red;
+}
+
+/*::before: This pseudo-element creates the tooltip.
+content: Specifies the content of the tooltip.
+position: Specifies the positioning method for the tooltip.
+background-color: Sets the background color of the tooltip.
+color: Sets the text color of the tooltip.
+padding: Adds padding to the tooltip.
+border-radius: Sets the border-radius to create rounded corners.
+font-size: Sets the font size of the tooltip text.
+white-space: Prevents line breaks within the tooltip.
+z-index: Ensures that the tooltip appears above other elements.*/

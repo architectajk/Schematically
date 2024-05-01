@@ -4,7 +4,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { SchematicContext } from '../context/Schematic/SchematicContextProvider';
-
+import { Tooltip } from 'react-tooltip';
+//<button className="btn" onClick={()=>{copyToClipboard();openMailTo();}}><GrMail size={24} color="grey"/></button>
 const copyToClipboard = () => {
   const emailToCopy = 'architect.ajk@gmail.com';
   const tempInput = document.createElement('input');
@@ -37,9 +38,30 @@ export default function Footer() {
             </div>
             <div className="col-md-4">
               <ul className="nav d-flex align-items-center justify-content-center list-unstyled">
-                <li className="ms-3 ms-md-auto"><Link to="https://www.linkedin.com/in/akshay-j-kamath" target="_blank" rel="noopener noreferrer"><FaLinkedin size={24} color="grey"/></Link></li>
-                <li className="ms-3"><Link to="https://github.com/architectajk" target="_blank" rel="noopener noreferrer"><FaGithub size={24} color="grey"/></Link></li>
-                <li className="ms-1"><button className="btn" onClick={()=>{copyToClipboard();openMailTo();}} data-toggle="tooltip" data-placement="top" title="Copy to Clipboard and Open Email"><GrMail size={24} color="grey"/></button></li>
+                <li className="ms-3 ms-md-auto">
+                  {/* eslint-disable jsx-a11y/anchor-is-valid */}
+                  <a id="my-anchor-element1">                   
+                  <Link to="https://www.linkedin.com/in/akshay-j-kamath" target="_blank" rel="noopener noreferrer"><FaLinkedin size={24} color="grey"/></Link>                   
+                  </a>
+                {/* eslint-enable jsx-a11y/anchor-is-valid */}
+                  <Tooltip anchorSelect="#my-anchor-element1" content="Linkedin"/>
+                </li>
+                <li className="ms-3"> 
+                {/* eslint-disable jsx-a11y/anchor-is-valid */} 
+                  <a id="my-anchor-element2">                    
+                  <Link to="https://github.com/architectajk" target="_blank" rel="noopener noreferrer"><FaGithub size={24} color="grey"/></Link> 
+                  </a>
+                  {/* eslint-enable jsx-a11y/anchor-is-valid */}
+                  <Tooltip anchorSelect="#my-anchor-element2" content="Github"/>
+                </li>
+                <li className="ms-1">
+                  {/* eslint-disable jsx-a11y/anchor-is-valid */}          
+                  <a id="my-anchor-element3">                     
+                    <button className="btn" onClick={()=>{copyToClipboard();openMailTo();}}><GrMail size={24} color="grey"/></button>
+                  </a>
+                  {/* eslint-enable jsx-a11y/anchor-is-valid */}
+                  <Tooltip anchorSelect="#my-anchor-element3" content="Copy Email"/>
+                </li>
               </ul>
             </div>
           </div>

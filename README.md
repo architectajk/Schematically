@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-# Schematically
-=======
-<p align="center">
-  <img width=100% alt="Logo_blackbg" src="https://github.com/architectajk/Schematically/assets/144530806/90379b9b-b3a8-4073-9fa1-2505fc79b34f">
-</p>
->>>>>>> origin/main
-
 # Schematically
 
 Schematically is a free-to-use platform intended for architects, students and vendors to streamline and enhance their design processes, crafted with intuitive tools and resources.

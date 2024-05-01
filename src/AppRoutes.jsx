@@ -5,14 +5,15 @@ import Home from './pages/Home';
 import Assets from './pages/Assets';
 import About from './pages/About/About';
 import Donate from './pages/Donate';
-import NBC from './pages/Resources/NBC';
+import NBC from './pages/Resources/NBC/NBC';
 import SanReq from './pages/Tools/SanReq/SanReq';
 import FireLifeSafety from './pages/Tools/FireLifeSafety/FireLifeSafety';
 import NaturalLightVentCalc from './pages/Tools/NaturalLightVentCalc/NaturalLightVentCalc';
 import ElevatorPlanner from './pages/Tools/ElevatorPlanner/ElevatorPlanner';
+import ParkingNorms from './pages/Tools/ParkingNorms/ParkingNorms';
 import MetalCalc from './pages/Tools/MetalCalc/MetalCalc';
 import ScaleCalc from './pages/Tools/ScaleCalc/ScaleCalc';
-import Sample from './pages/Resources/Sample';
+import StateByelaws from './pages/Resources/StateByelaws/StateByelaws';
 
 const Tools = lazy(()=> wait(1000).then(()=>import("./pages/Tools/Tools")));
 const Resources = lazy(()=>wait(1000).then(()=>import("./pages/Resources/Resources")));
@@ -36,6 +37,7 @@ const SuspenseWithSpinners = ({ children }) => (
         <Route path="MetalCalc" element={<MetalCalc />} />
         <Route path="ScaleCalc" element={<ScaleCalc />} />
         <Route path="FireLifeSafety" element={<FireLifeSafety />} />
+        <Route path="ParkingNorms" element={<ParkingNorms/>} />
     </Routes>
   );
   
@@ -43,7 +45,7 @@ const SuspenseWithSpinners = ({ children }) => (
     <Routes>
       <Route path="/" element={<SuspenseWithSpinners><Resources /></SuspenseWithSpinners>} />
       <Route path="NBC" element={<NBC />} />
-      <Route path="Sample" element={<Sample/>} />
+      <Route path="StateByelaws" element={<StateByelaws/>} />
     </Routes>
   );
   

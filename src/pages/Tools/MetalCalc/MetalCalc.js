@@ -35,8 +35,11 @@ const AluminiumType=[
   {value:'11',label:'Aluminum 7075 (2800 kg/m³)',density:2800},
 ];
 const Shape=[
-  {value:'1',label:'Pipe'},
+  {value:'1',label:'Pipe (CHS)'},
   {value:'2',label:'Sheet'},
+  {value:'3',label:'Sqaure Profile (SHS)'},
+  {value:'4',label:'Rectangle Profile (RHS)'},
+  {vlaue:'5',label:'Round'},
 ];
 
 const MetalCalc = () => {
@@ -80,7 +83,7 @@ const MetalCalc = () => {
       let weight = length * width * thickness* getDensity();
       return weight.toFixed(2);
     };
-
+    
     const selectedAlloyType=()=>{
       switch(mType){
         case "1":
