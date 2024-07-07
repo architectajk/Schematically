@@ -10,7 +10,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isTransparent = window.scrollY <= 50;
+      const isTransparent = window.scrollY <= 10;
       setNavbarTransparent(isTransparent);
     };
 
@@ -25,7 +25,7 @@ export default function Navbar() {
     <>
     <nav className={`navbar sticky-top navbar-expand-lg navbar-${mode} ${navbarTransparent ? 'navbar-transparent' : ''}${mode === 'dark' ? 'bg-dark' : 'bg-light'}`}>
     <div className="container-fluid container-xl flex-wrap flex-lg-nowrap">
-      <NavLink className="navbar-brand" to="/"><img className="img-fluid" src={mode==='dark' ? "../images/logo 1.png":"../images/logo 2.png"} alt="Logo" width="248" /></NavLink>
+      <NavLink className="navbar-brand" to="/"><img className="img-fluid" src={mode==='dark' ? "/images/logo 1.png":"/images/logo 2.png"} alt="Logo" width="248" /></NavLink>
       <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>

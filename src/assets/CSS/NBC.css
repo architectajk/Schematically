@@ -2,88 +2,88 @@
     border-style: none; 
 }
 #P1,#P2,#P3,#P4,#P5,#P6,#P7,#P8,#P9,#P10,#P11,#P12{
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
 }
 #P1:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#d5763c ;
     background-color: #f3cdab;
     color: black;
 }
 #P2:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#337673 ;
     background-color: #a2c8c8;
     color: black;
 }
 #P3:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#054876 ;
     background-color: #5ca0be;
     color: black;
 }
 #P4:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#c21c38 ;
     background-color: #e6839a;
     color: black;
 }
 #P5:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#e6af32 ;
     background-color: #f3d694;
     color: black;
 }
 #P6:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#7f686a ;
     background-color: #dad3d4;
     color: black;
 }
 #P7:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#7b553a ;
     background-color: #b59f90;
     color: black;
 }
 #P8:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#ca2669 ;
     background-color: #edb8cf;
     color: black;
 }
 #P9:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#337996 ;
     background-color: #9dc7d6;
     color: black;
 }
 #P10:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#447e3c ;
     background-color: #9dbb99;
     color: black;
 }
 #P11:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#9ea353 ;
     background-color: #d2d89e;
     color: black;
 }
 #P12:hover{
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: 0.25s;
     border-color:#482c54 ;
     background-color: #bba8c2;
     color: black;

@@ -119,7 +119,7 @@ export default function NBC() {
        <div className="col-sm-3 mb-3 mb-sm-0">
          <div id="P1" className={`card text-center card-${mode} h-100`}>
            <div className="card-body">
-             <img src={P1} className='img-fluid' width={80} alt="" />
+             <img src={P1} className='img-fluid' width={100} alt="" />
              <h5 className="card-title">Part 1</h5>
              <p className="card-text">Definition</p>
            </div>

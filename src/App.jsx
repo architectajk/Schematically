@@ -6,13 +6,15 @@ import Breadcrumb from './components/Breadcrumb';
 import Alert from './components/Alert';
 import Footer from './components/Footer';
 import AppRoutes from './AppRoutes';
+import { MathJaxContext } from 'better-react-mathjax';
 import './App.css'
 
 function App() {
 
   return (
   <>
-  <SchematicContextProvider> 
+  <SchematicContextProvider>
+  <MathJaxContext> 
    <BrowserRouter>
     <Navbar/>
     <Alert/>
@@ -22,6 +24,7 @@ function App() {
     </div>
     <Footer/>
     </BrowserRouter>
+    </MathJaxContext>
     </SchematicContextProvider> 
   </>
   );

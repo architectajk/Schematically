@@ -29,7 +29,7 @@ export default function Footer() {
           <div className='row d-flex justify-content-between'>
             <div className="col-md-3 me-md-auto">
               <NavLink className="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" to="/">
-                <img className="me-2" src={mode==='dark' ? "../images/logo 1.png":"../images/logo 2.png"} alt="Logo" width="248" />
+                <img className="me-2" src={mode==='dark' ? "/images/logo 1.png":"/images/logo 2.png"} alt="Logo" width="248" />
               </NavLink>
               <ul className={`list-unstyled small text-bg-${mode}`}>
                 <li className="mb-2">Designed and Built with <Link className={linkColor} to="https://react.dev/" target="_blank" rel="noopener noreferrer">React</Link> and <Link className={linkColor} to="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</Link></li>
