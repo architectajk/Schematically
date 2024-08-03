@@ -91,6 +91,7 @@ const NaturalLightVentCalc = () => {
   }
 
   return (
+ <div className='container'>
   <div className='row gx-4 gb-4' data-bs-theme={mode}>
     <h1 className={`${textColorClass} d-flex mb-4`}>Natural Light and Ventilation Calculation</h1>
       <div className={`col-lg-6 col-sm-auto`}>
@@ -204,6 +205,7 @@ const NaturalLightVentCalc = () => {
         </table>
       </div>
     </div>
+  </div>
   </div>
   )
 }

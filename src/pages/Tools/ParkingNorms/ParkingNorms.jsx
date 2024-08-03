@@ -173,37 +173,35 @@ const ParkingNorms = () => {
   }
 
   return (
-    <>
-    <div>
-    <div className='row' data-bs-theme={mode}>
-    <div className="col-lg-6">
-    <h1 className={`${textColorClass}`}>Parking Norms</h1>
-      <div className="input-group mt-4 mb-2">
-      <label className="input-group-text" htmlFor="inputGroupSelect01">Model / State Byelaw</label>
-      <select className="form-select" id="inputGroupSelect01" value={modelStateByelaw} onChange={(e)=>setModelStateByelaw(e.target.value)}>
-        {ModelStateByelaw.map((option)=>(
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-        ))}
-      </select>
+    <div className=' container mb-4'>
+      <div className='row' data-bs-theme={mode}>
+      <div className="col-lg-6">
+      <h1 className={`${textColorClass}`}>Parking Norms</h1>
+        <div className="input-group mt-4 mb-2">
+        <label className="input-group-text" htmlFor="inputGroupSelect01">Model / State Byelaw</label>
+        <select className="form-select" id="inputGroupSelect01" value={modelStateByelaw} onChange={(e)=>setModelStateByelaw(e.target.value)}>
+          {ModelStateByelaw.map((option)=>(
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+          ))}
+        </select>
+        </div>
+        <>{selectedByelaw()}</>
       </div>
-      <>{selectedByelaw()}</>
+      <div className="col-lg-6 my-4 ">
+        <p className={textColorClass}>
+          Parking space shall be provided for different types of development as per norms given
+          in Master Plan/Development Plan.</p>
+        <p className={textColorClass}>
+          The following may be referred to for deciding the parking norms for
+          different use zone/activities only minimum required value of ECS and NOT a range
+          should be specified in the development plan. It can be changed in subsequent plan
+          depending upon need based upon local vehicle ownership, mass transportation and
+          consequent parking needs.</p>
+      </div>
+      </div>
     </div>
-    <div className="col-lg-6 my-4 ">
-      <p className={textColorClass}>
-        Parking space shall be provided for different types of development as per norms given
-        in Master Plan/Development Plan.</p>
-      <p className={textColorClass}>
-        The following may be referred to for deciding the parking norms for
-        different use zone/activities only minimum required value of ECS and NOT a range
-        should be specified in the development plan. It can be changed in subsequent plan
-        depending upon need based upon local vehicle ownership, mass transportation and
-        consequent parking needs.</p>
-    </div>
-    </div>
-    </div>
-    </>
   )
 
 }

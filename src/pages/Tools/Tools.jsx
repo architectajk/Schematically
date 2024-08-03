@@ -7,7 +7,7 @@ export default function Tools() {
   const {mode} = useContext(SchematicContext);
 
   return (
-    <>
+    <div className='container'>
      <div className="row mb-4" data-bs-theme={mode}>
        <div className="col-sm-4 mb-3 mb-sm-0">
          <div className={`card card-${mode} h-100`}>
@@ -92,6 +92,6 @@ export default function Tools() {
          </div>
      </div>
 
-  </>
+  </div>
   )
 }

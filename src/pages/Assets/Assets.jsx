@@ -7,6 +7,7 @@ export default function Assets() {
   const {mode} = useContext(SchematicContext);
   //const textColorClass = `text-${mode === 'dark' ? 'light' : 'dark'}`;
   return (
+    <div className="container">
     <div className='row g-4 g-xl-10 my-3 mb-xl-10' data-bs-theme={mode}>
       <div className='col-lg-8'>
       <Link to="/assets/BuildingProducts">
@@ -59,6 +60,7 @@ export default function Assets() {
         </div>
       </Link>
       </div>
+    </div>
     </div>
   )
 }

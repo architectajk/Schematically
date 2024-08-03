@@ -13,7 +13,7 @@ export default function Donate() {
   const listGroup='list-group-item border border-0 bg-transparent';
 
   return (
-    <div>
+    <div className='container'>
       <h1 className={`${textColorClass} d-flex justify-content-center`}>Donate</h1>
       <p className={`${textColorClass} fs-5 d-flex justify-content-center mb-5`}>Support us with a donation and get your company name advertised:</p>
         <div className="row mb-3 align-items-center" data-bs-theme={mode}>

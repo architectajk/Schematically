@@ -13,7 +13,7 @@ const StateByelaws = () => {
      setSelectedState(stateName);
    };
   return (
-  <>
+  <div className='container'>
     <h1 className={textColorClass}>State-wise Building Regulations</h1>
     <div className="row">
       <div className="col-md-6">
@@ -65,7 +65,7 @@ const StateByelaws = () => {
         }
       </div>
     </div>
-  </>
+  </div>
   )
 }
 

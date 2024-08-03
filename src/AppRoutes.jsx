@@ -5,7 +5,22 @@ import Home from './pages/Home';
 import Assets from './pages/Assets/Assets';
 import About from './pages/About/About';
 import Donate from './pages/Donate';
+
 import NBC from './pages/Resources/NBC/NBC';
+import NbcPart0 from './pages/Resources/NBC/NbcPart0';
+import NbcPart1 from './pages/Resources/NBC/NbcPart1';
+import NbcPart2 from './pages/Resources/NBC/NbcPart2';
+import NbcPart3 from './pages/Resources/NBC/NbcPart3';
+import NbcPart4 from './pages/Resources/NBC/NbcPart4';
+import NbcPart5 from './pages/Resources/NBC/NbcPart5';
+import NbcPart6 from './pages/Resources/NBC/NbcPart6';
+import NbcPart7 from './pages/Resources/NBC/NbcPart7';
+import NbcPart8 from './pages/Resources/NBC/NbcPart8';
+import NbcPart9 from './pages/Resources/NBC/NbcPart9';
+import NbcPart10 from './pages/Resources/NBC/NbcPart10';
+import NbcPart11 from './pages/Resources/NBC/NbcPart11';
+import NbcPart12 from './pages/Resources/NBC/NbcPart12';
+
 import SanReq from './pages/Tools/SanReq/SanReq';
 import FireLifeSafety from './pages/Tools/FireLifeSafety/FireLifeSafety';
 import NaturalLightVentCalc from './pages/Tools/NaturalLightVentCalc/NaturalLightVentCalc';
@@ -49,6 +64,19 @@ const SuspenseWithSpinners = ({ children }) => (
     <Routes>
       <Route path="/" element={<SuspenseWithSpinners><Resources /></SuspenseWithSpinners>} />
       <Route path="NBC" element={<NBC />} />
+      <Route path="NBC/NBCPart0" element={<NbcPart0 />} />
+      <Route path="NBC/NBCPart1" element={<NbcPart1 />} />
+      <Route path="NBC/NBCPart2" element={<NbcPart2 />} />
+      <Route path="NBC/NBCPart3" element={<NbcPart3 />} />
+      <Route path="NBC/NBCPart4" element={<NbcPart4 />} />
+      <Route path="NBC/NBCPart5" element={<NbcPart5 />} />
+      <Route path="NBC/NBCPart6" element={<NbcPart6 />} />
+      <Route path="NBC/NBCPart7" element={<NbcPart7 />} />
+      <Route path="NBC/NBCPart8" element={<NbcPart8 />} />
+      <Route path="NBC/NBCPart9" element={<NbcPart9 />} />
+      <Route path="NBC/NBCPart10" element={<NbcPart10 />} />
+      <Route path="NBC/NBCPart11" element={<NbcPart11 />} />
+      <Route path="NBC/NBCPart12" element={<NbcPart12 />} />
       <Route path="StateByelaws" element={<StateByelaws/>} />
     </Routes>
   );

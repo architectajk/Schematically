@@ -15,33 +15,39 @@ import image2 from '../assets/ricardo-gomez-angel-jIh1QFf1naY-unsplash.jpg'
 export default function Home() {
   const {mode} = useContext(SchematicContext);
   return (
-    <>
-    <div className={`row gx-4 p-3 bg-${mode} rounded-5`}>
-      <div className="col-lg-6 col-sm-auto my-4">
-        <h1 id='Title' className={`lh-sm text-${mode==='light'?'dark':'light'} mb-3`}>Revolutionize Your Design Process</h1>
-        <p className={`d-inline fs-5 text-${mode==='light'?'dark':'light'}`}>Schematically offers a free-to-use platform intended for architects, students and vendors to streamline and enhance their design processes, crafted with intuitive tools and resources.</p>
-        <div className='my-3'>
-          <Link style={{width : '180px'}} to="/tools" className="btn btn-primary">Start with Tools</Link>
-        </div>
-        <div className='my-3'>
-          <Link style={{width : '180px'}} to="/resources" className="btn btn-primary">Start with Resources</Link>
-        </div>
-        <div className='my-3'>
-          <Link style={{width : '180px'}} to="/assets" className="btn btn-primary">Start with Assets</Link>
-        </div>
-       </div>
-       <div className="col-lg-6 col-sm-auto my-4 d-flex justify-content-center">
-          <img className="img-fluid" src={image1} alt="" width={450}/>
-       </div>
+    <div className='overflow-x-hidden'>
+      <div className={`bg-${mode}`}>
+        <div className='container py-2 py-md-1'>
+          <div className='row'>
+          <div className='my-lg-4' ></div>
+            <div className="col-lg-6 col-sm-auto my-4">
+              <h1 id='Title' className={`lh-sm text-${mode==='light'?'dark':'light'} mb-4`}>Revolutionize Your Design Process</h1>
+              <p className={`d-inline fs-5 text-${mode==='light'?'dark':'light'}`}>Schematically offers a free-to-use platform intended for architects, students and vendors to streamline and enhance their design processes, crafted with intuitive tools and resources.</p>
+              <div className='my-3'>
+                <Link style={{width : '180px'}} to="/tools" className="btn btn-primary">Start with Tools</Link>
+              </div>
+              <div className='my-3'>
+                <Link style={{width : '180px'}} to="/resources" className="btn btn-primary">Start with Resources</Link>
+              </div>
+              <div className='my-3'>
+                <Link style={{width : '180px'}} to="/assets" className="btn btn-primary">Start with Assets</Link>
+              </div>
+            </div>
+            <div className="col-lg-6 col-sm-auto my-4 d-flex justify-content-center">
+              <img className="img-fluid" src={image1} alt="" width={450}/>
+            </div>
+            <div className='my-5' ></div>
+          </div>
+      </div>
     </div>
-    <div className='my-5'></div>
-    <div className={`row gx-4 p-3 bg-${mode} rounded-5`}>
+    <div className='my-4 py-4'></div>
+    <div className={`row g-4 p-3`}>
         <div className='mb-3'>
           <h1 id='Title' className={`text-center lh-sm text-${mode==='light'?'dark':'light'}`}>How Schematically Simplifies Design</h1>
         </div>
         <p className={`text-center fs-5 text-${mode==='light'?'dark':'light'} text-break`}>Our platform simplifies complex concepts and enhances your workflow. Here's how Schematically can improve your design process:</p>
-        <div className="row my-3 d-flex justify-content-center" data-bs-theme={mode}>
-          <div className="col-md-3 mb-3 mb-sm-0">
+        <div className="row g-3 d-flex justify-content-center" data-bs-theme={mode}>
+          <div className="col-md-3 mb-sm-0">
             <div className={`card card-${mode} h-100`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><PiNumberCircleOneFill size={48}/></div>
@@ -50,7 +56,7 @@ export default function Home() {
              </div>
             </div>
           </div>
-          <div className="col-md-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-sm-0">
             <div className={`card card-${mode} h-100`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><PiNumberCircleTwoFill size={48}/></div>
@@ -59,7 +65,7 @@ export default function Home() {
              </div>
             </div>
           </div>
-          <div className="col-md-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-sm-0">
             <div className={`card card-${mode} h-100`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><PiNumberCircleThreeFill size={48}/></div>
@@ -70,31 +76,35 @@ export default function Home() {
           </div>
         </div>
     </div>
-    <div className='my-5'></div>
-    <div className={`row gx-4 p-3 bg-${mode} rounded-5`}>
+    <div className='my-4 py-4'></div>
+    <div className={`bg-${mode}`}>
+    <div className='container'>
+      <div className='row g-4 p-3'>
+      <div className='my-5' ></div>
       <div className="col-lg-6 col-sm-auto my-4 d-flex justify-content-center">
-          <img className="img-fluid" src={image2} width={400} alt="" />
-       </div>
+        <img className="img-fluid" src={image2} width={400} alt="" />
+      </div>
       <div className="col-lg-6 col-sm-auto my-4">
         <div className='mb-3'>
           <h1 className={`d-inline lh-sm text-${mode==='light'?'dark':'light'}`}>Why Choose Schematically?</h1>
         </div>
         <p className={`d-inline fs-5 text-${mode==='light'?'dark':'light'} text-break`}>Schematically is a platform that caters to the diverse needs of architects, students, and vendors. Discover the unparalleled benefits of our architectural design platform:</p>
         <ul className='my-4 list-group fs-5'>
-          <li className={`list-group-item border-0 bg-transparent text-${mode==='light'?'dark':'light'}`}><FaCheckCircle /> Free for everyone to use</li>
-          <li className={`list-group-item border-0 bg-transparent text-${mode==='light'?'dark':'light'}`}><FaCheckCircle /> Collision of ideas from skilled architects and students around the globe</li>
-          <li className={`list-group-item border-0 bg-transparent text-${mode==='light'?'dark':'light'}`}><FaCheckCircle /> Opportunity to support the community using donation links</li>
+          <li className={`list-group-item border-0 bg-transparent px-0 py-2 text-${mode==='light'?'dark':'light'}`}><FaCheckCircle /> Free for everyone to use</li>
+          <li className={`list-group-item border-0 bg-transparent px-0 py-2 text-${mode==='light'?'dark':'light'}`}><FaCheckCircle /> Collision of ideas from skilled architects and students around the globe</li>
+          <li className={`list-group-item border-0 bg-transparent px-0 py-2 text-${mode==='light'?'dark':'light'}`}><FaCheckCircle /> Opportunity to support the community using donation links</li>
         </ul>
+        </div>
+        <div className='my-5' ></div>
        </div>
     </div>
-    <div className='my-5'></div>
-    <div className={`row gx-4 p-3 bg-${mode} rounded-5 mb-4`}>
-        <div className='my-4'>
+    </div>
+    <div className='my-4 py-4'></div>
+    <div className={`row g-4 p-3`}>
           <h1 id='Title' className={`text-center lh-sm text-${mode==='light'?'dark':'light'}`}>Key Features</h1>
           <p className={`text-center fs-5 text-${mode==='light'?'dark':'light'} text-break`}>Explore the unique features integrated into Schematically, designed to fuel your creativity and expedite your design process:</p>
-        </div>
-        <div className="row mb-4 d-flex justify-content-center" data-bs-theme={mode}>
-          <div className="col-md-3 mb-3 mb-sm-0">
+        <div className="row g-3 d-flex justify-content-center" data-bs-theme={mode}>
+          <div className="col-md-3 mb-sm-0">
             <div className={`card card-${mode} h-100 p-3`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><ImCalculator size={48}/></div>
@@ -103,7 +113,7 @@ export default function Home() {
              </div>
             </div>
           </div>
-          <div className="col-md-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-sm-0">
             <div className={`card card-${mode} h-100 p-3`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><IoLibrary size={48}/></div>
@@ -112,7 +122,7 @@ export default function Home() {
              </div>
             </div>
           </div>
-          <div className="col-md-3 mb-3 mb-sm-0">
+          <div className="col-md-3 mb-sm-0">
             <div className={`card card-${mode} h-100 p-3`}>
               <div className="card-body text-center d-flex flex-column">
                 <div className='mb-3'><FaUsersGear size={48}/></div>
@@ -123,6 +133,7 @@ export default function Home() {
           </div>
         </div>
     </div>
-    </>
+    <div className='my-4 py-4'></div>
+    </div>
   )
 }

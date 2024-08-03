@@ -5,22 +5,30 @@ import { SchematicContext } from '../../../context/Schematic/SchematicContextPro
 const BuildingProducts = () => {
   const {mode} = useContext(SchematicContext);
   return (
-    <>
-    <div className="row g-4" data-bs-theme={mode}>
-      <div className="col-md-3">
+    <div className='container'>
+    <div className="row g-4 mb-4" data-bs-theme={mode}>
+      <div className="col-sm-3">
         <NavLink to="/assets/BuildingProducts/Nuvocotto"><img src="/Assests/Nuvocotto/NuvocottoImages/nuvocotto-productcatalog-image.png" className="img-fluid" alt="" /></NavLink>
       </div>
-      <div className="col-md-3">
+      <div className="col-sm-3">
         <NavLink to="/assets/BuildingProducts/Nuvocotto"><img src="/Assests/Danpal/DanpalImages/Danpal_productcatalogimage.png" className="img-fluid" alt="" /></NavLink>
       </div>
-      <div className="col-md-3">
+      <div className="col-sm-3">
         <NavLink to="/assets/BuildingProducts/Nuvocotto"><img src="/Assests/Tostem/TostemImages/Tostem_productcatalogimage.png" className="img-fluid" alt="" /></NavLink>
       </div>
-      <div className="col-md-3">
+      <div className="col-sm-3">
       <NavLink to="/assets/BuildingProducts/Nuvocotto"><img src="/Assests/Coolant/CoolantImages/Coolant_productcatalogimage.png" className="img-fluid" alt="" /></NavLink>
       </div>
-    </div> 
-    </>
+    </div>
+    <div className="row g-4" data-bs-theme={mode}>
+      <div className="col-sm-3">
+        <NavLink to="/assets/BuildingProducts/Nuvocotto"><img src="/Assests/Jaquar/Jaquar_productcatalogimage.png" className="img-fluid" alt="" /></NavLink>
+      </div>
+      <div className="col-sm-3">
+        <NavLink to="/assets/BuildingProducts/Nuvocotto"><img src="/Assests/Artize/Artize_productcatalogimage.png" className="img-fluid" alt="" /></NavLink>
+      </div>
+    </div>  
+    </div>
   )
 }
 

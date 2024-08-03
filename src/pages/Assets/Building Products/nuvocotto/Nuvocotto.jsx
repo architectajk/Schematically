@@ -15,8 +15,8 @@ const Nuvocotto = () => {
   const textColorClass = `text-${mode === 'dark' ? 'light' : 'dark'}`;
 
   return (
-    <>
-    <div className="row gx-1 mb-4" data-bs-theme={mode}>
+    <div className='container'>
+    <div className="row g-1 mb-4" data-bs-theme={mode}>
       <div className='col'><img height={420} className="d-block w-100 object-fit-cover" src="/Assests/Nuvocotto/NuvocottoImages/img01.jpg" alt="" /></div>
       <div className='col'>
         <div className='row gy-1'>
@@ -80,7 +80,6 @@ const Nuvocotto = () => {
               <li className='my-1'>Dry Panel Systems</li>
               <li className='my-1'>Accessories</li>
             </ul>
-          <li className='my-3'>GALLERY</li>
       </ul>
       </div>
       <div className={`col-lg-8 col-sm-auto`}>
@@ -205,7 +204,7 @@ const Nuvocotto = () => {
         </model-viewer>
       </div>
     </div>
-    </>
+    </div>
   )
 }
 

@@ -18,10 +18,8 @@ function App() {
    <BrowserRouter>
     <Navbar/>
     <Alert/>
-    <div className="container mb-4">
       <Breadcrumb/>
       <AppRoutes/>
-    </div>
     <Footer/>
     </BrowserRouter>
     </MathJaxContext>

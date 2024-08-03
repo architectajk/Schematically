@@ -1,8 +1,15 @@
 .btn{
     border-style: none; 
 }
-#P1,#P2,#P3,#P4,#P5,#P6,#P7,#P8,#P9,#P10,#P11,#P12{
+#P0,#P1,#P2,#P3,#P4,#P5,#P6,#P7,#P8,#P9,#P10,#P11,#P12{
     transition-duration: 0.25s;
+}
+#P0:hover{
+    cursor: pointer;
+    transition-duration: 0.25s;
+    border-color:#b4b4b4 ;
+    background-color: #acacac;
+    color: black;
 }
 #P1:hover{
     cursor: pointer;
