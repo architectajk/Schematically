@@ -13,7 +13,6 @@ const NbcPart1 = () => {
     <div className='container mb-4'>
       <h1 className={`${textColorClass} d-inline-flex pt-3`}>National Building Code of India (2016)</h1>
         <h2 className={`${textColorClass} mb-4`}>Part 1 - Definition</h2> 
-        <div className='row'>
           <div className=' col-md-6'>
         <h3 className={`${textColorClass} mb-4`}>Key Content</h3>
         <p className={`${textColorClass} mb-4`}>There are approximately 1,776 terms defined in NBC 2016. Each Part or Section of the NBC
@@ -28,7 +27,7 @@ const NbcPart1 = () => {
         various Parts/Sections are:
         </p>
         </div>
-        </div>
+
         <nav aria-label="Page navigation" data-bs-theme={mode}>
         <ul class="pagination justify-content-center">
           <li class="page-item"><Link class="page-link" to='/resources/NBC/NBCPart0'>Previous</Link></li>

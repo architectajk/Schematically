@@ -26,6 +26,7 @@ import FireLifeSafety from './pages/Tools/FireLifeSafety/FireLifeSafety';
 import NaturalLightVentCalc from './pages/Tools/NaturalLightVentCalc/NaturalLightVentCalc';
 import ElevatorPlanner from './pages/Tools/ElevatorPlanner/ElevatorPlanner';
 import ParkingNorms from './pages/Tools/ParkingNorms/ParkingNorms';
+import AreaStatement from './pages/Tools/AreaStatement/AreaStatement';
 import MetalCalc from './pages/Tools/MetalCalc/MetalCalc';
 import ScaleCalc from './pages/Tools/ScaleCalc/ScaleCalc';
 import StateByelaws from './pages/Resources/StateByelaws/StateByelaws';
@@ -57,6 +58,7 @@ const SuspenseWithSpinners = ({ children }) => (
         <Route path="ScaleCalc" element={<ScaleCalc />} />
         <Route path="FireLifeSafety" element={<FireLifeSafety />} />
         <Route path="ParkingNorms" element={<ParkingNorms/>} />
+        <Route path="AreaStatement" element={<AreaStatement/>}/>
     </Routes>
   );
   
