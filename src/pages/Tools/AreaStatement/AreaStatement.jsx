@@ -1,9 +1,8 @@
-import React,{useContext, useState} from 'react'
+import React,{useContext} from 'react'
 import { SchematicContext } from '../../../context/Schematic/SchematicContextProvider'
 
 const AreaStatement = () => {
     const {mode} = useContext(SchematicContext);
-    const textColorClass = `text-${mode === 'dark' ? 'light' : 'dark'}`;
 
   return (
     <div className='container'>
