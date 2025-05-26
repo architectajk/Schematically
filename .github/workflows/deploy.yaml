@@ -38,6 +38,8 @@ jobs:
            **/node_modules/**
            Assests/
            Assests/Coolant/
+        # ✅ Prevents deletion of files/folders not present locally
+        dangerous-clean-slate: false
 
 # You need to set the following secrets in your GitHub repository:
 # - HOSTINGER_SERVER: Your Hostinger server address (e.g., www.yourdomain.com)
