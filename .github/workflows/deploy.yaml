@@ -36,7 +36,8 @@ jobs:
            **/.git*
            **/.git*/**
            **/node_modules/**
-           Assests/**
+           Assests/
+           Assests/Coolant/
 
 # You need to set the following secrets in your GitHub repository:
 # - HOSTINGER_SERVER: Your Hostinger server address (e.g., www.yourdomain.com)
