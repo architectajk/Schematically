@@ -5,8 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { SchematicContext } from '../context/Schematic/SchematicContextProvider';
 import { Tooltip } from 'react-tooltip';
-import PrivacyPolicy from '../pages/About/PrivacyPolicy';
-//<button className="btn" onClick={()=>{copyToClipboard();openMailTo();}}><GrMail size={24} color="grey"/></button>
+
 const copyToClipboard = () => {
   const emailToCopy = 'architect.ajk@gmail.com';
   const tempInput = document.createElement('input');
