@@ -17,21 +17,21 @@ const Nuvocotto = () => {
   return (
     <div className='container'>
     <div className="row g-1 mb-4" data-bs-theme={mode}>
-      <div className='col'><img height={420} className="d-block w-100 object-fit-cover" src="/Assests/Nuvocotto/NuvocottoImages/img01.jpg" alt="" /></div>
+      <div className='col'><img height={420} className="d-block w-100 object-fit-cover" src="/Products/Nuvocotto/NuvocottoImages/img01.jpg" alt="" /></div>
       <div className='col'>
         <div className='row gy-1'>
-        <img height={208} className="d-block w-100 object-fit-cover" src="/Assests/Nuvocotto/NuvocottoImages/img02.jpg" alt="" />
-        <img height={208} className="d-block w-100 object-fit-cover" src="/Assests/Nuvocotto/NuvocottoImages/img05.jpg" alt="" />
+        <img height={208} className="d-block w-100 object-fit-cover" src="/Products/Nuvocotto/NuvocottoImages/img02.jpg" alt="" />
+        <img height={208} className="d-block w-100 object-fit-cover" src="/Products/Nuvocotto/NuvocottoImages/img05.jpg" alt="" />
         </div>
       </div>
-      <div className='col'><img className="d-block w-100 object-fit-cover" height={420} src="/Assests/Nuvocotto/NuvocottoImages/img03.jpg" alt="" /></div>
-      <div className='col'><img className="d-block w-100 object-fit-cover" height={420} src="/Assests/Nuvocotto/NuvocottoImages/img04.jpg" alt="" /></div>
+      <div className='col'><img className="d-block w-100 object-fit-cover" height={420} src="/Products/Nuvocotto/NuvocottoImages/img03.jpg" alt="" /></div>
+      <div className='col'><img className="d-block w-100 object-fit-cover" height={420} src="/Products/Nuvocotto/NuvocottoImages/img04.jpg" alt="" /></div>
     </div>
     <div className='row g-4' data-bs-theme={mode}>
       <div className={`h-50 col-lg-3 bg-${mode}`}>
         <div className='d-flex-column m-3 p-1 justify-content-center'>
           <Link className={linkColor} to="https://nuvocotto.com/" target="_blank" rel="noopener noreferrer">
-            <img className="pb-3 img-fluid" src={mode==='dark'?'/Assests/Nuvocotto/NuvocottoImages/nuvocotto-logo-white.png':'/Assests/Nuvocotto/NuvocottoImages/nuvocotto-logo.png'} alt="" />
+            <img className="pb-3 img-fluid" src={mode==='dark'?'/Products/Nuvocotto/NuvocottoImages/nuvocotto-logo-white.png':'/Products/Nuvocotto/NuvocottoImages/nuvocotto-logo.png'} alt="" />
           </Link>
        </div>
        <ul className={`d-flex flex-column list-unstyled small text-bg-${mode} justify-content-start mx-3`}>
@@ -128,76 +128,76 @@ const Nuvocotto = () => {
         <h5 className={textColorClass}>Roof Tiles</h5>
          <div className='row mb-4'>
             <div className='col-sm-3 mb-3 mb-sm-0'>
-              <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/Euro-Chocolate-400-x-400-1.jpg"  alt="" />
+              <img width={200} src="/Products/Nuvocotto/NuvocottoImages/Euro-Chocolate-400-x-400-1.jpg"  alt="" />
             </div>
             <div className='col-sm-3 mb-3 mb-sm-0'>
-              <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/Euro-Dark-Grey-400-x-400-1.jpg" alt="" />
+              <img width={200} src="/Products/Nuvocotto/NuvocottoImages/Euro-Dark-Grey-400-x-400-1.jpg" alt="" />
             </div>
             <div className='col-sm-3 mb-3 mb-sm-0'>
-              <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/Euro-Natural-Red-400-x-400-1.jpg" alt="" />
+              <img width={200} src="/Products/Nuvocotto/NuvocottoImages/Euro-Natural-Red-400-x-400-1.jpg" alt="" />
             </div>
             <div className='col-sm-3 mb-3 mb-sm-0'>
-              <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/ficus-roof-tiles.jpg" alt="" />
+              <img width={200} src="/Products/Nuvocotto/NuvocottoImages/ficus-roof-tiles.jpg" alt="" />
             </div>
          </div> 
         <h5 className={textColorClass}>Floor Tiles</h5>
         <div className='row mb-4'>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/nuvocotto-floor-tiles-cho.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-floor-tiles-cho.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/nuvocotto-floor-tiles-cup.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-floor-tiles-cup.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/nuvocotto-floor-tiles-nr.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-floor-tiles-nr.jpg"  alt="" />
           </div>
         </div>
         <h5 className={textColorClass}>Wall Tiles</h5>
         <div className='row mb-4'>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/nuvocotto-wall-tiles-cap.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-wall-tiles-cap.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/nuvocotto-wall-tiles-cho.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-wall-tiles-cho.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/nuvocotto-wall-tiles-nr.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-wall-tiles-nr.jpg"  alt="" />
           </div>
         </div>
         <h5 className={textColorClass}>Bricks / Jaali</h5>
         <div className='row mb-4'>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/amber-jaali-1.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/amber-jaali-1.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/camp-jallie.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/camp-jallie.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/edan-jaali-1.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/edan-jaali-1.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/five-hole-jaali.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/five-hole-jaali.jpg"  alt="" />
           </div>
         </div>
         <div className='row mb-4'>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/quadra-jaali-1.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/quadra-jaali-1.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/Star-jaali.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/Star-jaali.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/tv-jaali.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/tv-jaali.jpg"  alt="" />
           </div>
           <div className='col-sm-3 mb-3 mb-sm-0'>
-            <img width={200} src="/Assests/Nuvocotto/NuvocottoImages/wings-jaali-1.jpg"  alt="" />
+            <img width={200} src="/Products/Nuvocotto/NuvocottoImages/wings-jaali-1.jpg"  alt="" />
           </div>
         </div>
         <h5 className={textColorClass}>Dry Panel System</h5>
         <h5 className={textColorClass}>Accessories</h5>
         <hr className={`${textColorClass} mt-5`} />
         <h5 className={textColorClass}>Gallery</h5>
-        <model-viewer slot="canvas" style={{ width: '700px', height: '500px',background: '#eeeeee'}} camera-orbit="45deg 55deg 4m" src="/Assests/Nuvocotto/Amber-Jaali.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
+        <model-viewer slot="canvas" style={{ width: '700px', height: '500px',background: '#eeeeee'}} camera-orbit="45deg 55deg 4m" src="/Products/Nuvocotto/Amber-Jaali.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
         <div className="progress-bar hide" slot="progress-bar">
         <div className="update-bar"></div>
         </div>
