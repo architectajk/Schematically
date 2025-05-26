@@ -1,26 +1,4 @@
 [
-    {
-        "Designation": "Light Weight Beams",
-        "Mass": "",
-        "Area": "",
-        "D": "",
-        "B": "",
-        "t": "",
-        "T": "",
-        "Flange Slope": "",
-        "R1": "",
-        "R2": "",
-        "Izz": "",
-        "Iyy": "",
-        "rz": "",
-        "ry": "",
-        "Zzz": "",
-        "Zyy": "",
-        "Zpz": "",
-        "Zpy": "",
-        "It": "",
-        "Iw": ""
-    },
       {
         "Designation": "LB 75",
         "Mass": "6.05",

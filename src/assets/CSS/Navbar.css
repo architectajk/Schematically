@@ -36,4 +36,13 @@
     transition-delay: 200ms;
     transform: scale(1) rotate(360deg);
   }
-  
+/* Enable dropdown on hover */
+.hover-dropdown:hover > .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* Optional: smooth appearance */
+.hover-dropdown .dropdown-menu {
+  transition: all 0.2s ease-in-out;
+}

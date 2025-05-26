@@ -1,27 +1,5 @@
 [
 {
-  "Designation": "Junior Beams",
-  "Mass": "kg/m",
-  "Area": "x102 mm2",
-  "D": "mm",
-  "B": "mm",
-  "t": "mm",
-  "T": "mm",
-  "Flange Slope": "degrees",
-  "R1": "mm",
-  "R2": "mm",
-  "Izz": "x104 mm4",
-  "Iyy": "x104 mm4",
-  "rz": "mm",
-  "ry": "mm",
-  "Zzz": "x103 mm3",
-  "Zyy": "x103 mm3",
-  "Zpz": "x103 mm3",
-  "Zpy": "x103 mm3",
-  "It": "x104 mm4",
-  "Iw": "x104 mm6"
-},
-{
   "Designation": "JB 150",
   "Mass": "7.07",
   "Area": "9.00",

@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { SchematicContext } from '../context/Schematic/SchematicContextProvider';
 import { Tooltip } from 'react-tooltip';
+import PrivacyPolicy from '../pages/About/PrivacyPolicy';
 //<button className="btn" onClick={()=>{copyToClipboard();openMailTo();}}><GrMail size={24} color="grey"/></button>
 const copyToClipboard = () => {
   const emailToCopy = 'architect.ajk@gmail.com';
@@ -34,6 +35,14 @@ export default function Footer() {
               <ul className={`list-unstyled small text-bg-${mode}`}>
                 <li className="mb-2">Designed and Built with <Link className={linkColor} to="https://react.dev/" target="_blank" rel="noopener noreferrer">React</Link> and <Link className={linkColor} to="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</Link></li>
                 <li className="mb-2">Code Licensed <Link className={linkColor} to="https://github.com/architectajk/Schematically/blob/main/LICENSE.txt" target="_blank" rel="noopener noreferrer">MIT</Link>, All docs under <Link className={linkColor} to="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</Link> unless mentioned</li>
+                <li className='mb-2'>
+                  <div class="hstack gap-3">
+                    <Link className={linkColor} to="/about/PrivacyPolicy">Privacy Policy</Link>
+                    <div className="vr"></div>
+                    <Link className={linkColor} to="/about/PrivacyPolicy">Terms of Use</Link>
+                  </div>
+                </li>
+                  
               </ul>
             </div>
             <div className="col-md-4">

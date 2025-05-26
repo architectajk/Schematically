@@ -1,39 +1,78 @@
-import React,{useContext} from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react';
 import { SchematicContext } from '../../context/Schematic/SchematicContextProvider';
-import '../../assets/CSS/Resources.css'
+import { Link } from 'react-router-dom';
+import Sidebar from '../../components/Accordion'
+import NBC from '../../pages/Resources/NBC/NBC'
+import '../../assets/CSS/Resources.css';
 
 export default function Resources() {
-  const {mode} = useContext(SchematicContext);
+  const { mode } = useContext(SchematicContext);
+  const [activeTab, setActiveTab] = useState('nbc');
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'nbc':
+        return <NBC/>;
+      case 'byelaws':
+        return (
+          <>
+            <h3 className={`text-${mode === 'light' ? 'dark' : 'light'}`}>State-wise Model Byelaws</h3>
+            <p>Explore regional variations in building byelaws across Indian states.</p>
+            <Link to="/resources/StateByelaws" className="btn btn-outline-primary">Read State Byelaws</Link>
+          </>
+        );
+      default:
+        return <p>Select a resource from the sidebar.</p>;
+    }
+  };
+
+  const accordionItems = [
+    {
+      id: 'nbc',
+      title: 'National Building Code',
+      content: [
+      { label: 'Part 0', link: '/resources/NBC/NbcPart0' },
+      { label: 'Part 1', link: '/resources/NBC/NbcPart1' },
+      { label: 'Part 2', link: '/resources/NBC/NbcPart2' },
+      { label: 'Part 3', link: '/resources/NBC/NbcPart3' },
+      { label: 'Part 4', link: '/resources/NBC/NbcPart4' },
+      { label: 'Part 5', link: '/resources/NBC/NbcPart5' },
+      { label: 'Part 6', link: '/resources/NBC/NbcPart6' },
+      { label: 'Part 7', link: '/resources/NBC/NbcPart7' },
+      { label: 'Part 8', link: '/resources/NBC/NbcPart8' },
+      { label: 'Part 9', link: '/resources/NBC/NbcPart9' },
+      { label: 'Part 10', link: '/resources/NBC/NbcPart10' },
+      { label: 'Part 11', link: '/resources/NBC/NbcPart11' },
+      { label: 'Part 12', link: '/resources/NBC/NbcPart12' },
+    ]
+    },
+    {
+      id: 'byelaws',
+      title: 'State Byelaws',
+      content: null,
+    },
+  ];
+
   return (
-<div className="container">
-  <div className="row" data-bs-theme={mode}>
-    <div className="col-sm-6 mb-3 mb-sm-0">
-      <div className={`card card-${mode} h-100`}>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title">National Building Code of India 2016</h5>
-          <p className="card-text d-flex flex-grow-1">The National Building Code of India (NBC), a comprehensive building Code, is a national instrument providing guidelines
-                      for regulating the building construction activities across the country. It serves as a Model Code for adoption by all
-                      agencies involved in building construction works be they Public Works Departments, other government construction departments,
-                      local bodies or private construction agencies.</p>
-          <div className='text-start'>
-          <Link to="/resources/NBC" className="btn btn-primary">Read the Doc</Link>
+    <div className="container" data-bs-theme={mode}>
+      <div className="row">
+        {/* Sidebar */}
+        <div className="col-md-3 border-end py-3">
+          <Sidebar
+            items={accordionItems}
+            activeId={activeTab}
+            onSelect={(id) => setActiveTab(id)}
+            mode={mode}
+          />
+        </div>
+
+        {/* Content Panel */}
+        <div className="col-md-9 py-4 px-5">
+          <div className={`text-${mode === 'light' ? 'dark' : 'light'}`}>
+            {renderContent()}
           </div>
         </div>
       </div>
     </div>
-    <div className="col-sm-6 mb-3 mb-sm-0">
-      <div className={`card card-${mode} h-100`}>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title">State-wise Model Byelaws</h5>
-          <p className="card-text d-flex flex-grow-1">Byelaws of various states of India</p>
-          <div className="text-start">
-          <Link to="/resources/StateByelaws" className="btn btn-primary">Read</Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  )
+  );
 }

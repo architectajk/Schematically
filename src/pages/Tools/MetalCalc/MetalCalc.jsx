@@ -1,24 +1,37 @@
 import React, { useContext, useState} from 'react';
+import { useRef } from 'react';
 import NumericInput from '../SanReq/NumericInput';
 import { SchematicContext } from '../../../context/Schematic/SchematicContextProvider';
 import '../../../assets/CSS/MetalCalc.css';
 import ISJB from '../MetalCalc/ISJB.json';
 import ISLB from '../MetalCalc/ISLB.json';
+import ISMB from '../MetalCalc/ISMB.json';
+import ISWB from '../MetalCalc/ISWB.json';
+import ISNPB from '../MetalCalc/ISNPB.json';
+import ISWPB from '../MetalCalc/ISWPB.json';
+import ISSC from '../MetalCalc/ISSC.json';
+import ISHB from '../MetalCalc/ISHB.json';
+import ISJC from '../MetalCalc/ISJC.json';
+import ISLC from '../MetalCalc/ISLC.json';
+import ISMC from '../MetalCalc/ISMC.json';
+import ISMPC from '../MetalCalc/ISMPC.json';
+import ISELA from '../MetalCalc/ISELA.json';
+import ISUELA from '../MetalCalc/ISUELA.json';
+import ISPFBP from '../MetalCalc/ISPFBP.json';
 import CHS from '../MetalCalc/ISCircularHollowSections.json';
 import SHS from '../MetalCalc/ISSquareHollowSections.json';
 import RHS from '../MetalCalc/ISRectangleHollowSections.json';
 import { ReactComponent as SFB} from '../../../assets/Metal/Asset 2.svg'
 import { ReactComponent as PFB} from '../../../assets/Metal/Asset 3.svg'
-import { ReactComponent as SqaureBlack} from '../../../assets/Metal/SHS_Black.svg'
-import { ReactComponent as RectangleBlack} from '../../../assets/Metal/RHS_Black.svg'
-import { ReactComponent as PipeBlack} from '../../../assets/Metal/CHS_Black.svg'
+import SqaureBlack from '../../../assets/Metal/SHS_Black.png'
+import RectangleBlack from '../../../assets/Metal/RHS_Black.png'
+import PipeBlack from '../../../assets/Metal/CHS_Black.png'
 import SqaureWhite from '../../../assets/Metal/SHS_White.png'
 import RectangleWhite from '../../../assets/Metal/RHS_White.png'
 import PipeWhite from '../../../assets/Metal/CHS_White.png'
 import * as XLSX from 'xlsx';
-import html2pdf from 'html2pdf.js';
 import { saveAs } from 'file-saver';
-import { useRef } from 'react';
+
 
 const Country = [
   { value: '1', label: 'Indian standard Libraries' },
@@ -206,7 +219,76 @@ const HollowSectionDesignationDropdown = ({ data, onAdd  }) => {
     </>
   );
 };
+// DesignationDropdown component for Open Section
+const OpenSectionDesignationDropdown = ({ data, onAdd  }) => {
+  const { mode } = useContext(SchematicContext);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [length, setLength] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
+  const handleChange = (e) => {
+    const selected = data.find(option => option.Designation === e.target.value);
+    setSelectedOption(selected || null);
+  };
+
+  const handleAddClick = () => {
+    if (selectedOption && length && quantity) {
+      const mass = parseFloat(selectedOption.Mass || 0);
+      const totalWeight = (mass * length * quantity).toFixed(2);
+  
+      onAdd?.(selectedOption.Designation, length, quantity, totalWeight);
+  
+      setLength(1);
+      setQuantity(1);
+    }
+  };
+  const totalWeight = selectedOption ? 
+  (parseFloat(selectedOption.Mass) * length * quantity).toFixed(2) : 0;
+
+  return (
+    <>
+      <div className="input-group mb-2">
+        <label className="input-group-text metalcalc" htmlFor="inputGroupSelect05">
+        Designation Size
+        </label>
+        <select
+          className="form-select"
+          id="inputGroupSelect05"
+          value={selectedOption?.Designation|| ""}
+          onChange={handleChange} 
+        >
+        <option value="">-- Select --</option>
+          {data.map((option, index) => (
+          <option key={index} value={option.Designation}>
+            {option.Designation}
+        </option>
+          ))}
+        </select>
+      </div>
+      {selectedOption && (
+        <div className="mt-2">
+          <div className="input-group mb-2">  
+            <NumericInput span="Length (m)" value={length} onChange={setLength} customWidth={150}/>
+          </div>
+          <div className="input-group mb-2">
+            <label className="input-group-text metalcalc" htmlFor="inputGroupSelect07">Quantity</label>
+            <input
+              type="number"
+              className="form-control"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              min="1"
+            />
+          </div>
+          <button className="btn btn-success" onClick={handleAddClick}>Add to Table</button>
+          <p className={`text-${mode === 'light' ? 'dark' : 'light'} d-flex`}><strong>Total Weight : </strong> 
+          <span className="ms-2">{totalWeight} kg</span>
+          </p>
+        </div>
+      )}
+    </>
+  );
+};
 const MetalCalc = () => {
   const { mode } = useContext(SchematicContext);
   const tableRef = useRef();
@@ -346,8 +428,34 @@ const MetalCalc = () => {
         designationData = ISJB;
       } else if (classification === "2") {
         designationData = ISLB;
+      }else if (classification === "3") {
+        designationData = ISMB;
+      }else if (classification === "4") {
+        designationData = ISWB;
+      }else if (classification === "5") {
+        designationData = ISNPB;
+      }else if (classification === "6") {
+        designationData = ISWPB;
+      }else if (classification === "7") {
+        designationData = ISSC;
+      }else if (classification === "8") {
+        designationData = ISHB;
+      }else if (classification === "9") {
+        designationData = ISJC;
+      }else if (classification === "10") {
+        designationData = ISLC;
+      }else if (classification === "11") {
+        designationData = ISMC;
+      }else if (classification === "12") {
+        designationData = ISMPC;
+      }else if (classification === "13") {
+        designationData = ISELA;
+      }else if (classification === "14") {
+        designationData = ISUELA;
+      }else if (classification === "15") {
+        designationData = ISPFBP;
       }
-      return <DesignationDropdown data={designationData} />;
+      return <OpenSectionDesignationDropdown data={designationData} onAdd={handleAdd} />;
     }
     return null;
   };
@@ -370,19 +478,13 @@ const MetalCalc = () => {
       switch (classification) {
         case "1":
           return isDark ?(
-         <PipeBlack width={300} />):(<img src={PipeWhite} width={300} alt=''/>);
+         <img src={PipeBlack} className="metal-svg" alt=''/>):(<img src={PipeWhite} className="metal-svg" alt=''/>);
         case "2":
           return isDark ? (
-            <SqaureBlack width={300}  />
-          ) : (
-            <img src={SqaureWhite} width={300} alt=''/>
-          );
+          <img src={SqaureBlack} className="metal-svg" alt=''/>) : (<img src={SqaureWhite} className="metal-svg" alt=''/>);
         case "3":
           return isDark ? (
-            <RectangleBlack width={300} height={300} />
-          ) : (
-            <img src={RectangleWhite} width={300} alt=''/>
-          );
+          <img src={RectangleBlack} className="metal-svg" alt=''/>) : (<img src={RectangleWhite} className="metal-svg" alt=''/>);
         default:
           return null;
       }
@@ -404,17 +506,6 @@ const MetalCalc = () => {
   };
   const totalWeight = rows.reduce((sum, row) => sum + parseFloat(row.weight || 0), 0).toFixed(2);
 
-  const exportPDF = () => {
-    const element = tableRef.current;
-    const opt = {
-      margin:       0.5,
-      filename:     'metal_table.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2 },
-      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-    html2pdf().set(opt).from(element).save();
-  };
   return (
     <div className="container">
       <div className="row" data-bs-theme={mode}>
@@ -433,9 +524,8 @@ const MetalCalc = () => {
           </div>
         </div>
         <div className="col-lg-8 my-4">
-          <div className="d-flex justify-content-center align-items-center">{rendersvg()}
-            <p className={`text-${mode === 'light' ? 'dark' : 'light'} d-flex d-`}>Figure</p>
-          </div>
+          <div className="d-flex justify-content-center align-items-center">{rendersvg()}</div>
+          <p className={`d-flex justify-content-center text-${mode === 'light' ? 'dark' : 'light'}`}>Figure</p>
           <table ref={tableRef} className={`table table-${mode} table-bordered mt-3`}>
             <thead>
               <tr>
@@ -480,7 +570,7 @@ const MetalCalc = () => {
           )}
           <div className="d-flex justify-content-end gap-2 mt-3">
             <button className="btn btn-success btn-sm" onClick={() => exportExcel()}>Export Excel</button>
-            <button className="btn btn-danger btn-sm" onClick={exportPDF}>Export PDF</button>
+            <button className="btn btn-danger btn-sm" onClick={() => exportExcel()}>Export PDF</button>
           </div>
           <div className="modal fade" id="editModal" tabIndex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -502,7 +592,7 @@ const MetalCalc = () => {
           </div>
           </div>
         </div>
-          <p className={`text-${mode === 'light' ? 'dark' : 'light'} d-flex`}>Steel is the most important metal used in the construction industry due to their strength, durability, and versatility. Accurately estimating the quantities of these metals is essential for efficient planning, cost management, and resource optimization in building projects.</p>
+          <p className={`text-${mode === 'light' ? 'dark' : 'light'} d-flex mt-4`}>Steel is the most important metal used in the construction industry due to their strength, durability, and versatility. Accurately estimating the quantities of these metals is essential for efficient planning, cost management, and resource optimization in building projects.</p>
           <p className={`text-${mode === 'light' ? 'dark' : 'light'} d-flex`}>
             Our Metal Weight Calculator simplifies this process by providing precise weight calculations based on the dimensions and density of steel and aluminum components.
           </p>

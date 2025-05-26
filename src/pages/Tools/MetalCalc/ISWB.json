@@ -1,27 +1,5 @@
 [
   {
-    "Designation": "Wide Flange Beams",
-    "Mass": "",
-    "Area": "",
-    "D": "",
-    "B": "",
-    "t": "",
-    "T": "",
-    "Flange Slope": "",
-    "R1": "",
-    "R2": "",
-    "Izz": "",
-    "Iyy": "",
-    "rz": "",
-    "ry": "",
-    "Zzz": "",
-    "Zyy": "",
-    "Zpz": "",
-    "Zpy": "",
-    "It": "",
-    "Iw": ""
-  },
-  {
     "Designation": "WB 150",
     "Mass": "17.00",
     "Area": "21.6",

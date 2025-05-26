@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import { Link } from 'react-router-dom';
-import Book from '../../components/Flipbook.jsx'
+
 import { SchematicContext } from '../../context/Schematic/SchematicContextProvider';
 
 export default function About() {
@@ -22,16 +22,20 @@ export default function About() {
         </div>
       </div>
       </div>
-    <div className={`bg-${mode}`}>
-      <div className={`container col-sm-6 d-flex flex-column text-${mode==='light'?'dark':'light'}`}>
-        <div className='my-5' ></div>
-          <div className='container'>
-          <Book/>
-          </div>
-        <div className='my-5' ></div>
-      </div>
-
+<div className={`bg-${mode}`}>
+  <div className={`container-xxl d-flex flex-column align-items-center text-${mode === 'light' ? 'dark' : 'light'}`}>
+    <div className="my-5" />
+    <div className="ratio ratio-16x9 w-100">
+      <iframe
+        title="Portfolio Flipbook Viewer"
+        src="https://online.pubhtml5.com/dwuub/fupp/"
+        allowFullScreen
+        style={{ border: 'none' }}
+      ></iframe>
     </div>
+    <div className="my-5" />
+  </div>
+</div>
     <div className={`container text-center text-${mode==='light'?'dark':'light'}`}>
     <div className='my-5' ></div>
       <h2 className='mb-3'>Contact</h2>

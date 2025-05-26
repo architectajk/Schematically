@@ -1,108 +1,141 @@
 import React,{useContext} from 'react'
-import { Link } from 'react-router-dom'
 import { SchematicContext } from '../../context/Schematic/SchematicContextProvider';
+import { Link } from 'react-router-dom';
 import '../../assets/CSS/Tools.css'
 
-export default function Tools() {
-  const {mode} = useContext(SchematicContext);
+const Tools =()=> {
+  const { mode } = useContext(SchematicContext);
+
+  const groupedTools = {
+    compliance: [
+      {
+        name: 'Sanitation Norms',
+        description: 'Helps calculate required sanitary fixtures per occupancy',
+        path: '/tools/SanReq',
+        logo: '/images/tools/metal-calc.svg',
+        status: 'active'
+      },
+      {
+        name: 'Light & Ventilation',
+        description: 'Ensures compliance for natural lighting & air flow',
+        path: '/tools/NaturalLightVentCalc',
+        status: 'beta'
+      },
+      {
+        name: 'Fire Safety',
+        description: 'Checks fire escape and safety compliance',
+        path: '/tools/FireLifeSafety',
+        status: 'coming-soon'
+      },
+      {
+        name: 'Parking Norms',
+        description: 'Calculates required parking by land use',
+        path: '/tools/ParkingNorms',
+        status: 'beta'
+      }
+    ],
+    planning: [
+      {
+        name: 'Scale Calc',
+        description: 'Converts real-world and drawing scale units',
+        path: '/tools/ScaleCalc',
+        status: 'active'
+      },
+      {
+        name: 'Area Statement',
+        description: 'Specifies occupancy-wise classification and area breakdown logic for built-up and carpet area.',
+        path: '/tools/AreaStatement',
+        status: 'coming-soon'
+      },
+      {
+        name: 'Elevator Planner',
+        description: 'Plans elevator size and count by building use',
+        path: '/tools/ElevatorPlanner',
+        status: 'coming-soon'
+      }
+    ],
+    material: [
+      {
+        name: 'Metal Calculator',
+        description: 'Estimates metal weight & cost',
+        path: '/tools/MetalCalc',
+        logo: '/images/tools/metal-calc.svg',
+        status: 'beta'
+      }
+    ]
+  };
+
+    // Returns a Bootstrap badge class based on status
+  const getStatusBadge = (status) => {
+    switch (status) {
+      case 'active':
+        return <span className="badge bg-success ms-2">Active</span>;
+      case 'coming-soon':
+        return <span className="badge bg-secondary ms-2">Coming Soon</span>;
+      case 'beta':
+        return <span className="badge bg-warning text-dark ms-2">Beta</span>;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div className='container'>
-     <div className="row mb-4" data-bs-theme={mode}>
-       <div className="col-sm-4 mb-3 mb-sm-0">
-         <div className={`card card-${mode} h-100`}>
-           <div className="card-body d-flex flex-column">
-             <h5 className="card-title">NBC / IBC Sanitation Requirements</h5>
-             <p className="card-text d-flex flex-grow-1">As per the National Building Code, All Structures of Human occupancy shall have adequate sanitary facilities.</p>
-             <div className="text-start">
-              <Link to="/tools/SanReq" className="btn btn-primary">Start</Link>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div className="col-sm-4 mb-3 mb-sm-0">
-         <div className={`card card-${mode} h-100`}>
-           <div className="card-body d-flex flex-column">
-             <h5 className="card-title">Natural Light and Ventilation Calculation</h5>
-             <p className="card-text d-flex flex-grow-1">As per the International Residential Code, certain rooms within dwellings must be provided with a minimum amount of lighting and ventilation.</p>
-             <div className="text-start">
-              <Link to="/tools/NaturalLightVentCalc" className="btn btn-primary">Start</Link>
-             </div>
-           </div>
-         </div>
-       </div>  
-       <div className="col-sm-4 mb-3 mb-sm-0">
-         <div className={`card card-${mode} h-100`}>
-           <div className="card-body d-flex flex-column">
-             <h5 className="card-title">Elevator Planner/Size Matrix</h5>
-             <p className="card-text">Plan the elevator configurations and shaft dimensions</p><p className="card-text text-success d-flex flex-grow-1">Coming soon....</p>
-             <div className="text-start">
-              <Link to="/tools/ElevatorPlanner" className="btn btn-primary">Start</Link>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-     <div className="row mb-4" data-bs-theme={mode}>
-       <div className="col-sm-4 mb-3 mb-sm-0">
-           <div className={`card card-${mode} h-100`}>
-             <div className="card-body d-flex flex-column">
-               <h5 className="card-title">Metal Weight Calculator</h5>
-               <p className="card-text d-flex flex-grow-1"> Helps you determine the weight of metal sections of any size, whether standard sections, rods, bars, or plates.</p>
-               <div className="text-start">
-                <Link to="/tools/MetalCalc" className="btn btn-primary">Start</Link>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div className="col-sm-4 mb-3 mb-sm-0">
-           <div className={`card card-${mode} h-100`}>
-             <div className="card-body d-flex flex-column">
-               <h5 className="card-title">Scale Calculator</h5>
-               <p className="card-text d-flex flex-grow-1">Helps you to find the scale between two objects or the size of scaled/real structures for a given scale. </p>
-               <div className="text-start">
-                <Link to="/tools/ScaleCalc" className="btn btn-primary">Start</Link>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div className="col-sm-4 mb-3 mb-sm-0">
-           <div className={`card card-${mode} h-100`}>
-             <div className="card-body d-flex flex-column">
-               <h5 className="card-title">Fire and Life Safety</h5>
-               <p className="card-text d-flex flex-grow-1">Specifies occupancy-wise classification, Constructional aspects, egress requirements and protection features that are necessary to minimise danger to life and property from fire.</p><p className="card-text text-success d-flex flex-grow-1">Coming soon....</p>
-               <div className="text-start">
-                <Link to="/tools/FireLifeSafety" className="btn btn-primary">Start</Link>
-               </div>
-             </div>
-           </div>
-         </div>
-     </div>
-     <div className="row mb-4" data-bs-theme={mode}>
-       <div className="col-sm-4 mb-3 mb-sm-0">
-           <div className={`card card-${mode} h-100`}>
-             <div className="card-body d-flex flex-column">
-               <h5 className="card-title">Parking Requirements and Norms</h5>
-               <p className="card-text d-flex flex-grow-1"> Helps you determine number of car parks for various uses </p>
-               <div className="text-start">
-                <Link to="/tools/ParkingNorms" className="btn btn-primary">Start</Link>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div className="col-sm-4 mb-3 mb-sm-0">
-           <div className={`card card-${mode} h-100`}>
-             <div className="card-body d-flex flex-column">
-               <h5 className="card-title">Area Statement</h5>
-               <p className="card-text d-flex flex-grow-1">Specifies occupancy-wise classification, Constructional aspects, egress requirements and protection features that are necessary to minimise danger to life and property from fire.</p><p className="card-text text-success d-flex flex-grow-1">Coming soon....</p>
-               <div className="text-start">
-                <Link to="/tools/AreaStatement" className="btn btn-primary">Start</Link>
-               </div>
-             </div>
-           </div>
-         </div>
-     </div>
-
-  </div>
-  )
+    <div className="container" data-bs-theme={mode}>
+      <div className='col-sm-8'>
+        <h4 className={`fw-bold mb-3 text-${mode === 'light' ? 'dark' : 'light'}`}>1. Code & Compliance</h4>
+          <ul className="list-group shadow-sm">
+            {groupedTools.compliance.map((tool, j) => (
+              <li key={j} className="list-group-item d-flex justify-content-between align-items-start">
+                <div className="me-auto">
+                  <h6 className="mb-1">
+                    <Link to={tool.path} className="text-decoration-none">
+                     {j+1}.<span> </span>{tool.name}
+                    </Link>
+                  </h6>
+                  <p className="mb-0 text-muted small">{tool.description}</p>
+                </div>
+                {getStatusBadge(tool.status)}
+              </li>
+            ))}
+          </ul>
+          <div className="mb-5"></div>
+        <h4 className={`fw-bold mb-3 text-${mode === 'light' ? 'dark' : 'light'}`}>2. Design & Planning</h4>
+          <ul className="list-group shadow-sm">
+            {groupedTools.planning.map((tool, j) => (
+              <li key={j} className="list-group-item d-flex justify-content-between align-items-start flex-column flex-md-row">
+                <div className="me-auto">
+                  <h6 className="mb-1">
+                    <Link to={tool.path} className="text-decoration-none">
+                     {j+1}.<span> </span>{tool.name}
+                    </Link>
+                  </h6>
+                  <p className="mb-0 text-muted small">{tool.description}</p>
+                </div>
+                {getStatusBadge(tool.status)}
+              </li>
+            ))}
+          </ul>
+          <div className="mb-5"></div>
+        <h4 className={`fw-bold mb-3 text-${mode === 'light' ? 'dark' : 'light'}`}>3. Material & Quantity</h4>
+          <ul className="list-group shadow-sm">
+            {groupedTools.material.map((tool, j) => (
+              <li key={j} className="list-group-item d-flex justify-content-between align-items-start flex-column flex-md-row">
+                <div className="me-auto">
+                  <h6 className="mb-1">
+                    <Link to={tool.path} className="text-decoration-none">
+                     {j+1}.<span> </span>{tool.name}
+                    </Link>
+                  </h6>
+                  <p className="mb-0 text-muted small">{tool.description}</p>
+                </div>
+                {getStatusBadge(tool.status)}
+              </li>
+            ))}
+          </ul>
+          <div className="mb-5"></div>
+      </div>
+    </div>
+  );
 }
+
+export default Tools;

@@ -1,9 +1,10 @@
 import React,{lazy,Suspense}  from 'react';
-import Spinners from './components/Spinners'; 
+import Spinners from './components/Spinners';
 import {Route, Routes} from 'react-router-dom';
 import Home from './pages/Home';
 import Assets from './pages/Assets/Assets';
 import About from './pages/About/About';
+import PrivacyPolicy from './pages/About/PrivacyPolicy';
 import Donate from './pages/Donate';
 
 import NBC from './pages/Resources/NBC/NBC';
@@ -21,6 +22,9 @@ import NbcPart10 from './pages/Resources/NBC/NbcPart10';
 import NbcPart11 from './pages/Resources/NBC/NbcPart11';
 import NbcPart12 from './pages/Resources/NBC/NbcPart12';
 
+import CodeCompliance from './pages/Tools/CodeCompliance'
+import DesignPlanning from './pages/Tools/DesignPlanning';
+import MaterialQuantity from './pages/Tools/MaterialQuantity';
 import SanReq from './pages/Tools/SanReq/SanReq';
 import FireLifeSafety from './pages/Tools/FireLifeSafety/FireLifeSafety';
 import NaturalLightVentCalc from './pages/Tools/NaturalLightVentCalc/NaturalLightVentCalc';
@@ -51,6 +55,9 @@ const SuspenseWithSpinners = ({ children }) => (
   const ToolRoutes = () => (
     <Routes>
       <Route path="/" element={<SuspenseWithSpinners><Tools /></SuspenseWithSpinners>}/>
+      <Route path="CodeCompliance" element={<CodeCompliance/>} />
+      <Route path="DesignPlanning" element={<DesignPlanning />} />
+      <Route path="MaterialQuantity" element={<MaterialQuantity />} />
         <Route path="SanReq" element={<SanReq />} />
         <Route path="NaturalLightVentCalc" element={<NaturalLightVentCalc />} />
         <Route path="ElevatorPlanner" element={<ElevatorPlanner />} />
@@ -97,6 +104,7 @@ const SuspenseWithSpinners = ({ children }) => (
       <Route path="tools/*" element={<ToolRoutes />} />
       <Route path="resources/*" element={<ResourcesRoutes />} />
       <Route path="about" element={<About />} />
+      <Route path="about/PrivacyPolicy" element={<PrivacyPolicy />} />
       <Route path="assets/*" element={<AssetsRoutes/>} />
       <Route path="donate" element={<Donate />} />
     </Routes>

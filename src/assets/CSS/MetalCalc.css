@@ -1,3 +1,9 @@
 .metalcalc{
     width: 150px;
 }
+.metal-svg {
+    width: 100%;
+    height: auto;
+    max-width: 300px; /* or 400px if you want bigger */
+    object-fit: contain;
+  }

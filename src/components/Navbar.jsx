@@ -36,9 +36,16 @@ export default function Navbar() {
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
-          <ul className="navbar-nav d-inline-flex ms-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav d-inline-flex ms-auto mb-2 mb-lg-0" data-bs-theme={`${mode}`}>
             <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/">Home</NavLink></li>
-            <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/tools">Tools</NavLink></li>
+            <li className="nav-item dropdown nav-underline my-1 my-lg-0 mx-2 hover-dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="/tools" role="button" aria-expanded="false">Tools</NavLink>
+              <ul className='dropdown-menu'>
+                <li><NavLink className="dropdown-item" to="/tools/CodeCompliance">Code & Compliance</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/tools/DesignPlanning">Design & Planning</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/tools/MaterialQuantity">Material & Quantity</NavLink></li>
+              </ul>
+            </li>
             <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/resources">Resources</NavLink></li>
             <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/assets">Assets</NavLink></li>
             <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/about">About</NavLink></li>

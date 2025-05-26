@@ -1,26 +1,5 @@
 [
   {
-    "Designation": "kg/m",
-    "Mass": "x10 2 mm2",
-    "Area": "mm",
-    "D": "mm",
-    "B": "mm",
-    "t": "mm",
-    "T": "mm",
-    "Flange Slope": "degrees",
-    "R1": "mm",
-    "R2": "x10 4 mm4",
-    "Izz": "x10 4 mm4",
-    "Iyy": "mm",
-    "rz": "mm",
-    "ry": "x10 3 mm3",
-    "Zzz": "x10 3 mm3",
-    "Zyy": "x10 3 mm3",
-    "Zpz": "x10 3 mm3",
-    "Zpy": "x10 5 mm3",
-    "It": "x10 6 mm4"
-  },
-  {
     "Designation": "MB 100",
     "Mass": "8.95",
     "Area": "11.4",

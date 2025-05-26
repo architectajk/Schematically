@@ -16,9 +16,6 @@ const BuildingProducts = () => {
       <div className="col-3 col-md-3">
         <NavLink to="/assets/BuildingProducts/Nuvocotto"><img src="/Assests/Tostem/TostemImages/Tostem_productcatalogimage.png" className="img-fluid" alt="" /></NavLink>
       </div>
-      <div className="col-3 col-md-3">
-      <NavLink to="/assets/BuildingProducts/Nuvocotto"><img src="/Assests/Coolant/CoolantImages/Coolant_productcatalogimage.png" className="img-fluid" alt="" /></NavLink>
-      </div>
     </div>
     <div className="row g-4" data-bs-theme={mode}>
       <div className="col-3">
