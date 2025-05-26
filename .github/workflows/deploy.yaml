@@ -31,14 +31,12 @@ jobs:
         username: u316976659
         password: ${{ secrets.HOSTINGER_PASSWORD }}
         local-dir: ./build/
-        remote-dir: /public_html/ # Change this to the path on your Hostinger server
+        remote-dir: /public_html/
         exclude: |
-           **/.git*
-           **/.git*/**
-           **/node_modules/**
-           Assests/
-           Assests/Coolant/
-        # ✅ Prevents deletion of files/folders not present locally
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/Assests/**
         dangerous-clean-slate: false
 
 # You need to set the following secrets in your GitHub repository:
