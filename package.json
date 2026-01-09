@@ -21,7 +21,7 @@
     "react-icons": "^4.10.1",
     "react-pageflip": "^2.0.3",
     "react-pdf": "^9.1.0",
-    "react-router-dom": "^6.15.0",
+    "react-router-dom": "^6.30.3",
     "react-scripts": "^5.0.1",
     "react-swipeable": "^7.0.2",
     "react-tooltip": "^5.26.3",
