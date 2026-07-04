@@ -13,7 +13,7 @@ const tools = [
     name: "Parking Requirement Estimator",
     description: "Calculate parking space as per urban zoning norms.",
     tags: ["NBC", "Zoning", "Transport"],
-    path: "/tools/ParkingReq"
+    path: "/tools/ParkingNorms"
   },
   {
     name: "Scale Converter",

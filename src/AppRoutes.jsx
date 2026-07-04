@@ -36,8 +36,6 @@ import ScaleCalc from './pages/Tools/ScaleCalc/ScaleCalc';
 import StateByelaws from './pages/Resources/StateByelaws/StateByelaws';
 import BuildingProducts from './pages/Assets/Building Products/BuildingProducts';
 import Nuvocotto from './pages/Assets/Building Products/nuvocotto/Nuvocotto';
-import GhComponents from './pages/Assets/GrasshopperComponents/GhComponents';
-import Maps from './pages/Assets/Maps/Maps';
 
 const Tools = lazy(()=> wait(1000).then(()=>import("./pages/Tools/Tools")));
 const Resources = lazy(()=>wait(1000).then(()=>import("./pages/Resources/Resources")));
@@ -94,8 +92,6 @@ const SuspenseWithSpinners = ({ children }) => (
       <Route path="/" element={<SuspenseWithSpinners><Assets/></SuspenseWithSpinners>} />
       <Route path="BuildingProducts" element={<BuildingProducts/>} />
       <Route path="BuildingProducts/Nuvocotto" element={<Nuvocotto/>} />
-      <Route path="Maps" element={<Maps/>} />
-      <Route path="GhComponents" element={<GhComponents/>} />
     </Routes>
   )
   const AppRoutes = () => (
