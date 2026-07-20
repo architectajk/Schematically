@@ -1,0 +1,35 @@
+/* Make all page text follow the light/dark theme (white headings in dark mode) */
+.asset-library-page {
+  color: var(--bs-body-color);
+}
+
+.asset-library-header h1 {
+  font-weight: 600;
+}
+
+.asset-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.asset-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.asset-thumb {
+  height: 180px;
+  object-fit: cover;
+}
+
+.asset-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.asset-tag {
+  font-size: 0.72rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(128, 128, 128, 0.18);
+}

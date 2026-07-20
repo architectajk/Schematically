@@ -40,6 +40,16 @@ export default function Assets() {
         </div>
         </Link>
       </div>
+      <div className='col-lg-4'>
+      <Link to="/assets/Library">
+        <div className='card card-flush h-100 text-bg-secondary'>
+          <div className='card-body d-flex flex-column justify-content-end'>
+            <div className='Largefont p-2'>02|</div>
+            <h1 className='p-2'>Asset Library</h1>
+          </div>
+        </div>
+      </Link>
+      </div>
     </div>
     </div>
   )
