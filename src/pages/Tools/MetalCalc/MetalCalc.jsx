@@ -21,8 +21,18 @@ import ISPFBP from '../MetalCalc/ISPFBP.json';
 import CHS from '../MetalCalc/ISCircularHollowSections.json';
 import SHS from '../MetalCalc/ISSquareHollowSections.json';
 import RHS from '../MetalCalc/ISRectangleHollowSections.json';
-import { ReactComponent as SFB} from '../../../assets/Metal/Asset 2.svg'
-import { ReactComponent as PFB} from '../../../assets/Metal/Asset 3.svg'
+import SlopingFlangeBeamBlack from '../../../assets/Metal/SlopingFlangeBeam_Black.png'
+import SlopingFlangeBeamWhite from '../../../assets/Metal/SlopingFlangeBeam_White.png'
+import SlopingFlangeChannelBlack from '../../../assets/Metal/SlopingFlangeChannel_Black.png'
+import SlopingFlangeChannelWhite from '../../../assets/Metal/SlopingFlangeChannel_White.png'
+import ParallelFlangeBeamBlack from '../../../assets/Metal/ParallelFlangeBeam_Black.png'
+import ParallelFlangeBeamWhite from '../../../assets/Metal/ParallelFlangeBeam_White.png'
+import ParallelFlangeChannelBlack from '../../../assets/Metal/ParallelFlangeChannel_Black.png'
+import ParallelFlangeChannelWhite from '../../../assets/Metal/ParallelFlangeChannel_White.png'
+import EqualLegAnglesBlack from '../../../assets/Metal/EqualLegAngle_Black.png'
+import EqualLegAnglesWhite from '../../../assets/Metal/EqualLegAngle_White.png'
+import UnequalLegAnglesBlack from '../../../assets/Metal/UnequalLegAngle_Black.png'
+import UnequalLegAnglesWhite from '../../../assets/Metal/UnequalLegAngle_White.png'
 import SqaureBlack from '../../../assets/Metal/SHS_Black.png'
 import RectangleBlack from '../../../assets/Metal/RHS_Black.png'
 import PipeBlack from '../../../assets/Metal/CHS_Black.png'
@@ -50,21 +60,21 @@ const MaterialType = [
 ];
 
 const IndianOpenSectionClassification = [
-  { value: '1', label: 'Junior beams (ISJB)' },
-  { value: '2', label: 'Light weight beams (ISLB)' },
-  { value: '3', label: 'Medium weight beams (ISMB)' },
-  { value: '4', label: 'Wide flange beams (ISWB)' },
-  { value: '5', label: 'Narrow parallel flange beams (ISNPB)' },
-  { value: '6', label: 'Wide parallel flange beams (ISWPB)' },
-  { value: '7', label: 'Column sections (ISSC)' },
-  { value: '8', label: 'Heavy weight beam (ISHB)' },
-  { value: '9', label: 'Junior channels (ISJC)' },
-  { value: '10', label: 'Light weight channels (ISLC)' },
-  { value: '11', label: 'Medium weight channels (ISMC)' },
-  { value: '12', label: 'Medium weight parallel flange channels (ISMPC)' },
-  { value: '13', label: 'Equal leg angles (ISA)' },
-  { value: '14', label: 'Unequal leg angles (ISA)' },
-  { value: '15', label: 'Parallel flange bearing piles (ISPBP)' },
+  { value: '1', label: '1. Junior beams (ISJB)' },
+  { value: '2', label: '2. Light weight beams (ISLB)' },
+  { value: '3', label: '3. Medium weight beams (ISMB)' },
+  { value: '4', label: '4. Wide flange beams (ISWB)' },
+  { value: '5', label: '5. Narrow parallel flange beams (ISNPB)' },
+  { value: '6', label: '6. Wide parallel flange beams (ISWPB)' },
+  { value: '7', label: '7. Column sections (ISSC)' },
+  { value: '8', label: '8. Heavy weight beam (ISHB)' },
+  { value: '9', label: '9. Junior channels (ISJC)' },
+  { value: '10', label: '10. Light weight channels (ISLC)' },
+  { value: '11', label: '11. Medium weight channels (ISMC)' },
+  { value: '12', label: '12. Medium weight parallel flange channels (ISMPC)' },
+  { value: '13', label: '13. Equal leg angles (ISA)' },
+  { value: '14', label: '14. Unequal leg angles (ISA)' },
+  { value: '15', label: '15. Parallel flange bearing piles (ISPBP)' },
 ];
 
 const IndianHollowSectionClassification = [
@@ -75,7 +85,7 @@ const IndianHollowSectionClassification = [
 
 // DesignationDropdown component that accepts data as a prop
 //CHS
-const DesignationDropdown = ({ data, onAdd }) => {
+const DesignationDropdown = ({ data, onAdd, onSelect }) => {
   const { mode } = useContext(SchematicContext);
   const [selectedOption, setSelectedOption] = useState(null);
   const [length, setLength] = useState(1);
@@ -84,9 +94,10 @@ const DesignationDropdown = ({ data, onAdd }) => {
   const handleChange = (e) => {
     const [nb, thickness] = e.target.value.split('|');
     const matchedOption = data.find(item => 
-      String(item.NB) === nb && String(item.Thickness) === thickness
+      String(item.NB) === nb && String(item.Thickness_t_mm) === thickness
     );
     setSelectedOption(matchedOption || null);
+    if (onSelect) onSelect(matchedOption || null);
   };
   const handleAddClick = () => {
     if (selectedOption && length && quantity) {
@@ -109,13 +120,13 @@ const DesignationDropdown = ({ data, onAdd }) => {
         <select
           className="form-select"
           id="inputGroupSelect05"
-          value={selectedOption ? `${selectedOption.NB}|${selectedOption.Thickness}` : ""}
+          value={selectedOption ? `${selectedOption.NB}|${selectedOption.Thickness_t_mm}` : ""}
           onChange={handleChange}
         >
         <option value="">-- Select --</option>
         {data.map((option, index) => (
-          <option key={index} value={`${option.NB}|${option.Thickness}`}>
-            {option.NB} (OD: {option.OD}, Thickness: {option.Thickness})
+          <option key={index} value={`${option.NB}|${option.Thickness_t_mm}`}>
+            {option.NB} (OD: {option.OD}, Thickness: {option.Thickness_t_mm})
           </option>
         ))}
       </select>
@@ -150,7 +161,7 @@ const DesignationDropdown = ({ data, onAdd }) => {
 
 // DesignationDropdown component for Hollow Section
 //SHS & RHS
-const HollowSectionDesignationDropdown = ({ data, onAdd  }) => {
+const HollowSectionDesignationDropdown = ({ data, onAdd, onSelect}) => {
   const { mode } = useContext(SchematicContext);
   const [selectedOption, setSelectedOption] = useState("");
   const [length, setLength] = useState(1);
@@ -159,6 +170,7 @@ const HollowSectionDesignationDropdown = ({ data, onAdd  }) => {
   const handleChange = (e) => {
     const selected = data.find(option => option.Designation_Size === e.target.value);
     setSelectedOption(selected || null);
+    if (onSelect) onSelect(selected || null);
   };
 
   const handleAddClick = () => {
@@ -220,7 +232,7 @@ const HollowSectionDesignationDropdown = ({ data, onAdd  }) => {
   );
 };
 // DesignationDropdown component for Open Section
-const OpenSectionDesignationDropdown = ({ data, onAdd  }) => {
+const OpenSectionDesignationDropdown = ({ data, onAdd, onSelect }) => {
   const { mode } = useContext(SchematicContext);
   const [selectedOption, setSelectedOption] = useState("");
   const [length, setLength] = useState(1);
@@ -229,6 +241,7 @@ const OpenSectionDesignationDropdown = ({ data, onAdd  }) => {
   const handleChange = (e) => {
     const selected = data.find(option => option.Designation === e.target.value);
     setSelectedOption(selected || null);
+    if (onSelect) onSelect(selected || null); // Notify parent
   };
 
   const handleAddClick = () => {
@@ -289,6 +302,66 @@ const OpenSectionDesignationDropdown = ({ data, onAdd  }) => {
     </>
   );
 };
+//
+const JsonDataTable = ({ data }) => {
+  const { mode } = useContext(SchematicContext);
+  if (!data) return null;
+
+  const basicKeys = ['NB','OD','Designation', 'Mass', 'Area', 'Designation_Size', 'Weight', 'Area_of_Section'];
+  const dimensionKeys = ['a','b','D', 'B', 't', 'T', 'R1', 'R2', 'Flange Slope','Slope','Depth_D_mm', 'Width_B_mm', 'Thickness_t_mm','Internal_Volume','Surface_External','Surface_Internal'];
+  const allKeys = Object.keys(data);
+
+  const basic = basicKeys.filter(key => allKeys.includes(key));
+  const dimensions = dimensionKeys.filter(key => allKeys.includes(key));
+  const others = allKeys.filter(
+    key => !basic.includes(key) && !dimensions.includes(key)
+  );
+
+  const getRow = (keys) => keys.map(key => data[key] ?? '--');
+
+  const tableClass = `table table-bordered text-${mode === 'light' ? 'dark' : 'light'}`;
+
+  return (
+    <>
+      <div className="table-responsive mt-3">
+        <h6 className={`text-${mode === 'light' ? 'dark' : 'light'}`}>Designation / Mass / Area</h6>
+        <table className={tableClass}>
+          <thead>
+            <tr>{basic.map(key => <th key={key}>{key}</th>)}</tr>
+          </thead>
+          <tbody>
+            <tr>{getRow(basic).map((val, i) => <td key={i}>{val}</td>)}</tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="table-responsive mt-3">
+        <h6 className={`text-${mode === 'light' ? 'dark' : 'light'}`}>Dimensions</h6>
+        <table className={tableClass}>
+          <thead>
+            <tr>{dimensions.map(key => <th key={key}>{key}</th>)}</tr>
+          </thead>
+          <tbody>
+            <tr>{getRow(dimensions).map((val, i) => <td key={i}>{val}</td>)}</tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="table-responsive mt-3">
+        <h6 className={`text-${mode === 'light' ? 'dark' : 'light'}`}>Properties</h6>
+        <table className={tableClass}>
+          <thead>
+            <tr>{others.map(key => <th key={key}>{key}</th>)}</tr>
+          </thead>
+          <tbody>
+            <tr>{getRow(others).map((val, i) => <td key={i}>{val}</td>)}</tr>
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
+
 const MetalCalc = () => {
   const { mode } = useContext(SchematicContext);
   const tableRef = useRef();
@@ -400,23 +473,27 @@ const MetalCalc = () => {
     return null;
   };
 
+const [selectedJson, setSelectedJson] = useState(null); // new state
+
   // Render shape inputs based on material type and classification.
   // For material type "1", we use various classifications;
   // For other material types, render the merged designation dropdown.
   const renderShapeInputs = () => {
 
-    const handleAdd = (designation, length, quantity, weight) => {
+    const handleSelection = (dataObj) => setSelectedJson(dataObj);
+    const handleAdd = (designation, length, quantity, weight,fullData = null) => {
       addRow({ designation, length, quantity, weight });
+      if (fullData) setSelectedJson(fullData);
     };
     
     if (mType === "1") {
       switch (classification) {
         case "1": //CHS
-          return <DesignationDropdown data={CHS} onAdd={handleAdd}/>;
+          return <DesignationDropdown data={CHS} onAdd={handleAdd} onSelect={handleSelection}/>;
         case "2": //SHS
-          return <HollowSectionDesignationDropdown data={SHS} onAdd={handleAdd}/>;
+          return <HollowSectionDesignationDropdown data={SHS} onAdd={handleAdd} onSelect={handleSelection}/>;
         case "3": //RHS
-          return <HollowSectionDesignationDropdown data={RHS} onAdd={handleAdd}/>;
+          return <HollowSectionDesignationDropdown data={RHS} onAdd={handleAdd} onSelect={handleSelection}/>;
         default:
           return null;
       }
@@ -455,41 +532,76 @@ const MetalCalc = () => {
       }else if (classification === "15") {
         designationData = ISPFBP;
       }
-      return <OpenSectionDesignationDropdown data={designationData} onAdd={handleAdd} />;
+      return <OpenSectionDesignationDropdown data={designationData} onAdd={handleAdd} onSelect={handleSelection}/>;
     }
     return null;
   };
   //Render svg images of steel profiles
-  const rendersvg = () => {
-    const isDark = mode === 'light';
-  
-    if (mType === "2") {
-      // Open sections
-      switch (classification) {
-        case "1":
-          return <SFB width={300} height={300} />;
-        case "2":
-          return <PFB width={300} height={300} />;
-        default:
-          return null;
-      }
-    } else {
-      // Hollow sections
-      switch (classification) {
-        case "1":
-          return isDark ?(
-         <img src={PipeBlack} className="metal-svg" alt=''/>):(<img src={PipeWhite} className="metal-svg" alt=''/>);
-        case "2":
-          return isDark ? (
-          <img src={SqaureBlack} className="metal-svg" alt=''/>) : (<img src={SqaureWhite} className="metal-svg" alt=''/>);
-        case "3":
-          return isDark ? (
-          <img src={RectangleBlack} className="metal-svg" alt=''/>) : (<img src={RectangleWhite} className="metal-svg" alt=''/>);
-        default:
-          return null;
-      }
-    }
+const rendersvg = () => {
+  const isDark = mode === 'light';
+
+  // Shared config for Sloping Flange Beam
+  const slopingFlangeBeam = { dark: SlopingFlangeBeamBlack, light: SlopingFlangeBeamWhite, width: 240 };
+  const parallelFlangeBeam = { dark: ParallelFlangeBeamBlack, light: ParallelFlangeBeamWhite, width: 200 };
+  const slopingFlangeChannel = { dark: SlopingFlangeChannelBlack, light: SlopingFlangeChannelWhite, width: 240 };
+  const parallelFlangeChannel = { dark: ParallelFlangeChannelBlack, light: ParallelFlangeChannelWhite, width: 240};
+  const equalLegAngles = { dark: EqualLegAnglesBlack, light: EqualLegAnglesWhite, width: 440 };
+  const unequalLegAngles = { dark: UnequalLegAnglesBlack, light: UnequalLegAnglesWhite, width: 440 };
+
+  // Open section mappings
+  const openSectionImages = {
+    "1": slopingFlangeBeam,
+    "2": slopingFlangeBeam,
+    "3": slopingFlangeBeam,
+    "4": slopingFlangeBeam,
+    "5": parallelFlangeBeam,
+    "6": parallelFlangeBeam,
+    "7": slopingFlangeBeam,
+    "8": slopingFlangeBeam,
+    "9": slopingFlangeChannel,
+    "10": slopingFlangeChannel,
+    "11": slopingFlangeChannel,
+    "12": parallelFlangeChannel,
+    "13": equalLegAngles,
+    "14": unequalLegAngles,
+    "15": parallelFlangeBeam,
+  };
+
+  // Hollow section mappings
+  const hollowSectionImages = {
+    "1": { dark: PipeBlack, light: PipeWhite, width: isDark ? 150 : 184 },
+    "2": { dark: SqaureBlack, light: SqaureWhite, width: isDark ? undefined : 300 },
+    "3": { dark: RectangleBlack, light: RectangleWhite, width: isDark ? undefined : 300 },
+  };
+
+  const sectionMap = mType === "2" ? openSectionImages : hollowSectionImages;
+  const imageData = sectionMap[classification];
+
+  if (!imageData) return null;
+
+  return (
+    <img
+      src={isDark ? imageData.dark : imageData.light}
+      className="metal-svg"
+      width={imageData.width}
+      alt=""
+    />
+  );
+};
+//Dynamic labelling for images
+const getFigureLabel = (mType, classification) => {
+  if (mType === "1") {
+    const match = IndianHollowSectionClassification.find(item => item.value === classification);
+    return match ? match.label : `Figure ${classification}`;
+  } else if (mType === "2") {
+    const match = IndianOpenSectionClassification.find(item => item.value === classification);
+    return match ? match.label : `Figure ${classification}`;
+  } else {
+    return `Figure ${classification}`;
   }
+};
+const figureLabel = getFigureLabel(mType, classification);
+
   const handleEdit = (index) => {
     setEditData(rows[index]);
     setEditIndex(index);
@@ -509,7 +621,7 @@ const MetalCalc = () => {
   return (
     <div className="container">
       <div className="row" data-bs-theme={mode}>
-        <div className="col-lg-4">
+        <div className= "col-lg-4 sidebar-panel" style={{backgroundColor: mode === 'dark'?'#000000':'#EFF7FF'}}>
           <h1 className={`text-${mode === 'light' ? 'dark' : 'light'} my-4`}>
             Metal Weight Calculation
           </h1>
@@ -525,8 +637,11 @@ const MetalCalc = () => {
         </div>
         <div className="col-lg-8 my-4">
           <div className="d-flex justify-content-center align-items-center">{rendersvg()}</div>
-          <p className={`d-flex justify-content-center text-${mode === 'light' ? 'dark' : 'light'}`}>Figure</p>
-          <table ref={tableRef} className={`table table-${mode} table-bordered mt-3`}>
+          <p className={`d-flex justify-content-center text-${mode === 'light' ? 'dark' : 'light'}`}>Figure: {figureLabel}</p>
+          <JsonDataTable data={selectedJson} />
+          <div className='table-responsive'>
+          <h5 className={`text-${mode === 'light' ? 'dark' : 'light'}`}>Table</h5>
+          <table ref={tableRef} className={`table table-sm table-${mode} table-bordered mt-3`}>
             <thead>
               <tr>
                 <th>Item</th>
@@ -562,7 +677,7 @@ const MetalCalc = () => {
               )}
             </tbody>
           </table>
-
+          </div>
           {rows.length > 0 && (
             <div className={`text-end text-${mode === 'light' ? 'dark' : 'light'}`}>
               <strong>Total Weight:</strong> {totalWeight} kg

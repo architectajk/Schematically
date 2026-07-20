@@ -1,5 +1,18 @@
-#Title{
-font-size: 4rem;
+#Title {
+  font-size: 2rem;
+}
+/* SM: 576px–767px */
+@media (min-width: 576px) and (max-width: 767px) {
+  #Title {
+    font-size: 2.5rem;
+  }
+}
+
+/* MD+: 768px+ */
+@media (min-width: 768px) {
+  #Title {
+    font-size: 3.5rem;
+  }
 }
 .card-dark{
     background-color: rgba(33, 37, 41, 0.5)

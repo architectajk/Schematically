@@ -41,21 +41,11 @@ export default function Assets() {
         </Link>
       </div>
       <div className='col-lg-4'>
-      <Link to="/assets/Maps">
-        <div className='card card-flush h-md-50 mb-4'>
-            <img className="object-fit-cover" height={300} src="./images/noaa-0XUnd0bXqTE-unsplash.jpg" alt=""/>
-          <div className='card-img-overlay'>
-            <div className='Largefont bg-white p-2 text-dark bg-opacity-50'>02|</div>
-            <h1 className='bg-white p-2 text-dark bg-opacity-50'>Maps</h1> 
-          </div>
-        </div>
-      </Link>
-      <Link to="/assets/GhComponents">
-        <div className='card card-flush h-md-50'>
-            <img className="object-fit-cover" height={300} src="./images/grassh10.jpg" alt=""/>
-          <div className='card-img-overlay'>
-            <div className='Largefont bg-white p-2 text-dark bg-opacity-50'>03|</div>
-            <h1 className='bg-white p-2 text-dark bg-opacity-50'>Rhino Grasshopper components</h1> 
+      <Link to="/assets/Library">
+        <div className='card card-flush h-100 text-bg-secondary'>
+          <div className='card-body d-flex flex-column justify-content-end'>
+            <div className='Largefont p-2'>02|</div>
+            <h1 className='p-2'>Asset Library</h1>
           </div>
         </div>
       </Link>

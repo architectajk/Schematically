@@ -1,9 +1,10 @@
 .metalcalc{
     width: 150px;
 }
-.metal-svg {
-    width: 100%;
-    height: auto;
-    max-width: 300px; /* or 400px if you want bigger */
-    object-fit: contain;
+          /* Bootstrap lg breakpoint */
+  .sidebar-panel {
+    position: sticky;
+    top: 3rem;                        /* same offset you had */
+    align-self: flex-start;
+    z-index: 1;
   }
