@@ -1,5 +1,203 @@
+@import './tokens.css';
+
+/* ============================================================
+   Navbar — restyled to the Claude Design homepage nav:
+   sticky, transparent at the top of the page, ink + blur on scroll,
+   hairline underline, 70px bar, quiet grey links, blue Donate pill.
+   Bootstrap's offcanvas/dropdown behaviour is left untouched;
+   only the appearance is overridden.
+   ============================================================ */
+.sknav.navbar {
+  --bs-navbar-padding-y: 0;
+  background: var(--surface-veil);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-sans);
+  transition: background var(--dur, 220ms) var(--ease-out),
+    border-color 220ms var(--ease-out);
+}
+
+/* At the very top of the page the nav dissolves into the hero. */
+.sknav--top.navbar {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+
+.sknav__bar {
+  min-height: 70px;
+  gap: 18px;
+}
+
+/* Above lg the offcanvas flattens into the bar: links sit next to the
+   brand, actions get pushed to the far right. */
+@media (min-width: 992px) {
+  .sknav .offcanvas-body {
+    flex-grow: 1;
+    align-items: center;
+    gap: 26px;
+  }
+  .sknav__actions {
+    margin-left: auto;
+  }
+}
+
+.sknav__brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.sknav__brand img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.sknav__toggler {
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 6px 9px;
+}
+.sknav__toggler:focus {
+  box-shadow: none;
+}
+
+/* —— Links ————————————————————————————————————————— */
+.sknav__links {
+  align-items: center;
+  gap: 26px;
+}
+
+.sknav .sknav__link.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 6px 0;
+  transition: color 200ms var(--ease-out);
+}
+
+.sknav .sknav__link.nav-link:hover,
+.sknav .sknav__link.nav-link:focus,
+.sknav .sknav__link.nav-link.active {
+  color: var(--text-primary);
+}
+
+/* Tools dropdown — a dark card with the signature inset hairline. */
+.sknav .dropdown-menu {
+  background: var(--surface-card-solid);
+  border: none;
+  box-shadow: var(--hairline), var(--shadow-md);
+  border-radius: 12px;
+  padding: 6px;
+  margin-top: 8px;
+}
+
+.sknav .dropdown-item {
+  font-size: 14px;
+  color: var(--text-body);
+  border-radius: 8px;
+  padding: 9px 12px;
+}
+
+.sknav .dropdown-item:hover,
+.sknav .dropdown-item:focus {
+  background: var(--surface-raised);
+  color: var(--text-primary);
+}
+
+/* —— Right-hand actions ———————————————————————————— */
+.sknav__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sknav__donate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 36px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-glow);
+  transition: background 220ms var(--ease-out), transform 140ms var(--ease-out);
+}
+.sknav__donate:hover,
+.sknav__donate:focus {
+  background: var(--accent-hover);
+  color: #ffffff;
+}
+.sknav__donate:active {
+  transform: translateY(1px);
+}
+
+/* —— Offcanvas panel (below lg) ————————————————————— */
+.sknav__panel.offcanvas {
+  background: var(--surface-canvas);
+  color: var(--text-primary);
+  border-left: 1px solid var(--border-subtle);
+}
+
+.sknav__panel .offcanvas-header {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sknav__panel .offcanvas-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+/* Stack links and actions once the bar collapses into the panel. */
+@media (max-width: 991.98px) {
+  .sknav__links {
+    align-items: stretch;
+    gap: 4px;
+    width: 100%;
+  }
+  .sknav .sknav__link.nav-link {
+    padding: 10px 0;
+    font-size: 16px;
+  }
+  .sknav__actions {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-subtle);
+    justify-content: space-between;
+  }
+  .sknav__donate {
+    flex: 1;
+    margin-left: 12px;
+  }
+  /* The panel is its own surface — never let it go transparent. */
+  .sknav--top .sknav__panel.offcanvas {
+    background: var(--surface-canvas);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sknav.navbar,
+  .sknav .sknav__link.nav-link,
+  .sknav__donate {
+    transition: none;
+  }
+}
+
 .toggle {
-    background-color: #0d6efd;
+    background-color: var(--accent, #0d6efd);
     width: 32px;
     height: 32px;
     border-radius: 50%;

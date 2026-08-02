@@ -1,0 +1,117 @@
+.loading-animation {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  background: #0d0c0c;
+  z-index: 1050;
+}
+
+.loading-animation__mark {
+  animation: loaderIntro 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.loading-animation__svg {
+  display: block;
+  filter: drop-shadow(0 0 var(--glow-blur) var(--accent));
+}
+
+.loading-animation__frame {
+  animation: frameBreathe var(--dur) ease-in-out infinite;
+}
+
+.loading-animation__room {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: roomSweep var(--dur) cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.loading-animation__room--1 {
+  animation-delay: 0s;
+}
+
+.loading-animation__room--2 {
+  animation-delay: calc(var(--dur) / 3);
+}
+
+.loading-animation__room--3 {
+  animation-delay: calc(var(--dur) / 3 * 2);
+}
+
+.loading-animation__track {
+  animation: loaderIntro 0.55s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  position: relative;
+  width: 184px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(244, 243, 241, 0.08);
+  overflow: hidden;
+}
+
+.loading-animation__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  animation: barSlide var(--dur) cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes loaderIntro {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* The active accent sweeps through each room, staggered. */
+@keyframes roomSweep {
+  0% {
+    fill: #56524e;
+    opacity: 0.45;
+    transform: scale(0.97);
+  }
+  14% {
+    fill: var(--accent);
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  40% {
+    fill: #56524e;
+    opacity: 0.45;
+    transform: scale(0.97);
+  }
+  100% {
+    fill: #56524e;
+    opacity: 0.45;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes frameBreathe {
+  0%,
+  100% {
+    stroke-opacity: 0.72;
+  }
+  50% {
+    stroke-opacity: 1;
+  }
+}
+
+@keyframes barSlide {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(360%);
+  }
+}

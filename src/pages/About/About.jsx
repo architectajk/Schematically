@@ -1,10 +1,35 @@
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaGraduationCap, FaBriefcase } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaGithub } from 'react-icons/fa';
 import { SchematicContext } from '../../context/Schematic/SchematicContextProvider';
+
+const PHOTO_SRC = '/images/1617419958110.jpg';
+
+// Renders the profile photo, falling back to the placeholder icon if it fails to load.
+function ProfileAvatar({ size, iconSize, className = '' }) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div
+      className={`rounded-circle overflow-hidden d-flex align-items-center justify-content-center ${className}`}
+      style={{ width: size, height: size, background: 'linear-gradient(135deg,#d1fae5,#a7f3d0)' }}
+    >
+      {failed ? (
+        <FaUser size={iconSize} className="text-success" />
+      ) : (
+        <img
+          src={PHOTO_SRC}
+          alt="Akshay Kamath"
+          onError={() => setFailed(true)}
+          className="w-100 h-100"
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+        />
+      )}
+    </div>
+  );
+}
 
 export default function About() {
   const {mode} = useContext(SchematicContext);
@@ -21,7 +46,7 @@ export default function About() {
               <h2 className="h4 fw-medium mb-4">Hi, I'm Akshay Kamath — Developer of Schematically.</h2>
 
               <p className="lead text-secondary">
-                With over a decade of experience in architectural design and spatial planning, I've witnessed firsthand the challenges young architects face when transitioning from academic theory to professional practice.
+                With over a 5 years of experience in architectural design and spatial planning, I've witnessed firsthand the challenges young architects face when transitioning from academic theory to professional practice.
               </p>
 
               <p className="lead text-secondary">
@@ -37,12 +62,7 @@ export default function About() {
             <div className="col-lg-4 d-none d-lg-block">
               <div className={`bg-${mode === 'light' ? 'light' : 'dark'} border rounded-4 p-4 shadow-sm position-sticky`} style={{ top: '2rem' }}>
                 <div className="d-flex justify-content-center mb-4">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center"
-                    style={{ width: '8rem', height: '8rem', background: 'linear-gradient(135deg,#d1fae5,#a7f3d0)' }}
-                  >
-                    <FaUser size={64} className="text-success" />
-                  </div>
+                  <ProfileAvatar size="8rem" iconSize={64} />
                 </div>
                 <div className="d-flex mb-3">
                   <FaGraduationCap size={20} className="text-success me-2 mt-1" />
@@ -101,12 +121,7 @@ export default function About() {
           {/* Mobile contact card */}
           <div className="d-lg-none">
             <div className="border border-success-subtle bg-success bg-opacity-10 rounded-4 p-4 text-center">
-              <div
-                className="rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3"
-                style={{ width: '6rem', height: '6rem', background: 'linear-gradient(135deg,#d1fae5,#a7f3d0)' }}
-              >
-                <FaUser size={48} className="text-success" />
-              </div>
+              <ProfileAvatar size="6rem" iconSize={48} className="mx-auto mb-3" />
               <h5 className="mb-1">Akshay Kamath</h5>
               <small className="text-muted">Founder, Schematically</small>
               <Link to="mailto:architect.ajk@gmail.com" className="btn btn-success w-100 mt-3 d-flex align-items-center justify-content-center gap-2">

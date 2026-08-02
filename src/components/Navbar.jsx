@@ -23,35 +23,37 @@ export default function Navbar() {
 
   return (
     <>
-    <nav className={`navbar sticky-top navbar-expand-lg navbar-${mode} ${navbarTransparent ? 'navbar-transparent' : ''}${mode === 'dark' ? 'bg-dark' : 'bg-light'}`}>
-    <div className="container-fluid container-xl flex-wrap flex-lg-nowrap">
-      <NavLink className="navbar-brand" to="/"><img className="img-fluid" src={mode==='dark' ? "/images/logo 1.png":"/images/logo 2.png"} alt="Logo" width="248" /></NavLink>
-      <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+    <nav
+      className={`sknav sk-tokens${mode === 'light' ? ' sk-tokens--light' : ''} navbar sticky-top navbar-expand-lg${navbarTransparent ? ' sknav--top' : ''}`}
+      data-bs-theme={mode}
+    >
+    <div className="container-fluid container-xl flex-wrap flex-lg-nowrap sknav__bar">
+      <NavLink className="navbar-brand sknav__brand" to="/"><img src={mode==='dark' ? "/images/logo 1.png":"/images/logo 2.png"} alt="Schematically" /></NavLink>
+      <button className="navbar-toggler sknav__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
         {/*SideBar*/}
-      <div className={`sidebar offcanvas offcanvas-end text-bg-${mode}`} tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-        <div className="offcanvas-header" data-bs-theme={mode}>
+      <div className="sidebar offcanvas offcanvas-end sknav__panel" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Schematically.org</h5>
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
-          <ul className="navbar-nav d-inline-flex ms-auto mb-2 mb-lg-0" data-bs-theme={`${mode}`}>
-            <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/">Home</NavLink></li>
-            <li className="nav-item dropdown nav-underline my-1 my-lg-0 mx-2 hover-dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="/tools" role="button" aria-expanded="false">Tools</NavLink>
+          <ul className="navbar-nav sknav__links">
+            <li className="nav-item"><NavLink className="nav-link sknav__link" to="/">Home</NavLink></li>
+            <li className="nav-item dropdown hover-dropdown">
+              <NavLink className="nav-link sknav__link dropdown-toggle" to="/tools" role="button" aria-expanded="false">Tools</NavLink>
               <ul className='dropdown-menu'>
                 <li><NavLink className="dropdown-item" to="/tools/CodeCompliance">Code & Compliance</NavLink></li>
                 <li><NavLink className="dropdown-item" to="/tools/DesignPlanning">Design & Planning</NavLink></li>
                 <li><NavLink className="dropdown-item" to="/tools/MaterialQuantity">Material & Quantity</NavLink></li>
               </ul>
             </li>
-            <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/resources">Resources</NavLink></li>
-            <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/assets">Assets</NavLink></li>
-            <li className="nav-item nav-underline my-1 my-lg-0 mx-2"><NavLink className="nav-link" to="/about">About</NavLink></li>
-            <li className="nav-item my-2 my-lg-0"><div className='text-white text-bg-primary bg-gradient rounded-pill'><NavLink className="nav-link active mx-2 text-white" to="/donate"><BsFillHeartFill/> Donate</NavLink></div></li>
+            <li className="nav-item"><NavLink className="nav-link sknav__link" to="/resources">Resources</NavLink></li>
+            <li className="nav-item"><NavLink className="nav-link sknav__link" to="/assets">Assets</NavLink></li>
+            <li className="nav-item"><NavLink className="nav-link sknav__link" to="/about">About</NavLink></li>
           </ul>
-          <div className='d-flex-column align-items-center my-auto mx-3'>
+          <div className='sknav__actions'>
             <label htmlFor="switch" className="toggle">
             <input type="checkbox" className="input" id="switch" onClick={toggleMode}/>
               <div className="icon icon--moon">
@@ -81,15 +83,12 @@ export default function Navbar() {
                 </svg>
               </div>
             </label>
+            <NavLink className="sknav__donate" to="/donate"><BsFillHeartFill/> Donate</NavLink>
           </div>
         </div>
       </div>
     </div>
   </nav>
-        <style>{`
-        .navbar-transparent {
-          background-color: transparent !important;
-        }`}</style>
 </>
   );
 };

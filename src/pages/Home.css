@@ -1,3 +1,5 @@
+@import '../assets/CSS/tokens.css';
+
 #Title {
   font-size: 2rem;
 }
@@ -19,4 +21,675 @@
 }
 .card-light{
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================================
+   Homepage — dark marketing relaunch (Claude Design import).
+   Design tokens come from .sk-tokens (assets/CSS/tokens.css),
+   applied alongside .skhome on the page root.
+   ============================================================ */
+.skhome {
+  background: var(--surface-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.skhome__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+.skhome__section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  text-align: center;
+}
+
+.skhome__well {
+  background: var(--surface-well);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* —— Eyebrow pill —————————————————————————————————— */
+.skhome__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  padding: 8px 15px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  box-shadow: var(--hairline);
+  margin-bottom: 22px;
+}
+
+.skhome__eyebrow--mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-400);
+  margin-bottom: 0;
+}
+
+/* —— Headings —————————————————————————————————————— */
+.skhome__h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 48px);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.skhome__lede {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 14px auto 0;
+  max-width: 560px;
+}
+
+/* —— Buttons ——————————————————————————————————————— */
+.skhome__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: background var(--dur, 220ms) var(--ease-out),
+    border-color 220ms var(--ease-out), transform 140ms var(--ease-out),
+    box-shadow 220ms var(--ease-out);
+}
+.skhome__btn:active {
+  transform: translateY(1px);
+}
+.skhome__btn--sm {
+  height: 36px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.skhome__btn--lg {
+  height: 54px;
+  padding: 15px 28px;
+  font-size: 16px;
+}
+.skhome__btn--primary {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: var(--shadow-glow);
+}
+.skhome__btn--primary:hover {
+  background: var(--accent-hover);
+  color: #ffffff;
+}
+.skhome__btn--secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+.skhome__btn--secondary:hover {
+  background: var(--surface-raised);
+  color: var(--text-primary);
+}
+
+/* —— Cards ————————————————————————————————————————— */
+.skhome__card {
+  background: var(--surface-card);
+  border-radius: 16px;
+  box-shadow: var(--hairline);
+  box-sizing: border-box;
+}
+
+/* —— Hero —————————————————————————————————————————— */
+.skhome__hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.skhome__hero-glow {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 760px;
+  height: 420px;
+  max-width: 100%;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(43, 128, 253, 0.22), transparent 70%),
+    radial-gradient(closest-side, rgba(48, 164, 108, 0.16), transparent 70%);
+  background-position: 30% 40%, 75% 30%;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+}
+
+.skhome__hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 88px;
+  padding-bottom: 64px;
+}
+
+.skhome__hero-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 7vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 auto;
+  max-width: 740px;
+}
+
+.skhome__hero-accent {
+  background: linear-gradient(90deg, var(--blue-400), var(--cyan-500) 45%, var(--green-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.skhome__hero-sub {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 24px auto 0;
+}
+
+.skhome__hero-cta {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.skhome__trust-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  margin-bottom: 18px;
+}
+
+/* gray-600 doubles as the light-mode border colour, which is too faint for text. */
+.skhome--light .skhome__trust-label {
+  color: var(--text-secondary);
+}
+
+.skhome__trust-logos {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0.55;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+/* Floating floor-plan frames — decoration only, hidden below lg where they
+   would collide with the hero copy. */
+.skhome__mark {
+  position: absolute;
+  z-index: 1;
+  line-height: 0;
+  pointer-events: none;
+}
+@media (max-width: 991.98px) {
+  .skhome__mark {
+    display: none;
+  }
+}
+
+/* —— Tool mock ————————————————————————————————————— */
+.skhome__mock {
+  background: var(--surface-well);
+  border-radius: 16px;
+  box-shadow: var(--hairline), var(--shadow-lg);
+  overflow: hidden;
+  text-align: left;
+}
+
+.skhome__mock-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.skhome__mock-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 99px;
+}
+
+.skhome__mock-path {
+  margin-left: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.skhome__mock-body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.skhome__mock-inputs {
+  padding: 28px;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.skhome__mock-outputs {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.skhome__field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  background: var(--surface-raised);
+  border-radius: 10px;
+  box-shadow: var(--hairline);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-body);
+}
+
+.skhome__field-value {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+
+.skhome__readout {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.skhome__readout-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.skhome__readout-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 34px;
+}
+
+@media (max-width: 767.98px) {
+  .skhome__mock-body {
+    grid-template-columns: 1fr;
+  }
+  .skhome__mock-inputs {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+}
+
+/* —— Feature cards ————————————————————————————————— */
+.skhome__grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+  text-align: left;
+}
+
+.skhome__feature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px;
+  background: var(--surface-card);
+  border-radius: 16px;
+  box-shadow: var(--hairline);
+  box-sizing: border-box;
+}
+
+.skhome__feature--plain {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.skhome__feature-marker {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.skhome__feature-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.skhome__feature-text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Key Features: hairline-split columns rather than boxed cards. */
+.skhome__split {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 56px;
+  text-align: left;
+}
+.skhome__split > * {
+  padding: 8px 28px;
+}
+.skhome__split > * + * {
+  border-left: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 991.98px) {
+  .skhome__grid-3,
+  .skhome__split {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .skhome__split > * {
+    padding: 0;
+  }
+  .skhome__split > * + * {
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 24px;
+  }
+}
+
+/* —— Why choose ———————————————————————————————————— */
+.skhome__why {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 56px;
+  text-align: left;
+  align-items: center;
+}
+
+.skhome__task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface-raised);
+  border-radius: 10px;
+  box-shadow: var(--hairline);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-body);
+}
+
+.skhome__task-icon {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.skhome__why-copy {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.skhome__benefit {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-body);
+}
+
+@media (max-width: 991.98px) {
+  .skhome__why {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— Testimonial marquees —————————————————————————— */
+.skhome__marquee-wrap {
+  padding: 40px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skhome__marquee {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: skhomeMarqueeL 32s linear infinite;
+}
+.skhome__marquee--rev {
+  animation-name: skhomeMarqueeR;
+}
+
+.skhome__quote {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--surface-card);
+  border-radius: 999px;
+  box-shadow: var(--hairline);
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-body);
+}
+
+.skhome__quote-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 99px;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* —— FAQ ——————————————————————————————————————————— */
+.skhome__faq {
+  max-width: 760px;
+}
+
+.skhome__faq-list {
+  margin-top: 44px;
+  text-align: left;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.skhome__faq-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.skhome__faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--text-primary);
+}
+
+.skhome__faq-sign {
+  color: var(--text-muted);
+  transition: transform 250ms var(--ease-out);
+  flex-shrink: 0;
+  display: inline-flex;
+}
+.skhome__faq-item--open .skhome__faq-sign {
+  transform: rotate(45deg);
+}
+
+.skhome__faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms var(--ease-out);
+}
+.skhome__faq-item--open .skhome__faq-a {
+  grid-template-rows: 1fr;
+}
+.skhome__faq-a > div {
+  overflow: hidden;
+}
+.skhome__faq-a p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  padding: 0 4px 22px;
+}
+
+.skhome__faq-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 36px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* —— Get started marquee ——————————————————————————— */
+.skhome__cta {
+  overflow: hidden;
+  padding: 64px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.skhome__cta-track {
+  display: flex;
+  gap: 36px;
+  width: max-content;
+  align-items: center;
+  animation: skhomeMarqueeL 26s linear infinite;
+  text-decoration: none;
+}
+
+.skhome__cta-word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 10vw, 100px);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+@keyframes skhomeMarqueeL {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes skhomeMarqueeR {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skhome *,
+  .skhome *::before,
+  .skhome *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .skhome__container {
+    padding: 0 20px;
+  }
+  .skhome__section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .skhome__hero-inner {
+    padding-top: 56px;
+    padding-bottom: 48px;
+  }
 }
