@@ -19,8 +19,8 @@ import {
   LuUsers,
   LuPlus,
 } from 'react-icons/lu';
-import { ReactComponent as TopSVG } from '../assets/Frame2.svg';
-import { ReactComponent as BottomSVG } from '../assets/Frame1.svg';
+import TopSVG from '../assets/Frame2.svg?react';
+import BottomSVG from '../assets/Frame1.svg?react';
 import './Home.css';
 
 /* Accent pairs — a strong colour plus its faint tint, so feature markers and
