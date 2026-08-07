@@ -1,6 +1,5 @@
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
-import Part12 from '../../../assets/NBC/NBCPart12.pdf';
 import { SchematicContext } from '../../../context/Schematic/SchematicContextProvider';
 import PDFViewer from '../../../components/PDFViewer';
 import '../../../assets/CSS/NBC.css'
@@ -32,7 +31,7 @@ const NbcPart12 = () => {
           <li class="page-item disabled"><Link class="page-link" to='/resources/NBC/NBCPart12'>Next</Link></li>
         </ul>
         </nav> 
-        <PDFViewer name={Part12}/>
+        <PDFViewer name="/pdfs/NBCPart12.pdf"/>
       </div>     
     </div>
   )
