@@ -32,6 +32,10 @@ jobs:
         password: ${{ secrets.HOSTINGER_PASSWORD }}
         local-dir: ./build/
         remote-dir: /public_html/
+        # Fresh sync-state filename: forces a clean full upload on the first Vite
+        # deploy so it won't try to delete the old CRA "static/" folder (which caused
+        # the previous 550 error). Future deploys sync incrementally against this file.
+        state-name: .ftp-deploy-sync-state-vite.json
         exclude: |
           **/.git*
           **/.git*/**
