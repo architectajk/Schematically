@@ -108,6 +108,42 @@ export default function About() {
             </p>
           </div>
 
+          {/* Featured work: Project Atlas (interactive map lives at /about/ProjectAtlas) */}
+          <div className={`border rounded-4 overflow-hidden mb-5 shadow-sm bg-${mode === 'light' ? 'white' : 'dark'}`}>
+            <div className="row g-0 align-items-stretch">
+              <div className="col-lg-7">
+                <Link to="/about/ProjectAtlas" aria-label="Open the interactive Project Atlas">
+                  <img
+                    src="/images/project-atlas.svg"
+                    alt="Assetz Project Atlas — interactive site map"
+                    className="w-100 h-100"
+                    style={{ objectFit: 'cover', minHeight: '260px' }}
+                  />
+                </Link>
+              </div>
+              <div className="col-lg-5 p-4 d-flex flex-column">
+                <div className="text-secondary small mb-2" style={{ letterSpacing: '0.15em' }}>SELECTED WORK &middot; 01</div>
+                <h3 className={`h4 mb-2 text-${textColor}`}>Project Atlas &mdash; Assetz Portfolio tracker</h3>
+                <p className="text-secondary mb-3">
+                  An interactive dashboard of 31 Assetz developments connected to business intelligence &mdash;
+                  each drawn to its real boundary and colour-coded by delivery status. Site areas are computed
+                  directly from the geometry (462 acres across the portfolio), a check that flagged two
+                  mis-drawn boundaries.
+                </p>
+                <div className="d-flex flex-wrap gap-2 mb-3">
+                  {['React', 'Leaflet', 'GeoJSON', 'Geospatial'].map((t) => (
+                    <span key={t} className="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle">{t}</span>
+                  ))}
+                </div>
+                <div className="mt-auto">
+                  <Link to="/about/ProjectAtlas" className="btn btn-success d-inline-flex align-items-center gap-2">
+                    View interactive map &rarr;
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* iframe viewer */}
           <div className="ratio ratio-16x9 mb-5">
             <iframe

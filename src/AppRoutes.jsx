@@ -34,6 +34,7 @@ import AreaStatement from './pages/Tools/AreaStatement/AreaStatement';
 import MetalCalc from './pages/Tools/MetalCalc/MetalCalc';
 import ScaleCalc from './pages/Tools/ScaleCalc/ScaleCalc';
 import StateByelaws from './pages/Resources/StateByelaws/StateByelaws';
+import ProjectAtlas from './pages/About/ProjectAtlas/ProjectAtlas';
 import BuildingProducts from './pages/Assets/Building Products/BuildingProducts';
 import Nuvocotto from './pages/Assets/Building Products/nuvocotto/Nuvocotto';
 import AssetLibrary from './pages/Assets/AssetLibrary/AssetLibrary';
@@ -103,6 +104,7 @@ const SuspenseWithSpinners = ({ children }) => (
       <Route path="resources/*" element={<ResourcesRoutes />} />
       <Route path="about" element={<About />} />
       <Route path="about/PrivacyPolicy" element={<PrivacyPolicy />} />
+      <Route path="about/ProjectAtlas" element={<ProjectAtlas />} />
       <Route path="assets/*" element={<AssetsRoutes/>} />
       <Route path="donate" element={<Donate />} />
     </Routes>
