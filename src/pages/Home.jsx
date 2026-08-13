@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useSpring, animated, easings } from '@react-spring/web';
+import { useSpring, useInView, animated, easings } from '@react-spring/web';
 import { Link } from 'react-router-dom';
 import { SchematicContext } from '../context/Schematic/SchematicContextProvider';
 import {
@@ -34,7 +34,41 @@ const ACCENT = {
   cyan: { c: 'var(--cyan-500)', soft: 'var(--cyan-tint)' },
 };
 
-/* The two brand floor-plan frames, drifting gently on opposite corners of the hero. */
+/* Honour reduced-motion preferences: entrance/reveal animations are skipped. */
+const REDUCED =
+  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Landing entrance is pure CSS (GPU-composited, no JS timing): elements carry
+   a skhome__enter* class; enter() supplies the per-item animation-delay inline. */
+const enter = (delay, extra) => ({
+  animationDelay: `${delay}ms`,
+  ...(extra || {}),
+});
+
+const ENTER = { duration: 600, easing: easings.easeOutCubic };
+
+/* Scroll-in reveal: fades/slides children in the first time they enter view. */
+function Reveal({ children, delay = 0, y = 28, className }) {
+  const [ref, inView] = useInView({ threshold: 0.15, once: true });
+  const styles = useSpring({
+    from: { opacity: 0, transform: `translateY(${y}px)` },
+    to: inView
+      ? { opacity: 1, transform: 'translateY(0px)' }
+      : { opacity: 0, transform: `translateY(${y}px)` },
+    delay: inView ? delay : 0,
+    config: ENTER,
+    immediate: REDUCED,
+  });
+  return (
+    <animated.div ref={ref} className={className} style={styles}>
+      {children}
+    </animated.div>
+  );
+}
+
+/* The two brand floor-plan frames, drifting gently on opposite corners of the hero.
+   Each is wrapped in a one-time entrance (fade + slide from its corner) that runs
+   on landing; the inner element keeps the existing infinite float loop. */
 function HeroVisuals() {
   const topStyle = useSpring({
     loop: { reverse: true },
@@ -44,6 +78,7 @@ function HeroVisuals() {
       duration: 3000,
       easing: easings.easeInOutSine,
     },
+    immediate: REDUCED,
   });
 
   const bottomStyle = useSpring({
@@ -55,16 +90,29 @@ function HeroVisuals() {
       easing: easings.easeInOutSine,
     },
     delay: 300,
+    immediate: REDUCED,
   });
 
   return (
     <>
-      <animated.div className="skhome__mark" style={{ ...topStyle, top: 50, right: '20%' }} aria-hidden="true">
-        <TopSVG />
-      </animated.div>
-      <animated.div className="skhome__mark" style={{ ...bottomStyle, bottom: 150, left: '20%' }} aria-hidden="true">
-        <BottomSVG />
-      </animated.div>
+      <div
+        className={`skhome__mark${REDUCED ? '' : ' skhome__enter skhome__enter--corner-t'}`}
+        style={enter(650, { top: 50, right: '20%' })}
+        aria-hidden="true"
+      >
+        <animated.div style={topStyle}>
+          <TopSVG />
+        </animated.div>
+      </div>
+      <div
+        className={`skhome__mark${REDUCED ? '' : ' skhome__enter skhome__enter--corner-b'}`}
+        style={enter(800, { bottom: 150, left: '20%' })}
+        aria-hidden="true"
+      >
+        <animated.div style={bottomStyle}>
+          <BottomSVG />
+        </animated.div>
+      </div>
     </>
   );
 }
@@ -87,6 +135,9 @@ function FeatureCard({ step, icon, accent, title, children, plain = false }) {
 
 /* ---------- Hero ---------- */
 function Hero() {
+  /* Landing entrance: badge -> title line 1 -> title line 2 -> sub -> CTAs ->
+     trust strip, staggered via animation-delay. Title lines slide up inside
+     overflow masks. All pure CSS — runs once on page load. */
   return (
     <section className="skhome__hero">
       <div className="skhome__hero-glow" />
@@ -94,7 +145,10 @@ function Hero() {
       <HeroVisuals />
 
       <div className="skhome__container skhome__hero-inner">
-        <span className="skhome__eyebrow" style={{ background: 'var(--surface-card)', paddingLeft: 8, borderRadius: 999 }}>
+        <span
+          className={`skhome__eyebrow${REDUCED ? '' : ' skhome__enter'}`}
+          style={enter(150, { background: 'var(--surface-card)', paddingLeft: 8, borderRadius: 999 })}
+        >
           <span
             style={{
               display: 'inline-flex',
@@ -115,16 +169,36 @@ function Hero() {
         </span>
 
         <h1 className="skhome__hero-title">
-          Revolutionize your<br />
-          <span className="skhome__hero-accent">design process</span>
+          <span className="skhome__line">
+            <span
+              className={`skhome__line-in${REDUCED ? '' : ' skhome__enter--line'}`}
+              style={enter(280)}
+            >
+              Revolutionize your
+            </span>
+          </span>
+          <span className="skhome__line">
+            <span
+              className={`skhome__line-in skhome__hero-accent${REDUCED ? '' : ' skhome__enter--line'}`}
+              style={enter(400)}
+            >
+              design process
+            </span>
+          </span>
         </h1>
 
-        <p className="skhome__hero-sub">
+        <p
+          className={`skhome__hero-sub${REDUCED ? '' : ' skhome__enter'}`}
+          style={enter(520)}
+        >
           Schematically is a free-to-use platform for architects, students and vendors to streamline
           and enhance their design process &mdash; with intuitive tools and curated resources.
         </p>
 
-        <div className="skhome__hero-cta">
+        <div
+          className={`skhome__hero-cta${REDUCED ? '' : ' skhome__enter'}`}
+          style={enter(640)}
+        >
           <Link to="/tools" className="skhome__btn skhome__btn--lg skhome__btn--primary">
             Start with Tools
           </Link>
@@ -134,7 +208,7 @@ function Hero() {
           </Link>
         </div>
 
-        <div style={{ marginTop: 56 }}>
+        <div className={REDUCED ? undefined : 'skhome__enter'} style={enter(760, { marginTop: 56 })}>
           <div className="skhome__trust-label">Trusted by architects, students and vendors</div>
           <div className="skhome__trust-logos">
             <span>ATELIER</span>
@@ -165,6 +239,7 @@ const MOCK_OUTPUTS = [
 function ToolMock() {
   return (
     <div className="skhome__container" style={{ paddingTop: 8 }}>
+      <Reveal>
       <div className="skhome__mock">
         <div className="skhome__mock-bar">
           <span className="skhome__mock-dot" style={{ background: 'var(--tomato-500)' }} />
@@ -215,6 +290,7 @@ function ToolMock() {
           </div>
         </div>
       </div>
+      </Reveal>
     </div>
   );
 }
@@ -241,14 +317,18 @@ const STEPS = [
 function Steps() {
   return (
     <section className="skhome__container skhome__section">
-      <span className="skhome__eyebrow">How it works</span>
-      <h2 className="skhome__h2">How Schematically Simplifies Design</h2>
-      <p className="skhome__lede">Our platform simplifies complex concepts and enhances your workflow.</p>
+      <Reveal>
+        <span className="skhome__eyebrow">How it works</span>
+        <h2 className="skhome__h2">How Schematically Simplifies Design</h2>
+        <p className="skhome__lede">Our platform simplifies complex concepts and enhances your workflow.</p>
+      </Reveal>
       <div className="skhome__grid-3">
         {STEPS.map(([title, text, accent], i) => (
-          <FeatureCard key={title} step={i + 1} accent={accent} title={title}>
-            {text}
-          </FeatureCard>
+          <Reveal key={title} delay={i * 110}>
+            <FeatureCard step={i + 1} accent={accent} title={title}>
+              {text}
+            </FeatureCard>
+          </Reveal>
         ))}
       </div>
     </section>
@@ -274,11 +354,14 @@ function WhyChoose() {
   return (
     <section className="skhome__well">
       <div className="skhome__container skhome__section">
-        <span className="skhome__eyebrow">Why Schematically</span>
-        <h2 className="skhome__h2">Why Choose Schematically</h2>
-        <p className="skhome__lede">Unlock your creative potential — embrace a world without limits.</p>
+        <Reveal>
+          <span className="skhome__eyebrow">Why Schematically</span>
+          <h2 className="skhome__h2">Why Choose Schematically</h2>
+          <p className="skhome__lede">Unlock your creative potential — embrace a world without limits.</p>
+        </Reveal>
 
         <div className="skhome__why">
+          <Reveal>
           <div className="skhome__card" style={{ padding: 22 }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {TASKS.map(([icon, label, accent], i) => (
@@ -296,7 +379,9 @@ function WhyChoose() {
               ))}
             </div>
           </div>
+          </Reveal>
 
+          <Reveal delay={130}>
           <div>
             <p className="skhome__why-copy">
               Schematically caters to the diverse needs of architects, students, and vendors. Discover
@@ -314,6 +399,7 @@ function WhyChoose() {
               ))}
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -345,18 +431,20 @@ const FEATURES = [
 function Features() {
   return (
     <section className="skhome__container skhome__section">
-      <span className="skhome__eyebrow">Benefits</span>
-      <h2 className="skhome__h2">Key Features</h2>
-      <p className="skhome__lede">
-        Explore the unique features built to fuel your creativity and expedite your design process.
-      </p>
+      <Reveal>
+        <span className="skhome__eyebrow">Benefits</span>
+        <h2 className="skhome__h2">Key Features</h2>
+        <p className="skhome__lede">
+          Explore the unique features built to fuel your creativity and expedite your design process.
+        </p>
+      </Reveal>
       <div className="skhome__split">
-        {FEATURES.map(([icon, title, text, accent]) => (
-          <div key={title}>
+        {FEATURES.map(([icon, title, text, accent], i) => (
+          <Reveal key={title} delay={i * 110}>
             <FeatureCard plain icon={icon} accent={accent} title={title}>
               {text}
             </FeatureCard>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
@@ -397,10 +485,12 @@ function Testimonials() {
   );
 
   return (
-    <div className="skhome__marquee-wrap">
-      {row(false)}
-      {row(true)}
-    </div>
+    <Reveal>
+      <div className="skhome__marquee-wrap">
+        {row(false)}
+        {row(true)}
+      </div>
+    </Reveal>
   );
 }
 
@@ -437,11 +527,14 @@ function Faq() {
 
   return (
     <section className="skhome__container skhome__section skhome__faq">
-      <span className="skhome__eyebrow">FAQs</span>
-      <h2 className="skhome__h2">
-        Questions? Here&rsquo;s a few of<br />the common ones.
-      </h2>
+      <Reveal>
+        <span className="skhome__eyebrow">FAQs</span>
+        <h2 className="skhome__h2">
+          Questions? Here&rsquo;s a few of<br />the common ones.
+        </h2>
+      </Reveal>
 
+      <Reveal delay={120}>
       <div className="skhome__faq-list">
         {FAQS.map(([question, answer], i) => (
           <div key={question} className={`skhome__faq-item${open === i ? ' skhome__faq-item--open' : ''}`}>
@@ -460,6 +553,7 @@ function Faq() {
           </div>
         ))}
       </div>
+      </Reveal>
 
       <div className="skhome__faq-foot">
         <span>Do you have any questions?</span>
@@ -478,6 +572,7 @@ function Faq() {
 /* ---------- Get started marquee ---------- */
 function CtaMarquee() {
   return (
+    <Reveal y={36}>
     <div className="skhome__cta">
       <Link to="/tools" className="skhome__cta-track">
         {Array.from({ length: 6 }).map((_, i) => (
@@ -495,6 +590,7 @@ function CtaMarquee() {
         ))}
       </Link>
     </div>
+    </Reveal>
   );
 }
 

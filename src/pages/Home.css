@@ -32,7 +32,9 @@
   background: var(--surface-canvas);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  overflow-x: hidden;
+  /* `clip` (not `hidden`) contains the entrance animations horizontally without
+     forcing overflow-y to `auto`, which was creating a second vertical scrollbar. */
+  overflow-x: clip;
 }
 
 .skhome__container {
@@ -210,6 +212,57 @@
   background-clip: text;
   color: transparent;
   white-space: nowrap;
+}
+
+/* Hero title entrance: each line slides up inside an overflow mask. The small
+   bottom padding keeps descenders (g, p) visible once the line settles. */
+.skhome__line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.09em;
+  margin-bottom: -0.09em;
+}
+.skhome__line-in {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ---- Landing entrance (pure CSS, runs once on page load) ---- */
+@keyframes skhome-enter {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes skhome-enter-line {
+  from { opacity: 0; transform: translateY(110%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes skhome-enter-corner-t {
+  from { opacity: 0; transform: translateY(-30px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes skhome-enter-corner-b {
+  from { opacity: 0; transform: translateY(30px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.skhome__enter,
+.skhome__enter--line,
+.skhome__enter--corner-t,
+.skhome__enter--corner-b {
+  animation-duration: 600ms;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  animation-fill-mode: backwards; /* hold the from-state during animation-delay */
+}
+.skhome__enter { animation-name: skhome-enter; }
+.skhome__enter--line { animation-name: skhome-enter-line; animation-duration: 700ms; }
+.skhome__enter--corner-t,
+.skhome__enter--corner-b { animation-duration: 900ms; }
+.skhome__enter--corner-t { animation-name: skhome-enter-corner-t; }
+.skhome__enter--corner-b { animation-name: skhome-enter-corner-b; }
+@media (prefers-reduced-motion: reduce) {
+  .skhome__enter,
+  .skhome__enter--line,
+  .skhome__enter--corner-t,
+  .skhome__enter--corner-b { animation: none; }
 }
 
 .skhome__hero-sub {
