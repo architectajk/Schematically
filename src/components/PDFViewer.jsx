@@ -1,29 +1,29 @@
-import { useContext } from 'react';
-import { SchematicContext } from '../context/Schematic/SchematicContextProvider'
-import { Worker } from '@react-pdf-viewer/core'
-import { Viewer } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-import '@react-pdf-viewer/bookmark/lib/styles/index.css';
-
-const PDFViewer = (props) => {
-  const {mode} = useContext(SchematicContext);
-
-  const defaultLayoutPluginInstance = defaultLayoutPlugin({
-    setInitialTab: (doc) => Promise.resolve(0),
-  });
-  return (
-    <div style={{
-      border: '1px solid rgba(0, 0, 0, 0.3)',
-      height: '750px',
-  }}>
-      <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}>
-        <Viewer fileUrl={props.name} plugins={[defaultLayoutPluginInstance]} theme={mode} defaultScale={0.87}>
-        </Viewer>
-      </Worker>
+/* Native browser PDF viewer.
+   The NBC PDFs are trusted, self-hosted files served from /pdfs/, so the
+   browser's built-in PDF viewer is the simplest and most secure way to show
+   them — it drops the pdfjs-dist / @react-pdf-viewer dependencies (and their
+   ~20 vulnerabilities) entirely. Same `name` prop as before, so the NBC pages
+   don't change. */
+const PDFViewer = ({ name }) => (
+  <div
+    style={{
+      border: '1px solid rgba(128, 128, 128, 0.3)',
+      borderRadius: 8,
+      overflow: 'hidden',
+    }}
+  >
+    <iframe
+      src={name}
+      title="PDF document"
+      style={{ width: '100%', height: '750px', border: 'none', display: 'block' }}
+    />
+    <div style={{ padding: '8px 12px', fontSize: 13 }}>
+      Trouble viewing?{' '}
+      <a href={name} target="_blank" rel="noopener noreferrer">
+        Open the PDF in a new tab &#8599;
+      </a>
     </div>
-  );
-};
+  </div>
+);
 
-export default PDFViewer
+export default PDFViewer;
