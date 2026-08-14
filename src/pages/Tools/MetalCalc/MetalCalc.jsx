@@ -39,7 +39,7 @@ import PipeBlack from '../../../assets/Metal/CHS_Black.png'
 import SqaureWhite from '../../../assets/Metal/SHS_White.png'
 import RectangleWhite from '../../../assets/Metal/RHS_White.png'
 import PipeWhite from '../../../assets/Metal/CHS_White.png'
-import * as XLSX from 'xlsx';
+// Excel export replaced by a dependency-free CSV export (see exportExcel below).
 import { saveAs } from 'file-saver';
 
 
@@ -684,7 +684,7 @@ const figureLabel = getFigureLabel(mType, classification);
             </div>
           )}
           <div className="d-flex justify-content-end gap-2 mt-3">
-            <button className="btn btn-success btn-sm" onClick={() => exportExcel()}>Export Excel</button>
+            <button className="btn btn-success btn-sm" onClick={() => exportExcel()}>Export CSV</button>
             <button className="btn btn-danger btn-sm" onClick={() => exportExcel()}>Export PDF</button>
           </div>
           <div className="modal fade" id="editModal" tabIndex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -747,13 +747,23 @@ const exportExcel = () => {
     row.weight,
   ]) || [];
 
-  const worksheet = XLSX.utils.aoa_to_sheet([header, ...data]);
-  const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'MetalCalc');
-
-  const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-  const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
-  saveAs(blob, 'metal_calculation.xlsx');
+  // Dependency-free CSV export — opens directly in Excel / Google Sheets.
+  // Fields containing commas, quotes or newlines are quoted per RFC 4180.
+  const escape = (v) => {
+    const s = String(v ?? '');
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  const csv = [header, ...data].map((row) => row.map(escape).join(',')).join('\r\n');
+  // UTF-8 BOM so Excel reads accented characters correctly.
+  const blob = new Blob([String.fromCharCode(0xFEFF) + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'metal_calculation.csv';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 };
 
 export default MetalCalc;
