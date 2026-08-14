@@ -1,0 +1,18 @@
+# Normalize line endings: store text files with LF in the repo and convert
+# per-platform in the working tree. This stops git from endlessly flagging
+# CRLF/LF-only "changes". Binary assets (below) are left untouched.
+* text=auto
+
+# Binary assets — never normalize, never diff as text.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.pdf   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.zip   binary
