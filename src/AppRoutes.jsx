@@ -33,7 +33,9 @@ import ParkingNorms from './pages/Tools/ParkingNorms/ParkingNorms';
 import AreaStatement from './pages/Tools/AreaStatement/AreaStatement';
 import MetalCalc from './pages/Tools/MetalCalc/MetalCalc';
 import ScaleCalc from './pages/Tools/ScaleCalc/ScaleCalc';
+import ColourCodedZoningMap from './pages/Tools/ColourCodedZoningMap/ColourCodedZoningMap';
 import StateByelaws from './pages/Resources/StateByelaws/StateByelaws';
+import HeightByelaws from './pages/Resources/HeightByelaws/HeightByelaws';
 import ProjectAtlas from './pages/About/ProjectAtlas/ProjectAtlas';
 import BuildingProducts from './pages/Assets/Building Products/BuildingProducts';
 import Nuvocotto from './pages/Assets/Building Products/nuvocotto/Nuvocotto';
@@ -66,6 +68,7 @@ const SuspenseWithSpinners = ({ children }) => (
         <Route path="FireLifeSafety" element={<FireLifeSafety />} />
         <Route path="ParkingNorms" element={<ParkingNorms/>} />
         <Route path="AreaStatement" element={<AreaStatement/>}/>
+        <Route path="ColourCodedZoningMap" element={<ColourCodedZoningMap/>} />
     </Routes>
   );
   
@@ -87,6 +90,7 @@ const SuspenseWithSpinners = ({ children }) => (
       <Route path="NBC/NBCPart11" element={<NbcPart11 />} />
       <Route path="NBC/NBCPart12" element={<NbcPart12 />} />
       <Route path="StateByelaws" element={<StateByelaws/>} />
+      <Route path="HeightByelaws" element={<HeightByelaws/>} />
     </Routes>
   );
   const AssetsRoutes=()=>(

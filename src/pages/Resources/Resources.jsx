@@ -21,6 +21,14 @@ export default function Resources() {
             <Link to="/resources/StateByelaws" className="btn btn-outline-primary">Read State Byelaws</Link>
           </>
         );
+      case 'height':
+        return (
+          <>
+            <h3 className={`text-${mode === 'light' ? 'dark' : 'light'}`}>Building Height Byelaws (Bengaluru)</h3>
+            <p>Local (BBMP / RMP-2015) and aerodrome (AAI) height controls, and how they combine.</p>
+            <Link to="/resources/HeightByelaws" className="btn btn-outline-primary">Read Height Byelaws</Link>
+          </>
+        );
       default:
         return <p>Select a resource from the sidebar.</p>;
     }
@@ -49,6 +57,11 @@ export default function Resources() {
     {
       id: 'byelaws',
       title: 'State Byelaws',
+      content: null,
+    },
+    {
+      id: 'height',
+      title: 'Building Height Byelaws',
       content: null,
     },
   ];

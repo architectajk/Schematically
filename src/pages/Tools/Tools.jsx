@@ -32,6 +32,12 @@ const Tools =()=> {
         description: 'Calculates required parking by land use',
         path: '/tools/ParkingNorms',
         status: 'beta'
+      },
+      {
+        name: 'Airport Height Check (CCZM)',
+        description: 'Checks max building height near Bangalore airports per AAI Colour Coded Zoning Map',
+        path: '/tools/ColourCodedZoningMap',
+        status: 'beta'
       }
     ],
     planning: [
