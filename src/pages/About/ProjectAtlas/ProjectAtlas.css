@@ -18,7 +18,7 @@
   color: var(--pa-muted); margin-bottom: 0.25rem;
 }
 .project-atlas .pa-title { font-weight: 650; letter-spacing: 0.01em; margin: 0 0 0.5rem; }
-.project-atlas .pa-lede { max-width: 70ch; color: var(--pa-muted); }
+.project-atlas .pa-lede { max-width: 700ch; color: var(--pa-muted); }
 .project-atlas .pa-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; }
 .project-atlas .pa-stat { font-size: 14px; color: var(--pa-muted); }
 .project-atlas .pa-stat b {
@@ -30,7 +30,7 @@
 .project-atlas .pa-mapwrap {
   position: relative; width: 100%; height: 72vh; min-height: 460px;
   border-top: 1px solid var(--pa-line); border-bottom: 1px solid var(--pa-line);
-  margin-bottom: 3.5rem;
+  margin-bottom: 1rem;
 }
 .project-atlas .pa-map { position: absolute; inset: 0; background: #eceff1; }
 .project-atlas[data-bs-theme="dark"] .pa-map { background: #12161c; }
@@ -117,4 +117,79 @@
 @media (max-width: 640px) {
   .project-atlas .pa-index { width: 200px; max-height: 45%; }
   .project-atlas .pa-mapwrap { height: 64vh; }
+}
+
+/* ---- Logo-chip markers ---- */
+.project-atlas .pa-chip-wrap { background: none; border: none; }
+.project-atlas .pa-chip {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #ffffff; border: 2px solid var(--ring, #888);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative; cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.project-atlas .pa-chip:hover { transform: scale(1.14); }
+.project-atlas .pa-chip::after {
+  content: attr(data-i); position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: #334155;
+}
+/* !important overrides Leaflet's `.leaflet-marker-pane img { max-width: none }`,
+   which otherwise lets the logo render full-size and get cropped by the circle. */
+.project-atlas .pa-chip img {
+  position: relative; z-index: 1; object-fit: contain;
+  max-width: 60% !important; max-height: 60% !important;
+}
+
+/* ---- Metrics dashboard ---- */
+.project-atlas .pa-dash-tiles {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px;
+}
+.project-atlas .pa-tile {
+  background: var(--pa-card); border: 1px solid var(--pa-line);
+  border-radius: 12px; padding: 16px 18px; text-align: center;
+}
+.project-atlas .pa-tile b {
+  display: block; font-size: 26px; color: var(--pa-ink); font-variant-numeric: tabular-nums;
+}
+.project-atlas .pa-tile span { font-size: 12px; color: var(--pa-muted); }
+
+.project-atlas .pa-detail {
+  background: var(--pa-card); border: 1px solid var(--pa-line); border-radius: 14px; padding: 20px;
+}
+.project-atlas .pa-detail--empty { color: var(--pa-muted); text-align: center; padding: 34px; }
+.project-atlas .pa-detail-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.project-atlas .pa-detail-logo {
+  width: 64px; height: 64px; object-fit: contain; background: #fff;
+  border-radius: 10px; padding: 6px; border: 1px solid var(--pa-line); flex: 0 0 auto;
+}
+.project-atlas .pa-detail-logo--ph {
+  display: flex; align-items: center; justify-content: center; font-weight: 700; color: #475569; font-size: 18px;
+}
+.project-atlas .pa-detail-name { font-size: 20px; font-weight: 650; }
+.project-atlas .pa-badge2 {
+  display: inline-block; margin-top: 4px; padding: 2px 10px;
+  border-radius: 20px; font-size: 12px; font-weight: 600;
+}
+.project-atlas .pa-metrics {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 18px;
+}
+.project-atlas .pa-metric { border: 1px solid var(--pa-line); border-radius: 10px; padding: 12px 14px; }
+.project-atlas .pa-metric-l { display: block; font-size: 12px; color: var(--pa-muted); margin-bottom: 4px; }
+.project-atlas .pa-metric-v { font-size: 16px; font-weight: 600; color: var(--pa-ink); }
+.project-atlas .pa-amen-hd {
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pa-muted); margin-bottom: 8px;
+}
+.project-atlas .pa-amen-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.project-atlas .pa-amen-list li {
+  background: var(--pa-line); border-radius: 20px; padding: 4px 12px; font-size: 13px; color: var(--pa-ink);
+}
+.project-atlas .pa-ph { color: var(--pa-muted); font-style: italic; font-size: 13px; }
+.project-atlas .pa-dash-note { margin-top: 14px; margin-bottom: 0; }
+.project-atlas .pa-dash-note code {
+  background: var(--pa-line); padding: 1px 5px; border-radius: 4px; font-size: 12px; font-style: normal;
+}
+@media (max-width: 640px) {
+  .project-atlas .pa-dash-tiles { grid-template-columns: repeat(2, 1fr); }
 }

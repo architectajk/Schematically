@@ -282,8 +282,8 @@ const ColourCodedZoningMap = () => {
             </div>
             <MapContainer center={MAP_CENTER} zoom={11} scrollWheelZoom style={{ height: '100%', width: '100%' }}>
               <TileLayer
-                attribution='&copy; OpenStreetMap contributors'
-                url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
               />
               <ImageOverlay url={CCZM_OVERLAY_IMG} bounds={CCZM_BOUNDS} opacity={overlayOpacity} />
               {marker && (

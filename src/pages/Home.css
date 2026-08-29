@@ -199,7 +199,7 @@
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: clamp(2.25rem, 7vw, 64px);
-  line-height: 1.05;
+  line-height: 1.14;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   margin: 0 auto;
@@ -214,13 +214,15 @@
   white-space: nowrap;
 }
 
-/* Hero title entrance: each line slides up inside an overflow mask. The small
-   bottom padding keeps descenders (g, p) visible once the line settles. */
+/* Hero title entrance: each line slides up inside an overflow mask. The
+   bottom padding keeps descenders (g, p, y) visible once the line settles —
+   0.09em wasn't quite enough headroom for Inter's descenders (the bottom of
+   the "g" in "design" was getting clipped by this mask), so it's bumped up. */
 .skhome__line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.09em;
-  margin-bottom: -0.09em;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
 }
 .skhome__line-in {
   display: inline-block;

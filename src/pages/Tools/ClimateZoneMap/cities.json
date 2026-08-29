@@ -1,0 +1,914 @@
+{
+"source": "Koppen codes sampled from Beck et al. (2023) 1991-2020 1km raster; tiers per CREDAI 2025 list",
+"cities": [
+{
+"n": "Ahmedabad",
+"s": "Gujarat",
+"t": 1,
+"lat": 23.0225,
+"lng": 72.5714,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Bengaluru",
+"s": "Karnataka",
+"t": 1,
+"lat": 12.9716,
+"lng": 77.5946,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Chennai",
+"s": "Tamil Nadu",
+"t": 1,
+"lat": 13.0827,
+"lng": 80.2707,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Gurgaon",
+"s": "Haryana",
+"t": 1,
+"lat": 28.4595,
+"lng": 77.0266,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Hyderabad",
+"s": "Telangana",
+"t": 1,
+"lat": 17.385,
+"lng": 78.4867,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Kolkata",
+"s": "West Bengal",
+"t": 1,
+"lat": 22.5726,
+"lng": 88.3639,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Mumbai",
+"s": "Maharashtra",
+"t": 1,
+"lat": 19.076,
+"lng": 72.8777,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "New Delhi",
+"s": "Delhi",
+"t": 1,
+"lat": 28.6139,
+"lng": 77.209,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Pune",
+"s": "Maharashtra",
+"t": 1,
+"lat": 18.5204,
+"lng": 73.8567,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Agra",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 27.1767,
+"lng": 78.0081,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Ambala",
+"s": "Haryana",
+"t": 2,
+"lat": 30.3782,
+"lng": 76.7767,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Amravati",
+"s": "Maharashtra",
+"t": 2,
+"lat": 20.932,
+"lng": 77.7523,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Amritsar",
+"s": "Punjab",
+"t": 2,
+"lat": 31.634,
+"lng": 74.8723,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Ananthapur",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 14.6819,
+"lng": 77.6006,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Asansol",
+"s": "West Bengal",
+"t": 2,
+"lat": 23.6739,
+"lng": 86.9524,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Belagavi",
+"s": "Karnataka",
+"t": 2,
+"lat": 15.8497,
+"lng": 74.4977,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Bhavnagar",
+"s": "Gujarat",
+"t": 2,
+"lat": 21.7645,
+"lng": 72.1519,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Bhiwandi",
+"s": "Maharashtra",
+"t": 2,
+"lat": 19.2813,
+"lng": 73.0483,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "Bhopal",
+"s": "Madhya Pradesh",
+"t": 2,
+"lat": 23.2599,
+"lng": 77.4126,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Bhubaneswar",
+"s": "Odisha",
+"t": 2,
+"lat": 20.2961,
+"lng": 85.8245,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Calicut (Kozhikode)",
+"s": "Kerala",
+"t": 2,
+"lat": 11.2588,
+"lng": 75.7804,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "Ch. Sambhajinagar",
+"s": "Maharashtra",
+"t": 2,
+"lat": 19.8762,
+"lng": 75.3433,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Chandigarh",
+"s": "Chandigarh",
+"t": 2,
+"lat": 30.7333,
+"lng": 76.7794,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Coimbatore",
+"s": "Tamil Nadu",
+"t": 2,
+"lat": 11.0168,
+"lng": 76.9558,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Cuttack",
+"s": "Odisha",
+"t": 2,
+"lat": 20.4625,
+"lng": 85.883,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Davangere",
+"s": "Karnataka",
+"t": 2,
+"lat": 14.4644,
+"lng": 75.9218,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Dhanbad",
+"s": "Jharkhand",
+"t": 2,
+"lat": 23.7957,
+"lng": 86.4304,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Durg-Bhilai",
+"s": "Chhattisgarh",
+"t": 2,
+"lat": 21.1901,
+"lng": 81.3,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Faridabad",
+"s": "Haryana",
+"t": 2,
+"lat": 28.4089,
+"lng": 77.3178,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Gandhinagar",
+"s": "Gujarat",
+"t": 2,
+"lat": 23.2156,
+"lng": 72.6369,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Ghaziabad",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 28.6692,
+"lng": 77.4538,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Goa (Panaji)",
+"s": "Goa",
+"t": 2,
+"lat": 15.4909,
+"lng": 73.8278,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "Greater Noida",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 28.4744,
+"lng": 77.504,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Guntur",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 16.3067,
+"lng": 80.4365,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Guwahati",
+"s": "Assam",
+"t": 2,
+"lat": 26.1445,
+"lng": 91.7362,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Gwalior",
+"s": "Madhya Pradesh",
+"t": 2,
+"lat": 26.2183,
+"lng": 78.1828,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Hisar",
+"s": "Haryana",
+"t": 2,
+"lat": 29.1492,
+"lng": 75.7217,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Howrah",
+"s": "West Bengal",
+"t": 2,
+"lat": 22.5958,
+"lng": 88.2636,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Hubballi-Dharwad",
+"s": "Karnataka",
+"t": 2,
+"lat": 15.3647,
+"lng": 75.124,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Indore",
+"s": "Madhya Pradesh",
+"t": 2,
+"lat": 22.7196,
+"lng": 75.8577,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Jabalpur",
+"s": "Madhya Pradesh",
+"t": 2,
+"lat": 23.1815,
+"lng": 79.9864,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Jaipur",
+"s": "Rajasthan",
+"t": 2,
+"lat": 26.9124,
+"lng": 75.7873,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Jalandhar",
+"s": "Punjab",
+"t": 2,
+"lat": 31.326,
+"lng": 75.5762,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Jalgaon",
+"s": "Maharashtra",
+"t": 2,
+"lat": 21.0077,
+"lng": 75.5626,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Jamnagar",
+"s": "Gujarat",
+"t": 2,
+"lat": 22.4707,
+"lng": 70.0577,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Jamshedpur",
+"s": "Jharkhand",
+"t": 2,
+"lat": 22.8046,
+"lng": 86.2029,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Jodhpur",
+"s": "Rajasthan",
+"t": 2,
+"lat": 26.2389,
+"lng": 73.0243,
+"k": "BWh",
+"d": "Arid desert, hot"
+},
+{
+"n": "Kadapa",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 14.4673,
+"lng": 78.8242,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Kakinada",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 16.9891,
+"lng": 82.2475,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Kalyan-Dombivli",
+"s": "Maharashtra",
+"t": 2,
+"lat": 19.2403,
+"lng": 73.1305,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "Kanpur",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 26.4499,
+"lng": 80.3319,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Karnal",
+"s": "Haryana",
+"t": 2,
+"lat": 29.6857,
+"lng": 76.9905,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Kochi",
+"s": "Kerala",
+"t": 2,
+"lat": 9.9312,
+"lng": 76.2673,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "Kolhapur",
+"s": "Maharashtra",
+"t": 2,
+"lat": 16.705,
+"lng": 74.2433,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Kota",
+"s": "Rajasthan",
+"t": 2,
+"lat": 25.2138,
+"lng": 75.8648,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Kurnool",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 15.8281,
+"lng": 78.0373,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Latur",
+"s": "Maharashtra",
+"t": 2,
+"lat": 18.4088,
+"lng": 76.5604,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Lucknow",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 26.8467,
+"lng": 80.9462,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Ludhiana",
+"s": "Punjab",
+"t": 2,
+"lat": 30.901,
+"lng": 75.8573,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Madurai",
+"s": "Tamil Nadu",
+"t": 2,
+"lat": 9.9252,
+"lng": 78.1198,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Malegaon",
+"s": "Maharashtra",
+"t": 2,
+"lat": 20.5537,
+"lng": 74.5288,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Mangaluru",
+"s": "Karnataka",
+"t": 2,
+"lat": 12.9141,
+"lng": 74.856,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "Mira-Bhayandar",
+"s": "Maharashtra",
+"t": 2,
+"lat": 19.2952,
+"lng": 72.8544,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Mohali",
+"s": "Punjab",
+"t": 2,
+"lat": 30.7046,
+"lng": 76.7179,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Moradabad",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 28.8386,
+"lng": 78.7733,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Mysuru",
+"s": "Karnataka",
+"t": 2,
+"lat": 12.2958,
+"lng": 76.6394,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Nagpur",
+"s": "Maharashtra",
+"t": 2,
+"lat": 21.1458,
+"lng": 79.0882,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Nanded",
+"s": "Maharashtra",
+"t": 2,
+"lat": 19.1383,
+"lng": 77.321,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Nashik",
+"s": "Maharashtra",
+"t": 2,
+"lat": 19.9975,
+"lng": 73.7898,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Navi Mumbai",
+"s": "Maharashtra",
+"t": 2,
+"lat": 19.033,
+"lng": 73.0297,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "Nellore",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 14.4426,
+"lng": 79.9865,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Nizamabad",
+"s": "Telangana",
+"t": 2,
+"lat": 18.6725,
+"lng": 78.0941,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Noida",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 28.5355,
+"lng": 77.391,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Panchkula",
+"s": "Haryana",
+"t": 2,
+"lat": 30.6942,
+"lng": 76.8606,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Patna",
+"s": "Bihar",
+"t": 2,
+"lat": 25.5941,
+"lng": 85.1376,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Prayagraj",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 25.4358,
+"lng": 81.8463,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Puducherry",
+"s": "Puducherry",
+"t": 2,
+"lat": 11.9416,
+"lng": 79.8083,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Raipur",
+"s": "Chhattisgarh",
+"t": 2,
+"lat": 21.2514,
+"lng": 81.6296,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Rajahmundry",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 17.0005,
+"lng": 81.804,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Rajkot",
+"s": "Gujarat",
+"t": 2,
+"lat": 22.3039,
+"lng": 70.8022,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Ranchi",
+"s": "Jharkhand",
+"t": 2,
+"lat": 23.3441,
+"lng": 85.3096,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Rohtak",
+"s": "Haryana",
+"t": 2,
+"lat": 28.8955,
+"lng": 76.6066,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Sagar",
+"s": "Madhya Pradesh",
+"t": 2,
+"lat": 23.8388,
+"lng": 78.7378,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Salem",
+"s": "Tamil Nadu",
+"t": 2,
+"lat": 11.6643,
+"lng": 78.146,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Sangli",
+"s": "Maharashtra",
+"t": 2,
+"lat": 16.8524,
+"lng": 74.5815,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Satara",
+"s": "Maharashtra",
+"t": 2,
+"lat": 17.6805,
+"lng": 74.0183,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Solapur",
+"s": "Maharashtra",
+"t": 2,
+"lat": 17.6599,
+"lng": 75.9064,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Sonipat",
+"s": "Haryana",
+"t": 2,
+"lat": 28.9931,
+"lng": 77.0151,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Surat",
+"s": "Gujarat",
+"t": 2,
+"lat": 21.1702,
+"lng": 72.8311,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Thane",
+"s": "Maharashtra",
+"t": 2,
+"lat": 19.2183,
+"lng": 72.9781,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Thrissur",
+"s": "Kerala",
+"t": 2,
+"lat": 10.5276,
+"lng": 76.2144,
+"k": "Am",
+"d": "Tropical monsoon"
+},
+{
+"n": "Tirupati",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 13.6288,
+"lng": 79.4192,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Trichy",
+"s": "Tamil Nadu",
+"t": 2,
+"lat": 10.7905,
+"lng": 78.7047,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Thiruvananthapuram",
+"s": "Kerala",
+"t": 2,
+"lat": 8.5241,
+"lng": 76.9366,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Udaipur",
+"s": "Rajasthan",
+"t": 2,
+"lat": 24.5854,
+"lng": 73.7125,
+"k": "BSh",
+"d": "Arid steppe, hot"
+},
+{
+"n": "Vadodara",
+"s": "Gujarat",
+"t": 2,
+"lat": 22.3072,
+"lng": 73.1812,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Varanasi",
+"s": "Uttar Pradesh",
+"t": 2,
+"lat": 25.3176,
+"lng": 82.9739,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+},
+{
+"n": "Vijayawada",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 16.5062,
+"lng": 80.648,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Visakhapatnam",
+"s": "Andhra Pradesh",
+"t": 2,
+"lat": 17.6868,
+"lng": 83.2185,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Warangal",
+"s": "Telangana",
+"t": 2,
+"lat": 17.9689,
+"lng": 79.5941,
+"k": "Aw",
+"d": "Tropical savannah"
+},
+{
+"n": "Yamunanagar",
+"s": "Haryana",
+"t": 2,
+"lat": 30.129,
+"lng": 77.2674,
+"k": "Cwa",
+"d": "Temperate, dry winter, hot summer"
+}
+]
+}

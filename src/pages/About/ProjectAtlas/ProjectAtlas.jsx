@@ -5,8 +5,8 @@ import { SchematicContext } from '../../../context/Schematic/SchematicContextPro
 import sites from './assetzSites.json';
 import cityBoundary from './bengaluruBoundary.json';
 import greaterBoundary from './greaterBengaluruBoundary.json';
-import bmrdaZones from './bmrdaZones.json';
 import lpaBoundaries from './lpaBoundaries.json';
+import projectMeta from './projectMeta.json';
 import './ProjectAtlas.css';
 
 /* Status -> colour lookup (green = Completed, amber = Under Construction).
@@ -17,10 +17,23 @@ const STATUS = {
 };
 
 /* Muted monochrome basemaps so the coloured site boundaries are the only
-   saturated thing on screen. Two variants, chosen by the site's dark/light mode. */
+   saturated thing on screen. Two variants, chosen by the site's dark/light mode.
+
+   These are Esri's legacy ArcGIS Online tile services. They still serve fine,
+   but Esri lists them as "in mature support; no longer updated" - the newer
+   ArcGIS basemap layer service needs an API key and an ArcGIS account. Note
+   this is a different provider from the CARTO tiles used by the Tools maps,
+   so the CARTO key does not apply here.
+
+   Attribution below is Esri's own copyrightText for these services; the
+   shorter "Tiles (c) Esri" previously used did not credit HERE, Garmin or
+   OpenStreetMap as their terms require. */
+const ESRI_ATTRIBUTION =
+  'Esri, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, and the GIS user community';
+
 const TILES = {
-  light: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-  dark:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  light: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  dark:  'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
 };
 
 /* Free satellite/aerial imagery (Esri World Imagery). Google's own tiles need a
@@ -30,18 +43,6 @@ const SATELLITE = {
   url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics',
 };
-
-/* BMRDA Area Planning Zones (Structure Plan 2011). Official zone maps exist only
-   as PDFs, so each zone boundary is INDICATIVE: approximated by merging its
-   taluks' boundaries (© OpenStreetMap, simplified). `on` = default legend state. */
-const ZONES = [
-  { key: 'APZ-1 (Bidadi–Kanakapura)', color: '#7e6aa8', on: true },
-  { key: 'APZ-2 (Nelamangala–Magadi)', color: '#4d7ea8', on: true },
-  { key: 'APZ-3 (Devanahalli–Doddaballapura)', color: '#2a9d8f', on: true },
-  { key: 'APZ-4 (Hosakote)', color: '#b56576', on: true },
-  { key: 'APZ-5 (Anekal)', color: '#8a7b3c', on: true },
-  { key: 'Interstitial Zone (conservation)', color: '#6c757d', on: false },
-];
 
 /* BMRDA Local Planning Areas, digitized from the official LPA map PDF (legend
    colours matched; georeferenced against OSM taluk boundaries). Approximate —
@@ -62,15 +63,28 @@ const LPAS = [
   { key: 'SmartCity', label: 'Greater Bengaluru–Bidadi Smart City', color: '#0aa2c0', on: false },
 ];
 
+/* Centroid of a Polygon/MultiPolygon's first ring, as Leaflet [lat, lng]. */
+function centroidOf(geom) {
+  const ring = geom.type === 'MultiPolygon' ? geom.coordinates[0][0] : geom.coordinates[0];
+  let x = 0, y = 0; const n = ring.length - 1;
+  for (let i = 0; i < n; i++) { x += ring[i][0]; y += ring[i][1]; }
+  return [y / n, x / n];
+}
+/* Up-to-2-char fallback badge for a project with no logo. */
+function initials(name) {
+  return (name || '').replace(/[^A-Za-z0-9 ]/g, ' ')
+    .split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+}
+
 export default function ProjectAtlas() {
   const { mode } = useContext(SchematicContext);
   const [satellite, setSatellite] = useState(false); // basemap toggle: monochrome map vs imagery
-  const [zoneOn, setZoneOn] = useState(() => Object.fromEntries(ZONES.map((z) => [z.key, z.on])));
   const [lpaOn, setLpaOn] = useState(() => Object.fromEntries(LPAS.map((l) => [l.key, l.on])));
   /* Overlay panels are dropdowns — open by default on desktop, collapsed on
      small screens so the map stays usable. */
   const [legendOpen, setLegendOpen] = useState(() => !window.matchMedia('(max-width: 640px)').matches);
   const [indexOpen, setIndexOpen] = useState(() => !window.matchMedia('(max-width: 640px)').matches);
+  const [selected, setSelected] = useState(null); // selected project name -> drives the dashboard
 
   const mapEl = useRef(null);          // the <div> the map draws into
   const mapRef = useRef(null);         // the Leaflet map instance
@@ -78,8 +92,8 @@ export default function ProjectAtlas() {
   const layersByName = useRef({});     // name -> polygon layer, for the index fly-to
   const cityLayerRef = useRef(null);   // BBMP city outline layer
   const greaterLayerRef = useRef(null);// Bengaluru Urban (Greater) outline layer
-  const zoneLayersRef = useRef({});    // zone key -> BMRDA zone layer, for legend toggles
   const lpaLayersRef = useRef({});     // LPA key -> LPA layer, for legend toggles
+  const markersRef = useRef({});       // name -> logo-chip marker
 
   /* Derived numbers + grouped index, computed from the data (not hardcoded). */
   const { totalArea, nDone, nUC, groups } = useMemo(() => {
@@ -109,26 +123,6 @@ export default function ProjectAtlas() {
        colours are set per-theme in the mode effect below. */
     greaterLayerRef.current = L.geoJSON(greaterBoundary, { interactive: false }).addTo(map);
     cityLayerRef.current = L.geoJSON(cityBoundary, { interactive: false }).addTo(map);
-
-    /* BMRDA zone overlays — quiet dashed context drawn before (under) the sites.
-       Visible on load per ZONES[].on; the legend toggles add/remove them. */
-    for (const z of ZONES) {
-      const feat = bmrdaZones.features.find((f) => f.properties.zone === z.key);
-      if (!feat) continue;
-      const zl = L.geoJSON(feat, {
-        style: { color: z.color, weight: 1.1, opacity: 0.75, dashArray: '4 4', fillColor: z.color, fillOpacity: 0.06 },
-        onEachFeature: (f, lyr) => {
-          const p = f.properties;
-          lyr.bindTooltip(
-            `<b>${p.zone}</b><br/>${p.taluks.join(', ')} taluk${p.taluks.length > 1 ? 's' : ''} · ~${p.approx_km2.toLocaleString()} km²` +
-            `<br/><i>Indicative — taluk-based approximation</i>`,
-            { sticky: true }
-          );
-        },
-      });
-      zoneLayersRef.current[z.key] = zl;
-      if (z.on) zl.addTo(map);
-    }
 
     /* BMRDA LPA overlays (digitized from the official LPA map) — also under the
        sites, all hidden by default and toggled from the legend. */
@@ -172,6 +166,27 @@ export default function ProjectAtlas() {
       },
     }).addTo(map);
 
+    /* Logo-chip markers at each site centroid — the primary way to identify and
+       select a project. White chip with a status-colour ring; falls back to
+       initials when a project has no logo (or the logo image fails to load). */
+    sites.features.forEach((f) => {
+      const p = f.properties;
+      const s = STATUS[p.status] || STATUS.Completed;
+      const icon = L.divIcon({
+        className: 'pa-chip-wrap',
+        html: `<div class="pa-chip" style="--ring:${s.fill}" data-i="${initials(p.name)}"></div>`,
+        iconSize: [40, 40], iconAnchor: [20, 20],
+      });
+      const mk = L.marker(centroidOf(f.geometry), { icon, riseOnHover: true }).addTo(map);
+      mk.bindTooltip(p.name, { direction: 'top', offset: [0, -20] });
+      mk.on('click', () => {
+        setSelected(p.name);
+        const lyr = layersByName.current[p.name];
+        if (lyr) map.flyToBounds(lyr.getBounds(), { padding: [60, 60], maxZoom: 17 });
+      });
+      markersRef.current[p.name] = mk;
+    });
+
     // Frame the greater-Bengaluru extent plus any outlying sites, so every site shows.
     map.fitBounds(greaterLayerRef.current.getBounds().extend(layer.getBounds()), { padding: [20, 20] });
 
@@ -181,24 +196,11 @@ export default function ProjectAtlas() {
       tileRef.current = null;
       cityLayerRef.current = null;
       greaterLayerRef.current = null;
-      zoneLayersRef.current = {};
       lpaLayersRef.current = {};
       layersByName.current = {};
+      markersRef.current = {};
     };
   }, []);
-
-  /* Show/hide BMRDA zone layers from the legend toggles. Runs after the init
-     effect on mount, so the default state is already on the map — no-ops then. */
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map) return;
-    for (const z of ZONES) {
-      const lyr = zoneLayersRef.current[z.key];
-      if (!lyr) continue;
-      if (zoneOn[z.key] && !map.hasLayer(lyr)) lyr.addTo(map);
-      if (!zoneOn[z.key] && map.hasLayer(lyr)) map.removeLayer(lyr);
-    }
-  }, [zoneOn]);
 
   /* Show/hide LPA layers from the legend toggles. */
   useEffect(() => {
@@ -219,7 +221,7 @@ export default function ProjectAtlas() {
     if (tileRef.current) map.removeLayer(tileRef.current);
     tileRef.current = satellite
       ? L.tileLayer(SATELLITE.url, { maxZoom: 20, maxNativeZoom: 19, attribution: SATELLITE.attribution })
-      : L.tileLayer(TILES[mode] || TILES.light, { maxZoom: 20, subdomains: 'abcd', attribution: '&copy; OpenStreetMap &copy; CARTO' });
+      : L.tileLayer(TILES[mode] || TILES.light, { maxZoom: 20, maxNativeZoom: 16, attribution: ESRI_ATTRIBUTION });
     tileRef.current.addTo(map);
     tileRef.current.bringToBack();
 
@@ -243,14 +245,27 @@ export default function ProjectAtlas() {
 
   const textClass = `text-${mode === 'light' ? 'dark' : 'light'}`;
 
+  /* Dashboard data for the currently selected project (metrics are placeholders
+     from projectMeta.json until real figures are filled in). */
+  const selectedFeature = selected ? sites.features.find((f) => f.properties.name === selected) : null;
+  const meta = selected ? (projectMeta[selected] || {}) : {};
+  const selStatus = selectedFeature ? (STATUS[selectedFeature.properties.status] || STATUS.Completed) : null;
+  const metrics = selectedFeature ? [
+    { label: 'Land area', value: `${selectedFeature.properties.area_acres} acres` },
+    { label: 'No. of units', value: meta.units ?? '—' },
+    { label: 'No. of towers', value: meta.towers ?? '—' },
+    { label: 'Unit types', value: meta.unitTypes || '—' },
+    { label: 'Building height', value: meta.heightM ? `${meta.heightM} m` : '—' },
+    { label: 'Possession', value: meta.possession || '—' },
+  ] : [];
+
   return (
     <div className="project-atlas" data-bs-theme={mode}>
       <div className="container py-4">
         <p className="pa-brand">Assetz &middot; Project Atlas</p>
         <h1 className={`${textClass} pa-title`}>Portfolio Map</h1>
         <p className="pa-lede">
-          An interactive atlas of Assetz developments I&rsquo;ve worked on in project
-          management &mdash; each site drawn to its real boundary, colour-coded by delivery
+          An interactive atlas of Assetz developments I&rsquo;ve worked on in project management &mdash; each site drawn to its real boundary, colour-coded by delivery
           status, with areas computed directly from the mapped geometry.
         </p>
         <div className="pa-stats">
@@ -288,27 +303,6 @@ export default function ProjectAtlas() {
           </div>
           <div className="pa-row">
             <span style={{ display: 'inline-block', width: 16, borderTop: '2px dashed #8aa0bd' }} /> Greater Bengaluru
-          </div>
-          <div className="pa-row" style={{ marginTop: 6, paddingTop: 6, borderTop: '1px solid var(--pa-line)' }}>
-            <span className="pa-zh">BMRDA zones</span>
-          </div>
-          {ZONES.map((z) => (
-            <button
-              type="button"
-              key={z.key}
-              className={`pa-zrow${zoneOn[z.key] ? '' : ' off'}`}
-              onClick={() => setZoneOn((s) => ({ ...s, [z.key]: !s[z.key] }))}
-              title={`${zoneOn[z.key] ? 'Hide' : 'Show'} zone layer`}
-            >
-              <span
-                className="pa-zsw"
-                style={{ borderColor: z.color, background: zoneOn[z.key] ? `${z.color}33` : 'transparent' }}
-              />
-              {z.key.replace(/[()]/g, '')}
-            </button>
-          ))}
-          <div className="pa-znote">
-            Indicative — follows taluk boundaries (© OpenStreetMap), not official BMRDA maps
           </div>
           <div className="pa-row" style={{ marginTop: 6, paddingTop: 6, borderTop: '1px solid var(--pa-line)' }}>
             <span className="pa-zh">Local Planning Areas</span>
@@ -366,7 +360,7 @@ export default function ProjectAtlas() {
                     type="button"
                     className="pa-item"
                     key={f.properties.name}
-                    onClick={() => flyTo(f.properties.name)}
+                    onClick={() => { setSelected(f.properties.name); flyTo(f.properties.name); }}
                   >
                     <span className="pa-idot" style={{ background: STATUS[f.properties.status]?.fill }} />
                     <span className="pa-nm">{f.properties.name}</span>
@@ -378,6 +372,53 @@ export default function ProjectAtlas() {
           </div>
           )}
         </div>
+      </div>
+
+      {/* ---- Metrics dashboard ---- */}
+      <div className="container py-4 pa-dash">
+        <div className="pa-dash-tiles">
+          <div className="pa-tile"><b>{sites.features.length}</b><span>Developments</span></div>
+          <div className="pa-tile"><b>{totalArea.toLocaleString(undefined, { maximumFractionDigits: 0 })}</b><span>Acres mapped</span></div>
+          <div className="pa-tile"><b>{nDone}</b><span>Completed</span></div>
+          <div className="pa-tile"><b>{nUC}</b><span>Under construction</span></div>
+        </div>
+
+        {selectedFeature ? (
+          <div className="pa-detail">
+            <div className="pa-detail-head">
+              {meta.logo
+                ? <img className="pa-detail-logo" src={meta.logo} alt={`${selected} logo`} />
+                : <div className="pa-detail-logo pa-detail-logo--ph">{initials(selected)}</div>}
+              <div>
+                <div className={`pa-detail-name text-${mode === 'light' ? 'dark' : 'light'}`}>{selected}</div>
+                <span className="pa-badge2" style={{ background: `${selStatus.fill}22`, color: selStatus.ink }}>
+                  {selectedFeature.properties.status}
+                </span>
+              </div>
+            </div>
+            <div className="pa-metrics">
+              {metrics.map((m) => (
+                <div className="pa-metric" key={m.label}>
+                  <span className="pa-metric-l">{m.label}</span>
+                  <span className="pa-metric-v">{m.value}</span>
+                </div>
+              ))}
+            </div>
+            <div className="pa-amen">
+              <div className="pa-amen-hd">Amenities</div>
+              {meta.amenities && meta.amenities.length
+                ? <ul className="pa-amen-list">{meta.amenities.map((a) => <li key={a}>{a}</li>)}</ul>
+                : <span className="pa-ph">Placeholder — add amenities in projectMeta.json</span>}
+            </div>
+            <p className="pa-ph pa-dash-note">
+              Metrics are placeholders — fill in real figures per project in <code>projectMeta.json</code>.
+            </p>
+          </div>
+        ) : (
+          <div className="pa-detail pa-detail--empty">
+            Click a project logo on the map (or a name in the index) to see its metrics.
+          </div>
+        )}
       </div>
     </div>
   );

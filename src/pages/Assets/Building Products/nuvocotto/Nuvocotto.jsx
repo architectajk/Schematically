@@ -197,11 +197,13 @@ const Nuvocotto = () => {
         <h5 className={textColorClass}>Accessories</h5>
         <hr className={`${textColorClass} mt-5`} />
         <h5 className={textColorClass}>Gallery</h5>
+        <div className='mb-4'>
         <model-viewer slot="canvas" style={{ width: '700px', height: '500px',background: '#eeeeee'}} camera-orbit="45deg 55deg 4m" src="/Products/Nuvocotto/Amber-Jaali.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
         <div className="progress-bar hide" slot="progress-bar">
         <div className="update-bar"></div>
         </div>
         </model-viewer>
+        </div>
       </div>
     </div>
     </div>

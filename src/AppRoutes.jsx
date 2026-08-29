@@ -34,10 +34,11 @@ import AreaStatement from './pages/Tools/AreaStatement/AreaStatement';
 import MetalCalc from './pages/Tools/MetalCalc/MetalCalc';
 import ScaleCalc from './pages/Tools/ScaleCalc/ScaleCalc';
 import ColourCodedZoningMap from './pages/Tools/ColourCodedZoningMap/ColourCodedZoningMap';
+import ClimateZoneMap from './pages/Tools/ClimateZoneMap/ClimateZoneMap';
+import WeatherFileFinder from './pages/Tools/WeatherFileFinder/WeatherFileFinder';
 import StateByelaws from './pages/Resources/StateByelaws/StateByelaws';
 import HeightByelaws from './pages/Resources/HeightByelaws/HeightByelaws';
 import ProjectAtlas from './pages/About/ProjectAtlas/ProjectAtlas';
-import BuildingProducts from './pages/Assets/Building Products/BuildingProducts';
 import Nuvocotto from './pages/Assets/Building Products/nuvocotto/Nuvocotto';
 import AssetLibrary from './pages/Assets/AssetLibrary/AssetLibrary';
 
@@ -69,6 +70,8 @@ const SuspenseWithSpinners = ({ children }) => (
         <Route path="ParkingNorms" element={<ParkingNorms/>} />
         <Route path="AreaStatement" element={<AreaStatement/>}/>
         <Route path="ColourCodedZoningMap" element={<ColourCodedZoningMap/>} />
+        <Route path="ClimateZoneMap" element={<ClimateZoneMap/>} />
+        <Route path="WeatherFileFinder" element={<WeatherFileFinder/>} />
     </Routes>
   );
   
@@ -96,8 +99,7 @@ const SuspenseWithSpinners = ({ children }) => (
   const AssetsRoutes=()=>(
     <Routes>
       <Route path="/" element={<SuspenseWithSpinners><Assets/></SuspenseWithSpinners>} />
-      <Route path="BuildingProducts" element={<BuildingProducts/>} />
-      <Route path="BuildingProducts/Nuvocotto" element={<Nuvocotto/>} />
+      <Route path="Nuvocotto" element={<Nuvocotto/>} />
       <Route path="Library" element={<AssetLibrary/>} />
     </Routes>
   )

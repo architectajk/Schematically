@@ -42,6 +42,18 @@ const Tools =()=> {
     ],
     planning: [
       {
+        name: 'Climate Zone Map',
+        description: 'Köppen-Geiger climate zones for India and the world, with Tier I & II cities mapped',
+        path: '/tools/ClimateZoneMap',
+        status: 'beta'
+      },
+      {
+        name: 'Weather File Finder',
+        description: 'EPW weather files and ASHRAE climate zones for 443 Indian stations, for Ladybug & Honeybee',
+        path: '/tools/WeatherFileFinder',
+        status: 'beta'
+      },
+      {
         name: 'Scale Calc',
         description: 'Converts real-world and drawing scale units',
         path: '/tools/ScaleCalc',
