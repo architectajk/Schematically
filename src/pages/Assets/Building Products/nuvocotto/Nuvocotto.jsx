@@ -27,6 +27,28 @@ const Nuvocotto = () => {
       <div className='col'><img className="d-block w-100 object-fit-cover" height={420} src="/Products/Nuvocotto/NuvocottoImages/img03.jpg" alt="" /></div>
       <div className='col'><img className="d-block w-100 object-fit-cover" height={420} src="/Products/Nuvocotto/NuvocottoImages/img04.jpg" alt="" /></div>
     </div>
+    {/* Standard product hero, matching the other pages under Building
+        Products/. Placed below the 4-photo strip so Nuvocotto keeps its
+        existing banner and still carries the same h1 and spec summary. */}
+    <div className='row g-4 mb-4 align-items-center' data-bs-theme={mode}>
+      <div className='col-lg-3'>
+        <img className='img-fluid w-100' src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-productcatalog-image.png" alt="Nuvocotto terracotta building products" />
+      </div>
+      <div className='col-lg-8'>
+        <h1 className={textColorClass}>Nuvocotto</h1>
+        <p className={`${textColorClass} opacity-75 mb-3`}>Nuvocotto</p>
+        <p className={textColorClass}>
+          Terracotta building products - roof tiles, wall and floor tiles, jaalis,
+          bricks and dry panel systems - fired from clay for thermal performance
+          and a surface that weathers rather than fades.
+        </p>
+        <ul className={`list-unstyled small ${textColorClass} mb-0`}>
+          <li className='my-1'><strong>Category:</strong> Terracotta Building Products (Roof Tiles, Wall Tiles, Jaalis, Panels, Pavers)</li>
+          <li className='my-1'><strong>Material:</strong> Terracotta (Clay)</li>
+          <li className='my-1'><strong>Use:</strong> Roofing, floors, walls, facades, decorative partitions, exteriors and interiors for traditional and modern architecture</li>
+        </ul>
+      </div>
+    </div>
     <div className='row g-4' data-bs-theme={mode}>
       <div className={`h-50 col-lg-3 bg-${mode}`}>
         <div className='d-flex-column m-3 p-1 justify-content-center'>

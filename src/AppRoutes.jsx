@@ -40,6 +40,13 @@ import StateByelaws from './pages/Resources/StateByelaws/StateByelaws';
 import HeightByelaws from './pages/Resources/HeightByelaws/HeightByelaws';
 import ProjectAtlas from './pages/About/ProjectAtlas/ProjectAtlas';
 import Nuvocotto from './pages/Assets/Building Products/nuvocotto/Nuvocotto';
+import Jaquar from './pages/Assets/Building Products/jaquar/Jaquar';
+import Tostem from './pages/Assets/Building Products/tostem/Tostem';
+import Vox from './pages/Assets/Building Products/vox/Vox';
+import Danpal from './pages/Assets/Building Products/danpal/Danpal';
+import Artize from './pages/Assets/Building Products/artize/Artize';
+import CarbonCraft from './pages/Assets/Building Products/carboncraft/CarbonCraft';
+import Toto from './pages/Assets/Building Products/toto/Toto';
 import AssetLibrary from './pages/Assets/AssetLibrary/AssetLibrary';
 
 const Tools = lazy(()=> wait(1000).then(()=>import("./pages/Tools/Tools")));
@@ -54,7 +61,7 @@ const wait=(time)=>{
 const SuspenseWithSpinners = ({ children }) => (
     <Suspense fallback={<Spinners />}>{children}</Suspense>
   );
-  
+
   const ToolRoutes = () => (
     <Routes>
       <Route path="/" element={<SuspenseWithSpinners><Tools /></SuspenseWithSpinners>}/>
@@ -74,7 +81,7 @@ const SuspenseWithSpinners = ({ children }) => (
         <Route path="WeatherFileFinder" element={<WeatherFileFinder/>} />
     </Routes>
   );
-  
+
   const ResourcesRoutes = () => (
     <Routes>
       <Route path="/" element={<SuspenseWithSpinners><Resources /></SuspenseWithSpinners>} />
@@ -100,6 +107,13 @@ const SuspenseWithSpinners = ({ children }) => (
     <Routes>
       <Route path="/" element={<SuspenseWithSpinners><Assets/></SuspenseWithSpinners>} />
       <Route path="Nuvocotto" element={<Nuvocotto/>} />
+      <Route path="Jaquar" element={<Jaquar/>} />
+      <Route path="Tostem" element={<Tostem/>} />
+      <Route path="Vox" element={<Vox/>} />
+      <Route path="Danpal" element={<Danpal/>} />
+      <Route path="Artize" element={<Artize/>} />
+      <Route path="CarbonCraft" element={<CarbonCraft/>} />
+      <Route path="Toto" element={<Toto/>} />
       <Route path="Library" element={<AssetLibrary/>} />
     </Routes>
   )
@@ -115,5 +129,5 @@ const SuspenseWithSpinners = ({ children }) => (
       <Route path="donate" element={<Donate />} />
     </Routes>
   );
-  
+
 export default AppRoutes;

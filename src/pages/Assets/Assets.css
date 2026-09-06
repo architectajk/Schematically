@@ -13,12 +13,19 @@
   padding-bottom: 1rem;
 }
 
+.asset-filter-chip {
+  position: relative;
+}
+
 .asset-chip-btn {
   border: 1px solid var(--bs-border-color);
   border-radius: 999px;
   padding: 0.35rem 0.9rem;
   background: transparent;
-  color: inherit;
+  /* Not `inherit`: that freezes whatever colour an ancestor already resolved
+     to, so the chip stops responding to the dark/light theme. The variable
+     re-evaluates per theme. */
+  color: var(--bs-body-color);
 }
 
 .asset-chip-btn.active {
@@ -32,10 +39,17 @@
   vertical-align: middle;
 }
 
+/* The chip menu is positioned by React, not Popper. Bootstrap only applies
+   its own top/left via `.dropdown-menu[data-bs-popper]`, and that attribute
+   is never set now that we've dropped Bootstrap's dropdown JS - so place the
+   menu under its button explicitly. */
 .asset-chip-menu {
   max-height: 320px;
   overflow-y: auto;
   min-width: 220px;
+  top: 100%;
+  left: 0;
+  margin-top: 0.25rem;
 }
 
 .asset-clear-all {

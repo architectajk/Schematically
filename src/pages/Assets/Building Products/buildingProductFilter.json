@@ -227,6 +227,8 @@
     "CompanyName": "Jaquar",
     "manufacturerName": "Jaquar Group",
     "category": "Sanitaryware / Bathroom Fittings",
+    "categoryGroup": "Bathroom & Plumbing, Lighting & Electrical",
+    "useGroup": "Bathrooms & Wet Areas, Plumbing Systems, Electrical Systems",
     "material": "Ceramic, Brass, Stainless Steel, ABS",
     "use": "Premium bathrooms, residential and commercial washrooms",
     "description": "Jaquar is a leading manufacturer of complete bathroom and lighting solutions, offering a wide range of elegant sanitaryware, faucets, showers, accessories, and wellness products known for innovation, durability, and style.",
@@ -236,6 +238,8 @@
     "CompanyName": "Nuvocotto",
     "manufacturerName": "Nuvocotto",
     "category": "Terracotta Building Products (Roof Tiles, Wall Tiles, Jaalis, Panels, Pavers)",
+    "categoryGroup": "Roofing & Facades, Walls & Cladding, Flooring & Surfaces",
+    "useGroup": "Roof Systems, Walls & Cladding, Floors & Flooring, Exterior & Facades",
     "material": "Terracotta (Clay)",
     "use": "Roofing, floors, walls, facades, decorative partitions, exteriors and interiors for traditional and modern architecture",
     "description": "Nuvocotto specializes in a wide range of terracotta products including roof tiles (like Mangalore Tiles), wall tiles, jaalis (perforated screens), panels, and floor/paver tiles—valued for eco-friendliness, thermal insulation, and timeless aesthetics.",
@@ -245,30 +249,69 @@
     "CompanyName": "VOX India",
     "manufacturerName": "VOX",
     "category": "Ceiling Systems, Wall Panels, Facade Systems, Flooring",
+    "categoryGroup": "Walls & Cladding, Flooring & Surfaces, Roofing & Facades",
+    "useGroup": "Ceiling Systems, Walls & Cladding, Floors & Flooring, Exterior & Facades",
     "material": "PVC, SPC (Stone Plastic Composite), Composite Materials",
     "use": "Residential and commercial ceilings, soffits, interior and exterior wall cladding, facades, and flooring",
     "description": "VOX India offers innovative ceiling, wall, facade, and modular flooring solutions. Products combine modern European design with durability, featuring easy installation and low maintenance for interiors and exteriors.",
-    "image": ""
-  },
-  {
-    "CompanyName": "RAK Ceramics",
-    "manufacturerName": "RAK Ceramics",
-    "category": "Premium Ceramic and Porcelain Tiles, Sanitaryware",
-    "material": "Ceramic, Porcelain",
-    "use": "Residential and commercial floors and walls, bathrooms, kitchens",
-    "description": "RAK Ceramics is a lifestyle brand offering high-end ceramic and porcelain tiles known for innovation, versatility, and sophisticated design, delivering solutions suitable from traditional to ultra-modern spaces.",
-    "image": ""
+    "image": "/Products/Vox/Vox_productcatalogimage.png"
   },
   {
     "CompanyName": "TOSTEM India",
     "manufacturerName": "TOSTEM (LIXIL Group, Japan)",
     "category": "Aluminium Doors, Windows, Facades",
+    "categoryGroup": "Doors & Windows, Walls & Cladding",
+    "useGroup": "Exterior & Facades, Interior Applications",
     "material": "Aluminium, Glass",
     "use": "Residential and commercial fenestration: high-performance windows, sliding and casement doors, facades",
     "description": "TOSTEM India (LIXIL) provides Japanese-engineered aluminium windows, doors, and facades featuring TEXGUARD coating for durability, advanced weather-proofing, and elegant design. Products set benchmarks in performance and aesthetics.",
     "image": "/Products/Tostem/TostemImages/Tostem_productcatalogimage.png"
+  },
+  {
+    "CompanyName": "Danpal",
+    "manufacturerName": "Danpal",
+    "category": "Translucent Daylighting Systems (Facades, Roofing, Skylights)",
+    "categoryGroup": "Roofing & Facades, Walls & Cladding",
+    "useGroup": "Exterior & Facades, Roof Systems, Walls & Cladding",
+    "material": "Polycarbonate, Aluminium",
+    "use": "Translucent facades, roof glazing, skylights, canopies and light-diffusing wall cladding",
+    "description": "Danpal manufactures architectural polycarbonate daylighting systems - interlocking translucent panels with concealed aluminium framing for facades, roofs and skylights. Panels offer diffused natural light, high thermal insulation and impact resistance at a fraction of the weight of glass.",
+    "image": "/Products/Danpal/DanpalImages/Danpal_productcatalogimage.png"
+  },
+  {
+    "CompanyName": "Artize",
+    "manufacturerName": "Artize (Jaquar Group)",
+    "category": "Luxury Bath Fittings and Wellness Products",
+    "categoryGroup": "Bathroom & Plumbing",
+    "useGroup": "Bathrooms & Wet Areas, Plumbing Systems",
+    "material": "Brass, Ceramic, Stainless Steel",
+    "use": "Luxury residential bathrooms, hospitality washrooms, spa and wellness spaces",
+    "description": "Artize is the luxury bath brand of the Jaquar Group, offering sculptural faucets, showers, freestanding bathtubs and wellness systems. Designed around craftsmanship and finish variety, the range targets high-end residential and hospitality interiors.",
+    "image": "/Products/Artize/Artize_productcatalogimage.png"
+  },
+  {
+    "CompanyName": "Carbon Craft Design",
+    "manufacturerName": "CarbonCraft",
+    "category": "Carbon-Upcycled Tiles, Cladding and Surfaces",
+    "categoryGroup": "Flooring & Surfaces, Walls & Cladding",
+    "useGroup": "Floors & Flooring, Walls & Cladding, Interior Applications",
+    "material": "Recovered Carbon Black (rCB), Industrial Waste Byproducts",
+    "use": "Interior floors and walls, feature cladding, murals and decorative surfaces",
+    "description": "CarbonCraft makes handcrafted tiles and surfaces from upcycled carbon - repurposing recovered carbon black from tyre pyrolysis, a waste stream otherwise burnt as cheap kiln fuel. Carbon Tile was the first tile made using upcycled carbon, and the range now extends to Deewaar bricks, Carbon Murals and handicraft.",
+    "image": "/Products/CarbonCraft/CarbonCraft_productcatalogimage.png"
+  },
+  {
+    "CompanyName": "TOTO India",
+    "manufacturerName": "TOTO (TOTO LTD, Japan)",
+    "category": "Sanitaryware, WASHLET, Faucets, Showers and Bathtubs",
+    "categoryGroup": "Bathroom & Plumbing",
+    "useGroup": "Bathrooms & Wet Areas, Plumbing Systems",
+    "material": "Ceramic, Brass, Acrylic",
+    "use": "Residential and commercial bathrooms, hospitality washrooms and public restrooms",
+    "description": "TOTO is a Japanese sanitaryware manufacturer best known for the WASHLET bidet seat and the NEOREST range. The India catalogue spans toilets, washlets, washbasins, faucets, showers, bathtubs and public-restroom systems, built around the company's CLEANOVATION cleaning and hygiene technologies.",
+    "image": "/Products/Toto/Toto_productcatalogimage.png"
   }
 ]
 ,
-  "total_products": 5
+  "total_products": 8
 }
