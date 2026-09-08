@@ -7,6 +7,7 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
+import SectionNav from '../../../../components/SectionNav';
 
 const Nuvocotto = () => {
 
@@ -50,7 +51,7 @@ const Nuvocotto = () => {
       </div>
     </div>
     <div className='row g-4' data-bs-theme={mode}>
-      <div className={`h-50 col-lg-3 bg-${mode}`}>
+      <div className={`asset-product-sidebar col-lg-3 bg-${mode}`}>
         <div className='d-flex-column m-3 p-1 justify-content-center'>
           <Link className={linkColor} to="https://nuvocotto.com/" target="_blank" rel="noopener noreferrer">
             <img className="pb-3 img-fluid" src={mode==='dark'?'/Products/Nuvocotto/NuvocottoImages/nuvocotto-logo-white.png':'/Products/Nuvocotto/NuvocottoImages/nuvocotto-logo.png'} alt="" />
@@ -92,16 +93,7 @@ const Nuvocotto = () => {
                   <Tooltip anchorSelect="#my-anchor-04" content="Youtube"/>
                 </li>
             </ul>
-          <li className='my-3'>INFORMATION</li>
-          <li className='my-3'>PRODUCTS</li>
-            <ul className='d-flex flex-column list-unstyled'>
-              <li className='my-1'>Roof Tiles</li>
-              <li className='my-1'>Floor Tiles</li>
-              <li className='my-1'>Wall Tiles</li>
-              <li className='my-1'>Bricks/Jaali</li>
-              <li className='my-1'>Dry Panel Systems</li>
-              <li className='my-1'>Accessories</li>
-            </ul>
+          <li className='my-3'><SectionNav /></li>
       </ul>
       </div>
       <div className={`col-lg-8 col-sm-auto`}>
@@ -147,7 +139,7 @@ const Nuvocotto = () => {
           </div>
         </div>
         <hr className={`${textColorClass} mt-5`} />
-        <h5 className={textColorClass}>Roof Tiles</h5>
+        <h4 className={textColorClass}>Roof Tiles</h4>
          <div className='row mb-4'>
             <div className='col-sm-3 mb-3 mb-sm-0'>
               <img width={200} src="/Products/Nuvocotto/NuvocottoImages/Euro-Chocolate-400-x-400-1.jpg"  alt="" />
@@ -162,7 +154,7 @@ const Nuvocotto = () => {
               <img width={200} src="/Products/Nuvocotto/NuvocottoImages/ficus-roof-tiles.jpg" alt="" />
             </div>
          </div> 
-        <h5 className={textColorClass}>Floor Tiles</h5>
+        <h4 className={textColorClass}>Floor Tiles</h4>
         <div className='row mb-4'>
           <div className='col-sm-3 mb-3 mb-sm-0'>
             <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-floor-tiles-cho.jpg"  alt="" />
@@ -174,7 +166,7 @@ const Nuvocotto = () => {
             <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-floor-tiles-nr.jpg"  alt="" />
           </div>
         </div>
-        <h5 className={textColorClass}>Wall Tiles</h5>
+        <h4 className={textColorClass}>Wall Tiles</h4>
         <div className='row mb-4'>
           <div className='col-sm-3 mb-3 mb-sm-0'>
             <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-wall-tiles-cap.jpg"  alt="" />
@@ -186,7 +178,7 @@ const Nuvocotto = () => {
             <img width={200} src="/Products/Nuvocotto/NuvocottoImages/nuvocotto-wall-tiles-nr.jpg"  alt="" />
           </div>
         </div>
-        <h5 className={textColorClass}>Bricks / Jaali</h5>
+        <h4 className={textColorClass}>Bricks / Jaali</h4>
         <div className='row mb-4'>
           <div className='col-sm-3 mb-3 mb-sm-0'>
             <img width={200} src="/Products/Nuvocotto/NuvocottoImages/amber-jaali-1.jpg"  alt="" />
@@ -215,10 +207,10 @@ const Nuvocotto = () => {
             <img width={200} src="/Products/Nuvocotto/NuvocottoImages/wings-jaali-1.jpg"  alt="" />
           </div>
         </div>
-        <h5 className={textColorClass}>Dry Panel System</h5>
-        <h5 className={textColorClass}>Accessories</h5>
+        <h4 className={textColorClass}>Dry Panel System</h4>
+        <h4 className={textColorClass}>Accessories</h4>
         <hr className={`${textColorClass} mt-5`} />
-        <h5 className={textColorClass}>Gallery</h5>
+        <h4 className={textColorClass}>Gallery</h4>
         <div className='mb-4'>
         <model-viewer slot="canvas" style={{ width: '700px', height: '500px',background: '#eeeeee'}} camera-orbit="45deg 55deg 4m" src="/Products/Nuvocotto/Amber-Jaali.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
         <div className="progress-bar hide" slot="progress-bar">

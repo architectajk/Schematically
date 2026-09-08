@@ -47,6 +47,8 @@ import Danpal from './pages/Assets/Building Products/danpal/Danpal';
 import Artize from './pages/Assets/Building Products/artize/Artize';
 import CarbonCraft from './pages/Assets/Building Products/carboncraft/CarbonCraft';
 import Toto from './pages/Assets/Building Products/toto/Toto';
+import Salamander from './pages/Assets/Building Products/salamander/Salamander';
+import Sumai from './pages/Assets/Building Products/sumai/Sumai';
 import AssetLibrary from './pages/Assets/AssetLibrary/AssetLibrary';
 
 const Tools = lazy(()=> wait(1000).then(()=>import("./pages/Tools/Tools")));
@@ -114,6 +116,8 @@ const SuspenseWithSpinners = ({ children }) => (
       <Route path="Artize" element={<Artize/>} />
       <Route path="CarbonCraft" element={<CarbonCraft/>} />
       <Route path="Toto" element={<Toto/>} />
+      <Route path="Salamander" element={<Salamander/>} />
+      <Route path="Sumai" element={<Sumai/>} />
       <Route path="Library" element={<AssetLibrary/>} />
     </Routes>
   )

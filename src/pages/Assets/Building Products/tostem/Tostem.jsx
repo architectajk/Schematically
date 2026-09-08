@@ -5,6 +5,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube, FaPinterest } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
 import BrandLogo from '../../../../components/BrandLogo';
+import SectionNav from '../../../../components/SectionNav';
 
 // Text-forward version of the Nuvocotto detail-page pattern. TOSTEM has only
 // one image in the repo (the same portrait catalog tile used on /assets), so
@@ -40,7 +41,7 @@ const Tostem = () => {
       </div>
 
       <div className='row g-4' data-bs-theme={mode}>
-        <div className={`h-50 col-lg-3 bg-${mode}`}>
+        <div className={`asset-product-sidebar col-lg-3 bg-${mode}`}>
           {/* A proper pair: black mark for light mode, white for dark.
               Note logo-tostemindia-black.png is actually a WebP file with a
               .png extension - browsers sniff the content and render it fine,
@@ -99,7 +100,7 @@ const Tostem = () => {
                 <Tooltip anchorSelect="#tostem-anchor-05" content="Youtube" />
               </li>
             </ul>
-            <li className='my-3'>INFORMATION</li>
+            <li className='my-3'><SectionNav /></li>
             <li className='my-3'>PRODUCTS</li>
             <ul className='d-flex flex-column list-unstyled'>
               <li className='my-1'>Aluminium Windows</li>

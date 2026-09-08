@@ -6,6 +6,7 @@ import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Tooltip } from 'react-tooltip';
 import BrandLogo from '../../../../components/BrandLogo';
+import SectionNav from '../../../../components/SectionNav';
 
 // Follows the Nuvocotto detail-page pattern.
 //
@@ -50,7 +51,7 @@ const Toto = () => {
       </div>
 
       <div className='row g-4' data-bs-theme={mode}>
-        <div className={`h-50 col-lg-3 bg-${mode}`}>
+        <div className={`asset-product-sidebar col-lg-3 bg-${mode}`}>
           {/* Wordmark extracted from the supplied advert - black on transparent,
               so dark mode recolours it to white automatically. */}
           <BrandLogo
@@ -105,7 +106,7 @@ const Toto = () => {
                 <Tooltip anchorSelect="#toto-anchor-05" content="Youtube" />
               </li>
             </ul>
-            <li className='my-3'>INFORMATION</li>
+            <li className='my-3'><SectionNav /></li>
             <li className='my-3'>PRODUCTS</li>
             <ul className='d-flex flex-column list-unstyled'>
               <li className='my-1'>NEOREST</li>

@@ -5,6 +5,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { FaInstagram, FaFacebook, FaYoutube, FaPinterest } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
 import BrandLogo from '../../../../components/BrandLogo';
+import SectionNav from '../../../../components/SectionNav';
 
 // Text-forward version of the Nuvocotto detail-page pattern. Artize has only
 // one image in the repo (the portrait catalog tile used on /assets), so there
@@ -44,7 +45,7 @@ const Artize = () => {
       </div>
 
       <div className='row g-4' data-bs-theme={mode}>
-        <div className={`h-50 col-lg-3 bg-${mode}`}>
+        <div className={`asset-product-sidebar col-lg-3 bg-${mode}`}>
           {/* Both supplied files are light-toned - white and gold (#d1ab65) -
               so the gold takes the light-mode slot as the only one visible on
               a pale background. It is still fairly low contrast there; a dark
@@ -95,7 +96,7 @@ const Artize = () => {
                 <Tooltip anchorSelect="#artize-anchor-04" content="Youtube" />
               </li>
             </ul>
-            <li className='my-3'>INFORMATION</li>
+            <li className='my-3'><SectionNav /></li>
             <li className='my-3'>PRODUCTS</li>
             <ul className='d-flex flex-column list-unstyled'>
               <li className='my-1'>Faucets</li>

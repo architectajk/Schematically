@@ -5,6 +5,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
 import BrandLogo from '../../../../components/BrandLogo';
+import SectionNav from '../../../../components/SectionNav';
 
 // Follows the Nuvocotto detail-page pattern. The catalog image was generated
 // from a supplied photograph to match the other cards: 572x768, white label
@@ -43,7 +44,7 @@ const CarbonCraft = () => {
       </div>
 
       <div className='row g-4' data-bs-theme={mode}>
-        <div className={`h-50 col-lg-3 bg-${mode}`}>
+        <div className={`asset-product-sidebar col-lg-3 bg-${mode}`}>
           {/* Single black mark on a transparent background, so dark mode
               recolours it to white automatically.
               NOTE: this file is 3508x2480px / 276KB - a print-resolution
@@ -93,7 +94,7 @@ const CarbonCraft = () => {
                 <Tooltip anchorSelect="#carboncraft-anchor-04" content="Youtube" />
               </li>
             </ul>
-            <li className='my-3'>INFORMATION</li>
+            <li className='my-3'><SectionNav /></li>
             <li className='my-3'>PRODUCTS</li>
             <ul className='d-flex flex-column list-unstyled'>
               <li className='my-1'>CarbonCraft Tile</li>

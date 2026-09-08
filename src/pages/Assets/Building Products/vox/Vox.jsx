@@ -5,6 +5,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
 import BrandLogo from '../../../../components/BrandLogo';
+import SectionNav from '../../../../components/SectionNav';
 
 // Follows the Nuvocotto detail-page pattern. The catalog image was generated
 // from a supplied photograph to match the other cards: 572x768, white label
@@ -42,7 +43,7 @@ const Vox = () => {
       </div>
 
       <div className='row g-4' data-bs-theme={mode}>
-        <div className={`h-50 col-lg-3 bg-${mode}`}>
+        <div className={`asset-product-sidebar col-lg-3 bg-${mode}`}>
           {/* The VOX mark is white letterforms on a solid red panel
               (#E80808), so it reads correctly on both light and dark
               backgrounds and must NOT be recoloured. Passing the same file
@@ -76,7 +77,7 @@ const Vox = () => {
                 <Tooltip anchorSelect="#vox-anchor-02" content="Facebook" />
               </li>
             </ul>
-            <li className='my-3'>INFORMATION</li>
+            <li className='my-3'><SectionNav /></li>
             <li className='my-3'>PRODUCTS</li>
             <ul className='d-flex flex-column list-unstyled'>
               <li className='my-1'>False Ceilings</li>

@@ -20,6 +20,8 @@ const DETAIL_ROUTES = {
   Artize: '/assets/Artize',
   'Carbon Craft Design': '/assets/CarbonCraft',
   'TOTO India': '/assets/Toto',
+  'Salamander India': '/assets/Salamander',
+  'Sumai Doors': '/assets/Sumai',
 };
 
 // A few background tints so placeholder tiles (products with no photo yet)

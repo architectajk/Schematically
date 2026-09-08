@@ -310,8 +310,30 @@
     "use": "Residential and commercial bathrooms, hospitality washrooms and public restrooms",
     "description": "TOTO is a Japanese sanitaryware manufacturer best known for the WASHLET bidet seat and the NEOREST range. The India catalogue spans toilets, washlets, washbasins, faucets, showers, bathtubs and public-restroom systems, built around the company's CLEANOVATION cleaning and hygiene technologies.",
     "image": "/Products/Toto/Toto_productcatalogimage.png"
+  },
+  {
+    "CompanyName": "Salamander India",
+    "manufacturerName": "Salamander Industrie-Produkte GmbH",
+    "category": "uPVC Windows, Doors and Sliding Systems",
+    "categoryGroup": "Doors & Windows",
+    "useGroup": "Exterior & Facades, Interior Applications",
+    "material": "uPVC, Glass",
+    "use": "Residential and commercial fenestration: sliding doors, tilt-and-turn windows and bi-fold door systems",
+    "description": "Salamander is a German manufacturer of uPVC window and door profile systems, with over a century of company heritage and five decades making uPVC profiles. The India range covers Streamline60 windows and doors, the evolutionDrive sliding-door family, bi-fold and tilt-and-turn systems, and a laminate and foil colour programme.",
+    "image": "/Products/Salamander/Salamander_productcatalogimage.png"
+  },
+  {
+    "CompanyName": "Sumai Doors",
+    "manufacturerName": "Spacewood Furnishers Pvt. Ltd.",
+    "category": "Engineered Wooden Doors, Pre-Hung Sets and Frames",
+    "categoryGroup": "Doors & Windows",
+    "useGroup": "Interior Applications, Exterior & Facades",
+    "material": "Engineered Wood, HDF, Laminate, Veneer",
+    "use": "Main entrance, bedroom and bathroom doors; hotel and commercial corridors",
+    "description": "Sumai is the door brand of Spacewood Furnishers, making factory-finished engineered wooden doors and pre-hung door sets. Panels use LVL stiles and rails with a tubular core and HDF skins, edge-sealed on all four sides with PUR adhesive against moisture ingress. The range spans classic, skin, premium and designer panels in Olefin, laminate and veneer finishes, and carries GreenPro certification.",
+    "image": "/Products/Sumai/Sumai_productcatalogimage.png"
   }
 ]
 ,
-  "total_products": 8
+  "total_products": 10
 }

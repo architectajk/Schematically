@@ -5,6 +5,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
 import BrandLogo from '../../../../components/BrandLogo';
+import SectionNav from '../../../../components/SectionNav';
 
 // Text-forward version of the Nuvocotto detail-page pattern. Jaquar has only
 // one image in the repo (the same portrait catalog tile used on /assets), so
@@ -40,7 +41,7 @@ const Jaquar = () => {
       </div>
 
       <div className='row g-4' data-bs-theme={mode}>
-        <div className={`h-50 col-lg-3 bg-${mode}`}>
+        <div className={`asset-product-sidebar col-lg-3 bg-${mode}`}>
           {/* The supplied Jaquar file is a JPEG on a solid WHITE background,
               not a transparent mark, so it cannot be recoloured for dark mode
               - inverting it would produce a black box. allowInvert={false}
@@ -94,7 +95,7 @@ const Jaquar = () => {
                 <Tooltip anchorSelect="#jaquar-anchor-04" content="Youtube" />
               </li>
             </ul>
-            <li className='my-3'>INFORMATION</li>
+            <li className='my-3'><SectionNav /></li>
             <li className='my-3'>PRODUCTS</li>
             <ul className='d-flex flex-column list-unstyled'>
               <li className='my-1'>Faucets</li>

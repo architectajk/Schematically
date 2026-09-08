@@ -1,0 +1,90 @@
+/* Product detail sidebar + its scrollspy nav (components/SectionNav.jsx).
+
+   The sidebar rules live here rather than in a separate stylesheet because
+   SectionNav renders on every product page, so this file is always loaded
+   alongside the sidebar it styles. */
+
+/* How far below the top of the viewport sticky things should sit. The site
+   navbar is `sticky-top`, so anything pinned at top:0 would slide underneath
+   it - this clears the navbar plus a little breathing room. Adjust in one
+   place if the navbar height changes. */
+:root {
+  --asset-sticky-top: 5.5rem;
+}
+
+.asset-section-nav {
+  margin: 0.5rem 0 1.25rem;
+}
+
+/* The whole sidebar sticks while the content column scrolls past.
+
+   Two details make this work rather than silently doing nothing:
+   - `align-self: flex-start`. A Bootstrap .row is a flex container and its
+     columns stretch to full row height by default. A sticky element that
+     already fills its container has no room to travel, so it never appears
+     to stick. Shrinking to content height gives it that room.
+   - the sidebar divs no longer carry `h-50`. That utility is
+     `height: 50% !important`, which both overrode the height needed here and
+     resolved against the row rather than the content.
+
+   Desktop only: below lg the sidebar stacks above the content, where pinning
+   it would leave it hovering over the page as you scroll. */
+@media (min-width: 992px) {
+  .asset-product-sidebar {
+    position: sticky;
+    top: var(--asset-sticky-top);
+    align-self: flex-start;
+    /* If the sidebar is ever taller than the viewport, let it scroll
+       internally instead of having its bottom cut off out of reach. */
+    max-height: calc(100vh - var(--asset-sticky-top) - 1rem);
+    overflow-y: auto;
+  }
+}
+
+/* Anchor targets are the headings SectionNav assigns ids to. Without this,
+   clicking a nav item scrolls the heading flush to the top of the viewport -
+   i.e. behind the sticky navbar. */
+[id^='section-'] {
+  scroll-margin-top: var(--asset-sticky-top);
+}
+
+.asset-section-nav-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+.asset-section-link {
+  display: block;
+  padding: 0.35rem 0 0.35rem 0.75rem;
+  border-left: 2px solid var(--bs-border-color);
+  /* Not `inherit`: that freezes whatever colour an ancestor already resolved
+     to, so the link stops responding to the dark/light theme. */
+  color: var(--bs-body-color);
+  text-decoration: none;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  transition: border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+  opacity: 0.75;
+}
+
+.asset-section-link:hover,
+.asset-section-link:focus-visible {
+  opacity: 1;
+  border-left-color: var(--bs-secondary-color, var(--bs-body-color));
+  color: var(--bs-body-color);
+}
+
+.asset-section-link.active {
+  opacity: 1;
+  font-weight: 600;
+  border-left-color: var(--bs-primary);
+  color: var(--bs-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asset-section-link {
+    transition: none;
+  }
+}

@@ -5,6 +5,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { FaInstagram, FaFacebook, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import { Tooltip } from 'react-tooltip';
 import BrandLogo from '../../../../components/BrandLogo';
+import SectionNav from '../../../../components/SectionNav';
 
 // Text-forward version of the Nuvocotto detail-page pattern. Danpal has only
 // one image in the repo (the portrait catalog tile used on /assets), so there
@@ -44,7 +45,7 @@ const Danpal = () => {
       </div>
 
       <div className='row g-4' data-bs-theme={mode}>
-        <div className={`h-50 col-lg-3 bg-${mode}`}>
+        <div className={`asset-product-sidebar col-lg-3 bg-${mode}`}>
           {/* Single dark mark on a transparent background, so dark mode
               recolours it to white automatically. Add a dedicated white file
               as `dark` if the flat silhouette loses any detail. */}
@@ -92,7 +93,7 @@ const Danpal = () => {
                 <Tooltip anchorSelect="#danpal-anchor-04" content="Youtube" />
               </li>
             </ul>
-            <li className='my-3'>INFORMATION</li>
+            <li className='my-3'><SectionNav /></li>
             <li className='my-3'>APPLICATIONS</li>
             <ul className='d-flex flex-column list-unstyled'>
               <li className='my-1'>Facade</li>
