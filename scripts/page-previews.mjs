@@ -64,35 +64,35 @@ const PAGES = [
   { path: '/tools/MaterialQuantity', title: 'Material & Quantity Tools', desc: 'Estimate structural steel weight and cost by Indian Standard section with the free Schematically metal calculator.' },
   { path: '/tools/SanReq', title: 'Sanitation Norms Calculator', desc: 'Work out the WCs, urinals, washbasins and other sanitary fixtures a building needs, by occupancy type.' },
   { path: '/tools/NaturalLightVentCalc', title: 'Natural Light & Ventilation Calculator', desc: 'Check window and opening areas against natural lighting and ventilation requirements for habitable rooms.' },
-  { path: '/tools/FireLifeSafety', title: 'Fire & Life Safety Checker', desc: 'Check fire escape and fire & life safety compliance for buildings in India.' },
-  { path: '/tools/ParkingNorms', title: 'Parking Norms Calculator', desc: 'Calculate the parking a building needs, by land use.' },
+  { path: '/tools/FireLifeSafety', title: 'Fire & Life Safety Checker', desc: 'Check fire escape and fire & life safety compliance for buildings in India. A free tool for architects, students and fire consultants.' },
+  { path: '/tools/ParkingNorms', title: 'Parking Norms Calculator', desc: 'Calculate the parking a building needs, by land use. A free parking norms calculator for architects and students in India.' },
   { path: '/tools/ColourCodedZoningMap', title: 'Airport Height Check (CCZM), Bengaluru', desc: "Check the maximum permissible building height near Bengaluru's airports using the AAI Colour Coded Zoning Map." },
-  { path: '/tools/ClimateZoneMap', title: 'Climate Zone Map of India', desc: 'Interactive Köppen-Geiger and NBC climate zone map of India, with Tier I & II cities mapped.' },
+  { path: '/tools/ClimateZoneMap', title: 'Climate Zone Map of India', desc: 'Interactive Köppen-Geiger and NBC climate zone map of India, with Tier I & II cities mapped. Free for architects and students.' },
   { path: '/tools/WeatherFileFinder', title: 'EPW Weather File Finder for India', desc: 'EPW weather files and ASHRAE climate zones for 443 Indian weather stations, ready for Ladybug, Honeybee and energy modelling.' },
-  { path: '/tools/ScaleCalc', title: 'Drawing Scale Calculator', desc: 'Convert between real-world dimensions and drawing scale units such as 1:50, 1:100 and 1:500.' },
-  { path: '/tools/AreaStatement', title: 'Area Statement Guide', desc: 'Occupancy-wise classification and area breakdown logic for built-up and carpet area statements.' },
-  { path: '/tools/ElevatorPlanner', title: 'Elevator Planner', desc: 'Plan lift size and the number of elevators for a building, by use and occupancy.' },
+  { path: '/tools/ScaleCalc', title: 'Drawing Scale Calculator', desc: 'Convert between real-world dimensions and drawing scale units such as 1:50, 1:100 and 1:500. Free for architects and students.' },
+  { path: '/tools/AreaStatement', title: 'Area Statement Guide', desc: 'Occupancy-wise classification and area breakdown logic for built-up and carpet area statements, for architects in India.' },
+  { path: '/tools/ElevatorPlanner', title: 'Elevator Planner', desc: 'Plan lift size and the number of elevators for a building, by use and occupancy. A free elevator planning tool for architects.' },
   { path: '/tools/MetalCalc', title: 'Steel & Metal Weight Calculator', desc: 'Estimate the weight and cost of structural steel from Indian Standard section tables: ISHB, ISWB, hollow sections and more.' },
 
   // ---- Knowledge ----
   { path: '/resources', title: 'Knowledge Resources for Architects', desc: 'The National Building Code of India (Parts 0–12), state model building byelaws and Bengaluru height byelaws, free in one place.' },
-  { path: '/resources/NBC', title: 'National Building Code of India 2016', desc: 'Read every part of the National Building Code of India (NBC 2016), Parts 0 to 12, free online.' },
+  { path: '/resources/NBC', title: 'National Building Code of India 2016', desc: 'Read every part of the National Building Code of India (NBC 2016), Parts 0 to 12, free online. For architects, engineers and students.' },
   // Sidebar links use "NbcPart0" (not "NBCPart0"), so that is the address people copy and share.
   ...NBC_PARTS.map((name, n) => ({
     path: `/resources/NBC/NbcPart${n}`,
     title: `NBC Part ${n}: ${name}`,
     desc: `Read Part ${n} of the National Building Code of India 2016 (${name}), free online on Schematically.`,
   })),
-  { path: '/resources/StateByelaws', title: 'State-wise Model Building Byelaws', desc: 'Explore how model building byelaws vary across Indian states.' },
+  { path: '/resources/StateByelaws', title: 'State-wise Model Building Byelaws', desc: 'Explore how model building byelaws vary across Indian states. A free reference for architects, planners and students.' },
   { path: '/resources/HeightByelaws', title: 'Building Height Byelaws, Bengaluru', desc: 'Local (BBMP / RMP-2015) and aerodrome (AAI) building height controls in Bengaluru, and how they combine.' },
 
   // ---- Material Library ----
   { path: '/assets', title: 'Architecture Products Library', desc: 'Browse building products for architects in India by category, material and use: doors, windows, facades, roofing, tiles and bath fittings.' },
-  { path: '/assets/Library', title: 'Asset Library', desc: 'Search, filter and download drawings, images, 3D models and CAD files for architecture projects.' },
+  { path: '/assets/Library', title: 'Asset Library', desc: 'Search, filter and download drawings, images, 3D models and CAD files for architecture projects. Free for architects.' },
   ...BRANDS.map(([slug, brand, category]) => ({
     path: `/assets/${slug}`,
     title: `${brand}: ${category}`,
-    desc: `${brand} ${category.toLowerCase()} for architects: product range, materials, uses and specifications.`,
+    desc: `${brand} ${category.toLowerCase()} for architects in India: product range, materials, uses and specifications.`,
   })),
 
   // ---- About ----
@@ -119,6 +119,7 @@ if (!/<title>[^<]*<\/title>/.test(template)) throw new Error('page-previews: <ti
 
 for (const page of PAGES) {
   if (page.desc.length > 160) console.warn(`page-previews: description over 160 characters for ${page.path}`)
+  if (page.desc.length < 100) console.warn(`page-previews: description under 100 characters for ${page.path} (LinkedIn warns below 100)`)
 
   // Folder copies are served by Apache as /path/ (with a trailing slash),
   // so that is the canonical address.
