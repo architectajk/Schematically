@@ -1,0 +1,109 @@
+/* 3D model gallery + modal (components/ModelGallery.jsx).
+
+   The <model-viewer> element comes from Google's web component, loaded via a
+   CDN <script> in the root index.html - it is not an npm dependency, so there
+   is nothing to import in the component. */
+
+/* Each tile is a real <button> so it is keyboard-focusable and announces
+   itself, with the button chrome reset away. */
+.model-tile {
+  display: block;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--bs-body-bg);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.model-tile:hover,
+.model-tile:focus-visible {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.model-tile-viewer {
+  display: block;
+  width: 100%;
+  /* Fixed height rather than an aspect ratio so tiles in a row line up
+     regardless of each model's proportions. The original markup hard-coded
+     700px wide, which overflowed the column on narrow screens. */
+  height: 240px;
+  /* Theme-aware: the previous inline #eeeeee stayed bright in dark mode.
+     Resolves against the data-bs-theme on the enclosing row. */
+  background-color: var(--bs-tertiary-bg);
+  --poster-color: transparent;
+}
+
+/* The preview must not intercept the press - without this the web component
+   handles the pointer and the button never fires. */
+.model-tile .model-tile-viewer {
+  pointer-events: none;
+}
+
+.model-tile-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-top: 1px solid var(--bs-border-color);
+  /* Not `inherit` - that freezes the resolved ancestor colour and stops
+     responding to the theme. */
+  color: var(--bs-body-color);
+}
+
+.model-tile-hint {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+.model-tile:hover .model-tile-hint,
+.model-tile:focus-visible .model-tile-hint {
+  opacity: 1;
+  color: var(--bs-primary);
+}
+
+/* Modal ------------------------------------------------------------------ */
+
+.model-modal-content {
+  /* The dialog is portalled to <body>, outside the page's data-bs-theme
+     wrapper, so it inherits the document theme rather than the product
+     page's. Bootstrap's own variables still give correct light/dark. */
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+.model-modal-viewer {
+  height: min(70vh, 560px);
+  border-radius: 0;
+}
+
+/* Inside the modal the viewer IS interactive, so restore pointer events that
+   the tile rule above removes. */
+.model-modal-viewer {
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.model-modal-viewer:active {
+  cursor: grabbing;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .model-tile {
+    transition: none;
+  }
+  .model-tile:hover,
+  .model-tile:focus-visible {
+    transform: none;
+  }
+}

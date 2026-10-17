@@ -159,7 +159,7 @@ export default function About() {
             <div className="border border-success-subtle bg-success bg-opacity-10 rounded-4 p-4 text-center">
               <ProfileAvatar size="6rem" iconSize={48} className="mx-auto mb-3" />
               <h5 className="mb-1">Akshay Kamath</h5>
-              <small className="text-muted">Founder, Schematically</small>
+              <small className={`d-block text-${textColor}`}>Founder, Schematically</small>
               <Link to="mailto:architect.ajk@gmail.com" className="btn btn-success w-100 mt-3 d-flex align-items-center justify-content-center gap-2">
                 <FiMail size={16} /> Get in Touch
               </Link>

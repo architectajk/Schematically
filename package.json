@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/page-previews.mjs",
     "preview": "vite preview"
   },
   "browserslist": {

@@ -8,6 +8,20 @@ import { FaPinterest } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
 import SectionNav from '../../../../components/SectionNav';
+import ModelGallery from '../../../../components/ModelGallery';
+
+// The six terracotta models sitting in public/Products/Nuvocotto/. Each .gltf
+// has a paired .bin alongside it which model-viewer fetches automatically, so
+// the two files must always travel together - moving or renaming a .gltf
+// without its .bin gives a silently empty viewer.
+const NUVOCOTTO_MODELS = [
+  { file: 'Amber-Jaali.gltf', name: 'Amber Jaali' },
+  { file: 'Camp.gltf', name: 'Camp' },
+  { file: 'Diamond.gltf', name: 'Diamond' },
+  { file: 'Edan-Jaali.gltf', name: 'Edan Jaali' },
+  { file: 'Four-Petal.gltf', name: 'Four Petal' },
+  { file: 'Garnet-Jaali.gltf', name: 'Garnet Jaali' },
+];
 
 const Nuvocotto = () => {
 
@@ -211,13 +225,11 @@ const Nuvocotto = () => {
         <h4 className={textColorClass}>Accessories</h4>
         <hr className={`${textColorClass} mt-5`} />
         <h4 className={textColorClass}>Gallery</h4>
-        <div className='mb-4'>
-        <model-viewer slot="canvas" style={{ width: '700px', height: '500px',background: '#eeeeee'}} camera-orbit="45deg 55deg 4m" src="/Products/Nuvocotto/Amber-Jaali.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
-        <div className="progress-bar hide" slot="progress-bar">
-        <div className="update-bar"></div>
-        </div>
-        </model-viewer>
-        </div>
+        <p className={`${textColorClass} small opacity-75`}>
+          Click any piece to open it full size and rotate it. On a supported
+          phone or tablet the AR button places it in your own space.
+        </p>
+        <ModelGallery models={NUVOCOTTO_MODELS} basePath="/Products/Nuvocotto/" />
       </div>
     </div>
     </div>
